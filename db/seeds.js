@@ -67,8 +67,8 @@ mongoose.connect(dbURI, (err, db) => {
       babyChanging: false
     },
     location: {
-      lat: {type: Number},
-      lng: {type: Number}
+      lat: 51.5441512,
+      lng: -0.0986545
     }
   }])
     .then(bathrooms => console.log(`${bathrooms.length} bathrooms created`))

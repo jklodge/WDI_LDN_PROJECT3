@@ -8,8 +8,11 @@ const { dbURI, port } = require('./config/environment');
 const app = express();
 
 mongoose.connect(dbURI);
+app.use(bodyParser.json());
 
-app.use('/api', router, bodyParser.json());
+app.use('/api', router);
+
+
 
 
 
