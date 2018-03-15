@@ -70,6 +70,22 @@ mongoose.connect(dbURI, (err, db) => {
       lat: 51.5441512,
       lng: -0.0986545
     }
+  },{
+    name: 'Jess Lodge',
+    address: '26, Greencourt Gardens, Croydon, CR07LH',
+    image: 'https://www.plumbworld.co.uk/images/ceramica-forli-space-saving-corner-toilet-product-32518-gallery-fA9a-default-H.jpg',
+    description: 'Squeaky clean',
+    facilities: {
+      toilet: true,
+      shower: true,
+      bidet: false,
+      sanitryProducts: false,
+      babyChanging: true
+    },
+    location: {
+      lat: 51.3768823,
+      lng: -0.0669004
+    }
   }])
     .then(bathrooms => console.log(`${bathrooms.length} bathrooms created`))
     .catch(err => console.log(err))
