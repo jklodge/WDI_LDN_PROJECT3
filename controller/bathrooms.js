@@ -2,6 +2,12 @@ const Bathroom =
 
 require('../models/bathroom');
 
+function indexRoute(req, res, next){
+  Bathroom.find()
+    .then(bathrooms => res.json(bathrooms))
+    .catch(next);
+}
+
 function updateRoute(req, res, next) {
   Bathroom.findById(req.params.id)
     .then(bathroom =>
@@ -25,6 +31,7 @@ function createRoute(req, res, next) {
 }
 
 module.exports = {
+  index: indexRoute,
   update: updateRoute,
   delete: deleteRoute,
   create: createRoute
