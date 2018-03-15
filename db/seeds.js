@@ -39,6 +39,7 @@ mongoose.connect(dbURI, (err, db) => {
     }
   },
   {
+    name: 'Peter Andre',
     address: '19a, Celia Road, Tuffnell Park, N195ET',
     image: 'https://www.plumbworld.co.uk/images/ceramica-forli-space-saving-corner-toilet-product-32518-gallery-fA9a-default-H.jpg',
     description: 'Get your bum in here',
@@ -54,6 +55,7 @@ mongoose.connect(dbURI, (err, db) => {
       lng: -0.0986545
     }
   },{
+    name: 'Regine Falange',
     address: '19b, Celia Road, Tuffnell Park, N195ET',
     image: 'https://www.plumbworld.co.uk/images/ceramica-forli-space-saving-corner-toilet-product-32518-gallery-fA9a-default-H.jpg',
     description: 'Not as good as 19a',
@@ -68,10 +70,8 @@ mongoose.connect(dbURI, (err, db) => {
       lat: {type: Number},
       lng: {type: Number}
     }
-  }
-  ])
+  }])
     .then(bathrooms => console.log(`${bathrooms.length} bathrooms created`))
     .catch(err => console.log(err))
     .finally(() => mongoose.connection.close());
-  }]);
 });
