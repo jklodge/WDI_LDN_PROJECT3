@@ -18,7 +18,14 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
+function createRoute(req, res, next) {
+  Bathroom.create(req.body)
+    .then(bathroom => res.status(201).json(bathroom))
+    .catch(next);
+}
+
 module.exports = {
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  create: createRoute
 };
