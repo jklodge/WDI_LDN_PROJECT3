@@ -1,1 +1,30 @@
-<p>edit form goes here</p>
+<form ng-submit="bathroomsEdit.handleSubmit()">
+  <div class="filed">
+    <label for="name">Name</label>
+    <input class="input" placeholder="Name" name="name" ng-model="bathroomsEdit.bathroom.name" />
+  </div>
+  <div class="field">
+    <label for="name">Address</label>
+    <input class="input" placeholder="Address" name="address" ng-model="bathroomsEdit.bathroom.address" />
+  </div>
+  <div class="field">
+    <label for="name">Image</label>
+    <input class="input" placeholder="Image" name="image" ng-model="bathroomsEdit.bathroom.image" />
+  </div>
+  <div class="filed">
+    <label for="name">Description</label>
+    <input class="input" placeholder="Description" name="description" ng-model="bathroomsEdit.bathroom.description"  />
+  </div>
+  <div class="field">
+    <label for="name">Facilities</label>
+    <input type="checkbox" ng-model="bathroomsEdit.bathroom.facilities" /> Check all<br><br>
+    <input type="checkbox" ng-checked="bathroomsEdit.bathroom.facilities" value="Toilet">Toilet<br>
+    <input type="checkbox" ng-checked="bathroomsEdit.bathroom.facilities" value="Shower">Shower<br>
+    <input type="checkbox" ng-checked="bathroomsEdit.bathroom.facilities" value="Bidet">Bidet<br>
+    <input type="checkbox" ng-checked="bathroomsEdit.bathroom.facilities" value="Sanitary">Sanitary Products<br>
+    <input type="checkbox" ng-checked="bathroomsEdit.bathroom.facilities" value="Baby">Baby Changing<br>
+
+  </div>
+    <button class="button is-primary" >Submit</button>
+
+</form>

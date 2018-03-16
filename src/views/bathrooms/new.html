@@ -1,1 +1,32 @@
-<p>new form goes here</p>
+{{ bathroomsNew.bathroom }}
+
+<form ng-submit="bathroomsNew.handleSubmit()">
+  <div class="filed">
+    <label for="name">Name</label>
+    <input class="input" placeholder="Name" name="name" ng-model="bathroomsNew.bathroom.name" />
+  </div>
+  <div class="field">
+    <label for="name">Address</label>
+    <input class="input" placeholder="Address" name="address" ng-model="bathroomsNew.bathroom.address" />
+  </div>
+  <div class="field">
+    <label for="name">Image</label>
+    <input class="input" placeholder="Image" name="image" ng-model="bathroomsNew.bathroom.image" />
+  </div>
+  <div class="filed">
+    <label for="name">Description</label>
+    <input class="input" placeholder="Description" name="description" ng-model="bathroomsNew.bathroom.description"  />
+  </div>
+  <div class="field">
+    <label for="name">Facilities</label>
+    <input type="checkbox" ng-click="bathroomsNew.toggleAll()"/> Check all<br><br>
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.facilities.toilet" value="Toilet">Toilet<br>
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.facilities.shower" value="Shower">Shower<br>
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.facilities.bidet" value="Bidet">Bidet<br>
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.facilities.sanitaryProducts" value="Sanitary">Sanitary Products<br>
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.facilities.babyChanging" value="Baby">Baby Changing<br>
+
+  </div>
+    <button class="button is-primary" >Submit</button>
+
+</form>
