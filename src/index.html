@@ -6,7 +6,29 @@
 </head>
 <body>
 
-  <h1>Poober</h1>
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="https://thumbs.dreamstime.com/b/funny-poo-cartoon-vector-illustration-white-50907210.jpg" alt="Poober">
+        &nbsp;
+        Poober
+      </a>
+
+      <div class="navbar-burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div id="mobile-menu" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" ui-sref="bathroomsIndex">All Bathrooms</a>
+        <a class="navbar-item" ui-sref="bathroomsNew">New Bathroom</a>
+      </div>
+    </div>
+  </nav>
+
+  <h1 class="title">Poober</h1>
   <ui-view></ui-view>
 
 </body>
