@@ -18,7 +18,7 @@ import Bathroom from './services/bathroom';
 
 import 'bulma';
 
-angular.module('pooberApp', ['ui.router'])
+angular.module('pooberApp', ['ui.router', 'satellizer'])
   .config(Router)
   .config(Auth)
   .controller('MainCtrl', MainCtrl)

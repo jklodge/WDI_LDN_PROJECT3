@@ -15,7 +15,14 @@ function secureState($q, $state, $auth, $rootScope){
 
 Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 
+
 function Router($stateProvider, $urlRouterProvider) {
+  //
+  // $locationProvider.html5mode({
+  //   enabled: true,
+  //   requireBase: true
+  // });
+
   $stateProvider
     .state('bathroomsIndex', {
       url: '/bathrooms',
@@ -24,12 +31,12 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('login', {
       url: '/login',
-      template: 'views/auth/login.html',
+      templateUrl: 'views/auth/login.html',
       controller: 'AuthLoginCtrl as authLogin'
     })
     .state('register', {
       url: '/register',
-      template: 'views/auth/register.html',
+      templateUrl: 'views/auth/register.html',
       controller: 'AuthRegisterCtrl as authRegister'
     })
     .state('bathroomsNew', {
