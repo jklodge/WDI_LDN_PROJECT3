@@ -3,6 +3,7 @@ import '@uirouter/angularjs';
 
 import Router from './config/router';
 
+import './assets/scss/style.scss';
 
 import BathroomsIndexCtrl from './controllers/bathrooms/index';
 import BathroomsShowCtrl from './controllers/bathrooms/show';

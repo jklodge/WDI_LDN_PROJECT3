@@ -1,6 +1,9 @@
-BathroomsProfileCtrl.$inject = ['User', '$state'];
-function UsersShowCtrl(User, $state) {
-  this.place = {};
+UserShowCtrl.$inject = ['User', '$state'];
+function UserShowCtrl(User, $state) {
+  this.user = {};
 
   User.findById($state.params.id)
-    .then(res => this.place = res.data);
+    .then(res => this.user = res.data);
+}
+
+export default UserShowCtrl;

@@ -5,8 +5,6 @@ function BathroomsShowCtrl(Bathroom, $state) {
 
   vm.bathroom = {};
 
-
-
   Bathroom.findById($state.params.id)
     .then(res => vm.bathroom = res.data);
 
