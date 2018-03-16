@@ -1,5 +1,3 @@
-{{ bathroomsNew.bathroom }}
-
 <form ng-submit="bathroomsNew.handleSubmit()">
   <div class="filed">
     <label for="name">Name</label>
@@ -20,11 +18,11 @@
   <div class="field">
     <label for="name">Facilities</label>
     <input type="checkbox" ng-click="bathroomsNew.toggleAll()"/> Check all<br><br>
-    <input type="checkbox" ng-model="bathroomsNew.bathroom.facilities.toilet" value="Toilet">Toilet<br>
-    <input type="checkbox" ng-model="bathroomsNew.bathroom.facilities.shower" value="Shower">Shower<br>
-    <input type="checkbox" ng-model="bathroomsNew.bathroom.facilities.bidet" value="Bidet">Bidet<br>
-    <input type="checkbox" ng-model="bathroomsNew.bathroom.facilities.sanitaryProducts" value="Sanitary">Sanitary Products<br>
-    <input type="checkbox" ng-model="bathroomsNew.bathroom.facilities.babyChanging" value="Baby">Baby Changing<br>
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.toilet" value="Toilet">Toilet<br>
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.shower" value="Shower">Shower<br>
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.bidet" value="Bidet">Bidet<br>
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.sanitaryProducts" value="Sanitary">Sanitary Products<br>
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.babyChanging" value="Baby">Baby Changing<br>
 
   </div>
     <button class="button is-primary" >Submit</button>

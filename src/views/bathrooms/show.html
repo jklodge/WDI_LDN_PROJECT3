@@ -9,7 +9,7 @@
     <p>{{ bathroomsShow.bathroom.address }}</p>
 
     <a ui-sref="bathroomsEdit({ id: bathroomsShow.bathroom._id })" class="button">Edit</a>
-    <!-- <button class="button is-danger" ng-click="bathroomsShow.remove()">Delete</button> -->
+    <button class="button is-danger" ng-click="bathroomsShow.remove()">Delete</button>
     <div class="column is-full">
       <p ng-if="bathroomsShow.bathroom.toilet">Toilet</p>
       <p ng-if="bathroomsShow.bathroom.shower">Shower</p>
