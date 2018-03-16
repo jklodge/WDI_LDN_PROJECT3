@@ -1,6 +1,4 @@
-const Bathroom =
-
-require('../models/bathroom');
+const Bathroom = require('../models/bathroom');
 
 function indexRoute(req, res, next){
   Bathroom.find()
@@ -16,7 +14,7 @@ function createRoute(req, res, next) {
 
 function showRoute(req, res, next){
   Bathroom.findById(req.params.id)
-    .then(bathroom => res.status(201).json(bathroom))
+    .then(bathroom => res.json(bathroom))
     .catch(next);
 }
 

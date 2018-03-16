@@ -1,1 +1,21 @@
-<p>show page</p>
+<div class="card columns">
+  <div class="card-image column is-half">
+    <figure class="image">
+      <img ng-src="{{ bathroomsShow.bathroom.image }}" alt="{{ bathroomsShow.bathroom.address }}" />
+    </figure>
+  </div>
+  <div class="card-content column is-half">
+    <h4>{{ bathroomsShow.bathroom.name }}</h4>
+    <p>{{ bathroomsShow.bathroom.address }}</p>
+
+    <a ui-sref="bathroomsEdit({ id: bathroomsShow.bathroom._id })" class="button">Edit</a>
+    <!-- <button class="button is-danger" ng-click="bathroomsShow.remove()">Delete</button> -->
+    <div class="column is-full">
+      <p ng-if="bathroomsShow.bathroom.toilet">Toilet</p>
+      <p ng-if="bathroomsShow.bathroom.shower">Shower</p>
+      <p ng-if="bathroomsShow.bathroom.bidet">Bidet</p>
+      <p ng-if="bathroomsShow.bathroom.sanitaryProducts">Sanitary Products</p>
+      <p ng-if="bathroomsShow.bathroom.babyChanging">Baby Changing</p>
+    </div>
+  </div>
+</div>

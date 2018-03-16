@@ -1,1 +1,17 @@
-<p>index page</p>
+<ul class="columns is-multiline">
+  <li class="column is-half-mobile" ng-repeat="bathroom in bathroomsIndex.bathrooms">
+    <a ui-sref="bathroomsShow({ id: bathroom._id})">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image">
+            <img ng-src="{{ bathroom.image }}" alt="{{ bathroom.address }}" />
+          </figure>
+        </div>
+        <div class="card-content">
+          <h4>{{ bathroom.address }}</h4>
+        </div>
+      </div>
+    </a>
+  </li>
+
+</ul>
