@@ -8,6 +8,12 @@ function indexRoute(req, res, next){
     .catch(next);
 }
 
+function createRoute(req, res, next) {
+  Bathroom.create(req.body)
+    .then(bathroom => res.status(201).json(bathroom))
+    .catch(next);
+}
+
 function showRoute(req, res, next){
   Bathroom.findById(req.params.id)
     .then(bathroom => res.status(201).json(bathroom))
@@ -16,8 +22,7 @@ function showRoute(req, res, next){
 
 function updateRoute(req, res, next) {
   Bathroom.findById(req.params.id)
-    .then(bathroom =>
-      Object.assign(bathroom, req.body))
+    .then(bathroom => Object.assign(bathroom, req.body))
     .then(bathroom => bathroom.save())
     .then(bathroom => res.json(bathroom))
     .catch(next);
@@ -30,16 +35,12 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
-function createRoute(req, res, next) {
-  Bathroom.create(req.body)
-    .then(bathroom => res.status(201).json(bathroom))
-    .catch(next);
-}
+
 
 module.exports = {
   index: indexRoute,
+  create: createRoute,
   show: showRoute,
   update: updateRoute,
-  delete: deleteRoute,
-  create: createRoute
+  delete: deleteRoute
 };

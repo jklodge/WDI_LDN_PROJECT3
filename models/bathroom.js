@@ -9,7 +9,7 @@ const bathroomSchema = new mongoose.Schema({
     toilet: {type: Boolean},
     shower: {type: Boolean},
     bidet: {type: Boolean},
-    sanitryProducts: {type: Boolean},
+    sanitaryProducts: {type: Boolean},
     babyChanging: {type: Boolean}
   },
   location: {
