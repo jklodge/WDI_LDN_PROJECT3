@@ -17,11 +17,8 @@ Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 
 function Router($stateProvider, $urlRouterProvider) {
-  //
-  // $locationProvider.html5mode({
-  //   enabled: true,
-  //   requireBase: true
-  // });
+
+  // $locationProvider.html5mode(true);
 
   $stateProvider
     .state('bathroomsIndex', {
