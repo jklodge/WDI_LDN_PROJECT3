@@ -13,6 +13,8 @@ app.use(bodyParser.json());
 app.use('/api', router);
 
 
+app.use(bodyParser.json());
+app.use('/api', router);
 
 
 
