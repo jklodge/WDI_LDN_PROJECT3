@@ -13,5 +13,6 @@ router.route('/bathrooms/:id')
   .delete(bathrooms.delete);
 
 router.post('/register', auth.register);
+router.post('/login', auth.login);
 
 module.exports = router;

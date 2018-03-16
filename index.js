@@ -9,7 +9,8 @@ const app = express();
 
 mongoose.connect(dbURI);
 
-app.use('/api', router, bodyParser.json());
+app.use(bodyParser.json());
+app.use('/api', router);
 
 
 
