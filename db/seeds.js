@@ -14,7 +14,7 @@ mongoose.connect(dbURI, (err, db) => {
       toilet: true,
       shower: false,
       bidet: true,
-      sanitryProducts: false,
+      sanitaryProducts: false,
       babyChanging: true
     },
     location: {
@@ -30,7 +30,7 @@ mongoose.connect(dbURI, (err, db) => {
       toilet: true,
       shower: true,
       bidet: false,
-      sanitryProducts: true,
+      sanitaryProducts: true,
       babyChanging: false
     },
     location: {
@@ -47,7 +47,7 @@ mongoose.connect(dbURI, (err, db) => {
       toilet: true,
       shower: false,
       bidet: false,
-      sanitryProducts: false,
+      sanitaryProducts: false,
       babyChanging: false
     },
     location: {
@@ -63,7 +63,7 @@ mongoose.connect(dbURI, (err, db) => {
       toilet: true,
       shower: false,
       bidet: false,
-      sanitryProducts: false,
+      sanitaryProducts: false,
       babyChanging: false
     },
     location: {
@@ -79,7 +79,7 @@ mongoose.connect(dbURI, (err, db) => {
       toilet: true,
       shower: true,
       bidet: false,
-      sanitryProducts: false,
+      sanitaryProducts: false,
       babyChanging: true
     },
     location: {
