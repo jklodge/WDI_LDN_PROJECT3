@@ -1,30 +1,29 @@
 BathroomsNewCtrl.$inject = ['Bathroom', '$state'];
 function BathroomsNewCtrl(Bathroom, $state) {
-  this.bathroom = {
+  const vm = this;
+  vm.bathroom = {
     location: {
       lat: 0,
       lng: 0
-    },
-    facilities: {}
+    }
   };
 
-
   function toggleAll() {
-    console.log(this);
-    this.bathroom.facilities.toilet = !this.bathroom.facilities.toilet;
-    this.bathroom.facilities.shower = !this.bathroom.facilities.shower;
-    this.bathroom.facilities.bidet = !this.bathroom.facilities.bidet;
-    this.bathroom.facilities.sanitaryProducts = !this.bathroom.facilities.sanitaryProducts;
-    this.bathroom.facilities.babyChanging = !this.bathroom.facilities.babyChanging;
+    console.log(vm);
+    vm.bathroom.toilet = !vm.bathroom.toilet;
+    vm.bathroom.shower = !vm.bathroom.shower;
+    vm.bathroom.bidet = !vm.bathroom.bidet;
+    vm.bathroom.sanitaryProducts = !vm.bathroom.sanitaryProducts;
+    vm.bathroom.babyChanging = !vm.bathroom.babyChanging;
   }
 
   function handleSubmit() {
-    Bathroom.create(this.bathroom);
-    this.bathroom = {};
+    Bathroom.create(vm.bathroom);
+    vm.bathroom = {};
     $state.go('bathroomsIndex');
   }
-  this.handleSubmit = handleSubmit;
-  this.toggleAll = toggleAll;
+  vm.handleSubmit = handleSubmit;
+  vm.toggleAll = toggleAll;
 }
 
 export default BathroomsNewCtrl;
