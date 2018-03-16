@@ -55,6 +55,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/bathrooms/edit.html',
       controller: 'BathroomsEditCtrl as bathroomsEdit',
       resolve: {secureState}
+    })
+    .state('usersShow', {
+      url: '/users/:id',
+      templateUrl: 'views/users/profile.html',
+      controller: 'UserShowCtrl as usersShow'
     });
 
   $urlRouterProvider.otherwise('/bathrooms');
