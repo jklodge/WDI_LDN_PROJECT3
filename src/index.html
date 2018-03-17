@@ -32,9 +32,14 @@
       </div>
     </div>
   </nav>
+  <div ng-if="main.flashMessage" class="notification is-{{main.flashMessage.type}}">{{main.flashMessage.content}}</div>
 
-  <h1 class="title">Poober</h1>
-  <ui-view></ui-view>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Poober</h1>
+      <ui-view></ui-view>
+    </div>
+  </section>
 
 </body>
 </html>

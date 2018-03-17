@@ -1,16 +1,29 @@
 BathroomsEditCtrl.$inject = ['Bathroom', '$state'];
 function BathroomsEditCtrl(Bathroom, $state) {
-  this.bathroom = {};
+  const vm = this;
+  vm.bathroom = {};
 
   Bathroom.findById($state.params.id)
-    .then(res => this.bathroom = res.data);
+    .then(res => vm.bathroom = res.data);
 
   function handleSubmit() {
-    Bathroom.update(this.bathroom)
+    Bathroom.update(vm.bathroom)
       .then(() => $state.go('bathroomsShow', {
         id: $state.params.id }));
   }
-  this.handleSubmit = handleSubmit;
+
+  function toggleAll() {
+    console.log(vm);
+    vm.bathroom.toilet = !vm.bathroom.toilet;
+    vm.bathroom.shower = !vm.bathroom.shower;
+    vm.bathroom.bidet = !vm.bathroom.bidet;
+    vm.bathroom.sanitaryProducts = !vm.bathroom.sanitaryProducts;
+    vm.bathroom.babyChanging = !vm.bathroom.babyChanging;
+  }
+
+  vm.handleSubmit = handleSubmit;
+  vm.toggleAll = toggleAll;
+  
 }
 
 export default BathroomsEditCtrl;

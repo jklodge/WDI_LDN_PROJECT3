@@ -45,16 +45,6 @@ function requestCreateRoute(req, res, next){
     .catch(next);
 }
 
-
-//   Bathroom.findById(req.params.id)
-//     .then(bathroom => {
-//       bathroom.requests.push(req.body.requests.content);
-//       return bathroom.save();
-//     })
-//     .then(bathroom => res.json(bathroom))
-//     .catch(next);
-// }
-
 module.exports = {
   index: indexRoute,
   create: createRoute,
