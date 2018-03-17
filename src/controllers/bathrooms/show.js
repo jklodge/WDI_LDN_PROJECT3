@@ -3,8 +3,6 @@ BathroomsShowCtrl.$inject = ['Bathroom', '$state'];
 function BathroomsShowCtrl(Bathroom, $state) {
   const vm = this;
 
-
-
   vm.bathroom = {};
   vm.bathroom.requests = {};
 
