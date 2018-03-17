@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>WDI32 Group Project</title>
 </head>
-<body>
+<body ng-controller="MainCtrl as main">
 
   <nav class="navbar">
     <div class="navbar-brand">
@@ -27,7 +27,9 @@
         <a class="navbar-item" ui-sref="bathroomsNew">New Bathroom</a>
         <a class="navbar-item" ui-sref="register">Register</a>
         <a class="navbar-item" ui-sref="login">Login</a>
-        <a class="navbar-item" ui-sref="({ id: usersShow.user._id })">Profile</a>
+        <a class="navbar-item" ui-sref="usersShow({ id: main.userId })">Profile</a>
+        <!-- bathroomsShow({ id: bathroom._id}) -->
+        <!-- bathroomsEdit({ id: bathroomsShow.bathroom._id }) -->
       </div>
     </div>
   </nav>

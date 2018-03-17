@@ -3,6 +3,8 @@ BathroomsShowCtrl.$inject = ['Bathroom', '$state'];
 function BathroomsShowCtrl(Bathroom, $state) {
   const vm = this;
 
+
+
   vm.bathroom = {};
 
   Bathroom.findById($state.params.id)
