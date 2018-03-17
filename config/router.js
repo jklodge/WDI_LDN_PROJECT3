@@ -13,8 +13,14 @@ router.route('/bathrooms/:id')
   .put(bathrooms.update)
   .delete(bathrooms.delete);
 
+router.route('/bathrooms/:id/requests')
+  .post(bathrooms.requestCreate);
+
 router.post('/register', auth.register);
 router.post('/login', auth.login);
+
+router.route('/users')
+  .get(users.index);
 
 router.route('/users/:id')
   .get(users.show)

@@ -6,6 +6,7 @@ function BathroomsShowCtrl(Bathroom, $state) {
 
 
   vm.bathroom = {};
+  vm.bathroom.requests = {};
 
   Bathroom.findById($state.params.id)
     .then(res => vm.bathroom = res.data);
@@ -15,7 +16,20 @@ function BathroomsShowCtrl(Bathroom, $state) {
       .then(() => $state.go('bathroomsIndex'));
   }
 
+  // function requestSubmit(){
+  //   Bathroom.request(vm.bathroom.requests);
+  // }
+
+  function handleSubmit() {
+    console.log(vm.bathroom.requests);
+    Bathroom.create(vm.bathroom.requests);
+    vm.bathroom.requests.content = {};
+    $state.go('bathroomsShow');
+  }
+  vm.handleSubmit = handleSubmit;
+
   vm.remove = remove;
+  // vm.requestSubmit = requestSubmit;
 
 }
 

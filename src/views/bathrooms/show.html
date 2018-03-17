@@ -7,6 +7,14 @@
   <div class="card-content column is-half">
     <h4>{{ bathroomsShow.bathroom.name }}</h4>
     <p>{{ bathroomsShow.bathroom.address }}</p>
+    <p>{{bathroomsShow.bathroom.requests}}</p>
+    <form ng-submit="bathroomsShow.handleSubmit()">
+      <div class="filed">
+        <label for="requests">Requests</label>
+        <input class="input" placeholder="Request" name="requests" ng-model="bathroomsShow.bathroom.requests.content"  />
+      </div>
+      <button class="button is-primary">Submit</button>
+    </form>
 
     <a ui-sref="bathroomsEdit({ id: bathroomsShow.bathroom._id })" class="button">Edit</a>
     <button class="button is-danger" ng-click="bathroomsShow.remove()">Delete</button>
