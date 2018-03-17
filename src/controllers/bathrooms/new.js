@@ -21,7 +21,7 @@ function BathroomsNewCtrl(Bathroom, $state, $rootScope) {
     Bathroom.create(vm.bathroom);
     vm.bathroom = {};
     $rootScope.$broadcast('flashMessage', {
-      type: 'success',
+      type: 'info',
       content: 'Thanks for your contribution to Poober'
     });
     $state.go('bathroomsIndex');
