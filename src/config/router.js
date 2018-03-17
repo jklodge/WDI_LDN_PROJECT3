@@ -58,8 +58,15 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('usersShow', {
       url: '/users/:id',
-      templateUrl: 'views/users/profile.html',
-      controller: 'UserShowCtrl as usersShow'
+      templateUrl: 'views/users/show.html',
+      controller: 'UsersShowCtrl as usersShow',
+      resolve: {secureState}
+    })
+    .state('usersEdit', {
+      url: '/users/:id/edit',
+      templateUrl: 'views/users/edit.html',
+      controller: 'UsersEditCtrl as usersEdit',
+      resolve: {secureState}
     });
 
   $urlRouterProvider.otherwise('/bathrooms');

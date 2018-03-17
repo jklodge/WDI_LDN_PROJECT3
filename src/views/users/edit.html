@@ -1,0 +1,16 @@
+<form ng-submit="usersEdit.handleSubmit()">
+  <div class="filed">
+    <label for="name">Username</label>
+    <input class="input" placeholder="Username" name="username" ng-model="usersEdit.user.username"  />
+  </div>
+  <div class="filed">
+    <label for="name">Name</label>
+    <input class="input" placeholder="FirstName" name="firstname" ng-model="usersEdit.user.firstName" />
+  </div>
+  <div class="field">
+    <label for="name">Email</label>
+    <input class="input" placeholder="Email" name="email" ng-model="usersEdit.user.email" />
+  </div>
+  <button class="button is-primary" >Submit</button>
+
+</form>

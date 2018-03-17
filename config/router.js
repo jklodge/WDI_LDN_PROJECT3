@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const bathrooms = require('../controller/bathrooms');
 const auth = require('../controller/auth');
+const users = require('../controller/users');
+
 
 router.route('/bathrooms')
   .get(bathrooms.index)
   .post(bathrooms.create);
-
 
 router.route('/bathrooms/:id')
   .get(bathrooms.show)
@@ -14,5 +15,9 @@ router.route('/bathrooms/:id')
 
 router.post('/register', auth.register);
 router.post('/login', auth.login);
+
+router.route('/users/:id')
+  .get(users.show)
+  .put(users.update);
 
 module.exports = router;

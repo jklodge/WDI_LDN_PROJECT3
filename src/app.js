@@ -14,9 +14,12 @@ import BathroomsIndexCtrl from './controllers/bathrooms/index';
 import BathroomsShowCtrl from './controllers/bathrooms/show';
 import BathroomsNewCtrl from './controllers/bathrooms/new';
 import BathroomsEditCtrl from './controllers/bathrooms/edit';
-import UserShowCtrl from './controllers/users/profile';
+import UsersShowCtrl from './controllers/users/show';
+import UsersEditCtrl from './controllers/users/edit';
+
 
 import Bathroom from './services/bathroom';
+import User from './services/user';
 
 
 import 'bulma';
@@ -31,5 +34,7 @@ angular.module('pooberApp', ['ui.router', 'satellizer'])
   .controller('BathroomsShowCtrl', BathroomsShowCtrl)
   .controller('BathroomsNewCtrl', BathroomsNewCtrl)
   .controller('BathroomsEditCtrl', BathroomsEditCtrl)
-  .controller('UserShowCtrl', UserShowCtrl)
-  .service('Bathroom', Bathroom);
+  .controller('UsersShowCtrl', UsersShowCtrl)
+  .controller('UsersEditCtrl', UsersEditCtrl)
+  .service('Bathroom', Bathroom)
+  .service('User', User);
