@@ -18,9 +18,9 @@ function BathroomsShowCtrl(Bathroom, $state) {
 
   function handleSubmit() {
     if (vm.text) {
-      console.log(vm.text);
-      Bathroom.createRequest(vm.bathroom, {content: vm.text})
-        .then(res => vm.bathroom = res.data);
+      Bathroom.createRequest(vm.bathroom, {content: vm.text, user: vm.bathroom.requests._id})
+        .then(res => vm.bathroom = res.data)
+        .then(console.log(vm.bathroom));
       vm.text = '';
     }
   }

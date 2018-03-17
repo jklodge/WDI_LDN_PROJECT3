@@ -7,15 +7,6 @@
   <div class="card-content column is-half">
     <h4>{{ bathroomsShow.bathroom.name }}</h4>
     <p>{{ bathroomsShow.bathroom.address }}</p>
-    <p>{{bathroomsShow.bathroom.requests}}</p>
-    <form ng-submit="bathroomsShow.handleSubmit()">
-      <div class="filed">
-        <label for="requests">Requests</label>
-        <input class="input" placeholder="Request" name="requests" ng-model="bathroomsShow.bathroom.requests.content"  />
-      </div>
-      <button class="button is-primary">Submit</button>
-    </form>
-
 
     <form ng-submit="bathroomsShow.handleSubmit()">
       Enter comment:
@@ -25,7 +16,9 @@
 
     <ul>
       <li ng-repeat="comment in bathroomsShow.bathroom.requests">
-      comments:  {{ comment.content }}
+      Requests:  {{ comment.content }}
+      <br>
+      user:  {{ comment._id }}
       </li>
     </ul>
 
