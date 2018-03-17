@@ -1,5 +1,5 @@
-BathroomsNewCtrl.$inject = ['Bathroom', '$state'];
-function BathroomsNewCtrl(Bathroom, $state) {
+BathroomsNewCtrl.$inject = ['Bathroom', '$state', '$rootScope'];
+function BathroomsNewCtrl(Bathroom, $state, $rootScope) {
   const vm = this;
   vm.bathroom = {
     location: {
@@ -20,6 +20,10 @@ function BathroomsNewCtrl(Bathroom, $state) {
   function handleSubmit() {
     Bathroom.create(vm.bathroom);
     vm.bathroom = {};
+    $rootScope.$broadcast('flashMessage', {
+      type: 'success',
+      content: 'Thanks for your contribution to Poober'
+    });
     $state.go('bathroomsIndex');
   }
   vm.handleSubmit = handleSubmit;
