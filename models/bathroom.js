@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const commentSchema = new mongoose.Schema({
+const requestSchema = new mongoose.Schema({
   content: {type: String, minLength: 2},
   user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
@@ -23,7 +23,7 @@ const bathroomSchema = new mongoose.Schema({
     lat: {type: Number},
     lng: {type: Number}
   },
-  comments: [commentSchema]
+  requests: [requestSchema]
 });
 
 module.exports = mongoose.model('Bathroom', bathroomSchema);

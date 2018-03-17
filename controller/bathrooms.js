@@ -8,6 +8,7 @@ function indexRoute(req, res, next){
 
 function createRoute(req, res, next) {
   Bathroom.create(req.body)
+    .then(() => console.log(req.body))
     .then(bathroom => res.status(201).json(bathroom))
     .catch(next);
 }
@@ -33,16 +34,21 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
-function requestRoute(req, res, next){
-  req.body.user = req.currentUser;
-  Bathroom.findById(req.params.id)
-    .then(bathroom => {
-      bathroom.comments.push(req.body);
-      return bathroom.save();
-    })
-    .then(bathroom => res.json(bathroom))
+function requestCreateRoute(req, res, next){
+  Bathroom.create(req.body.requests)
+    .then(bathroom => res.status(201).json(bathroom))
     .catch(next);
 }
+
+
+//   Bathroom.findById(req.params.id)
+//     .then(bathroom => {
+//       bathroom.requests.push(req.body.requests.content);
+//       return bathroom.save();
+//     })
+//     .then(bathroom => res.json(bathroom))
+//     .catch(next);
+// }
 
 module.exports = {
   index: indexRoute,
@@ -50,5 +56,5 @@ module.exports = {
   show: showRoute,
   update: updateRoute,
   delete: deleteRoute,
-  request: requestRoute
+  requestCreate: requestCreateRoute
 };
