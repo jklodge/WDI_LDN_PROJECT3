@@ -37,7 +37,7 @@ function deleteRoute(req, res, next) {
 function requestCreateRoute(req, res, next){
   Bathroom.findById(req.params.id)
     .then(bathroom => {
-      const request = { content: req.body.content };
+      const request = { content: req.body.content, user: req.body.user };
       bathroom.requests.push(request);
       return bathroom.save();
     })
