@@ -13,7 +13,16 @@ function BathroomsShowCtrl(Bathroom, $state) {
       .then(() => $state.go('bathroomsIndex'));
   }
 
+  function handleSubmit() {
+    if (vm.text) {
+      console.log(vm.text);
+      Bathroom.createRequest(vm.bathroom, {content: vm.text})
+        .then(res => vm.bathroom = res.data);
+      vm.text = '';
+    }
+  }
   vm.remove = remove;
+  vm.handleSubmit = handleSubmit;
 
 }
 

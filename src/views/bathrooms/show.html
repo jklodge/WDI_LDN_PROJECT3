@@ -8,6 +8,19 @@
     <h4>{{ bathroomsShow.bathroom.name }}</h4>
     <p>{{ bathroomsShow.bathroom.address }}</p>
 
+
+    <form ng-submit="bathroomsShow.handleSubmit()">
+      Enter comment:
+      <input type="text" ng-model="bathroomsShow.text" name="text" />
+      <button class="button is-primary" value="Submit">Submit</button>
+    </form>
+
+    <ul>
+      <li ng-repeat="comment in bathroomsShow.bathroom.requests">
+      comments:  {{ comment.content }}
+      </li>
+    </ul>
+
     <a ui-sref="bathroomsEdit({ id: bathroomsShow.bathroom._id })" class="button">Edit</a>
     <button class="button is-danger" ng-click="bathroomsShow.remove()">Delete</button>
     <div class="column is-full">

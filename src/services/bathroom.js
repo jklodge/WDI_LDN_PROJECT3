@@ -22,11 +22,15 @@ function Bathroom($http) {
     return $http.delete(`/api/bathrooms/${bathroom._id}`);
   }
 
+  function createRequest(bathroom, request) {
+    return $http.post(`/api/bathrooms/${bathroom._id}/requests`, request);
+  }
   this.find = find;
   this.create = create;
   this.findById = findById;
   this.update = update;
   this.remove = remove;
+  this.createRequest = createRequest;
 
 }
 

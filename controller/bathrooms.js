@@ -33,11 +33,11 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
-function requestRoute(req, res, next){
-  req.body.user = req.currentUser;
+function requestCreateRoute(req, res, next){
   Bathroom.findById(req.params.id)
     .then(bathroom => {
-      bathroom.comments.push(req.body);
+      const request = { content: req.body.content };
+      bathroom.requests.push(request);
       return bathroom.save();
     })
     .then(bathroom => res.json(bathroom))
@@ -50,5 +50,5 @@ module.exports = {
   show: showRoute,
   update: updateRoute,
   delete: deleteRoute,
-  request: requestRoute
+  requestCreate: requestCreateRoute
 };
