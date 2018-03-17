@@ -1,6 +1,6 @@
-AuthLoginCtrl.$inject = ['$auth', '$state', '$rootScope'];
+AuthLoginCtrl.$inject = ['User','$auth', '$state', '$rootScope'];
 
-function AuthLoginCtrl($auth, $state, $rootScope){
+function AuthLoginCtrl(User, $auth, $state, $rootScope){
   const vm = this;
   vm.credentials = {};
   vm.userId = '';
@@ -13,6 +13,11 @@ function AuthLoginCtrl($auth, $state, $rootScope){
           content: res.data.message
         });
         $state.go('bathroomsIndex');
+      })
+      .then(() => {
+        User.findById($auth.getPayload().sub)
+          .then(res => vm.userId = res.data)
+          .then(() => console.log(vm.userId._id));
       });
   }
 
