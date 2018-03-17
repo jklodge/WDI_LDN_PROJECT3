@@ -17,6 +17,9 @@ router.route('/bathrooms/:id')
 router.post('/register', auth.register);
 router.post('/login', auth.login);
 
+router.route('/users')
+  .get(users.index);
+
 router.route('/users/:id')
   .get(secureRoute, users.show)
   .put(secureRoute, users.update);

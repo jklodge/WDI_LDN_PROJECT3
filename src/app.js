@@ -16,7 +16,7 @@ import BathroomsNewCtrl from './controllers/bathrooms/new';
 import BathroomsEditCtrl from './controllers/bathrooms/edit';
 import UsersShowCtrl from './controllers/users/show';
 import UsersEditCtrl from './controllers/users/edit';
-
+import UsersIndexCtrl from './controllers/users/index';
 
 import Bathroom from './services/bathroom';
 import User from './services/user';
@@ -36,5 +36,7 @@ angular.module('pooberApp', ['ui.router', 'satellizer'])
   .controller('BathroomsEditCtrl', BathroomsEditCtrl)
   .controller('UsersShowCtrl', UsersShowCtrl)
   .controller('UsersEditCtrl', UsersEditCtrl)
+  .controller('UsersIndexCtrl', UsersIndexCtrl)
+
   .service('Bathroom', Bathroom)
   .service('User', User);
