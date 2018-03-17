@@ -18,7 +18,10 @@ mongoose.connect(dbURI, (err, db) => {
     location: {
       lat: 51.532923,
       lng: -0.169155
-    }
+    },
+    requets: [{
+      content: 'Help I need a poo'
+    }]
   }, {
     name: 'Phil Windsor',
     address: '38 Lawrence Gardens, London, NW7 4JT',

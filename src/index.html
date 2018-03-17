@@ -27,11 +27,8 @@
         <a class="navbar-item" ui-sref="bathroomsNew" ng-if="main.isAuthenticated()">New Bathroom</a>
         <a class="navbar-item" ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
         <a class="navbar-item" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
-
-        <a class="navbar-item" ui-sref="({ id: usersShow.user._id })" ng-if="main.isAuthenticated()">Profile</a>
-
+        <a class="navbar-item" ui-sref="usersShow({ id: main.userId })" ng-if="main.isAuthenticated()">Profile</a>
         <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
-
       </div>
     </div>
   </nav>

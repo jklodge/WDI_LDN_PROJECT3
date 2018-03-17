@@ -8,6 +8,7 @@ function indexRoute(req, res, next){
 
 function createRoute(req, res, next) {
   Bathroom.create(req.body)
+    .then(() => console.log(req.body))
     .then(bathroom => res.status(201).json(bathroom))
     .catch(next);
 }
@@ -43,6 +44,16 @@ function requestCreateRoute(req, res, next){
     .then(bathroom => res.json(bathroom))
     .catch(next);
 }
+
+
+//   Bathroom.findById(req.params.id)
+//     .then(bathroom => {
+//       bathroom.requests.push(req.body.requests.content);
+//       return bathroom.save();
+//     })
+//     .then(bathroom => res.json(bathroom))
+//     .catch(next);
+// }
 
 module.exports = {
   index: indexRoute,

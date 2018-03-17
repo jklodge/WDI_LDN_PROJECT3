@@ -3,6 +3,7 @@ const bathrooms = require('../controller/bathrooms');
 const auth = require('../controller/auth');
 const users = require('../controller/users');
 
+
 router.route('/bathrooms')
   .get(bathrooms.index)
   .post(bathrooms.create);

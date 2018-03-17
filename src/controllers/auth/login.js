@@ -1,10 +1,12 @@
 AuthLoginCtrl.$inject = ['$auth', '$state', '$rootScope'];
 
 function AuthLoginCtrl($auth, $state, $rootScope){
-  this.credentials = {};
+  const vm = this;
+  vm.credentials = {};
+  vm.userId = '';
 
   function handleSubmit(){
-    $auth.login(this.credentials)
+    $auth.login(vm.credentials)
       .then(res => {
         $rootScope.$broadcast('flashMessage', {
           type: 'success',
@@ -14,7 +16,7 @@ function AuthLoginCtrl($auth, $state, $rootScope){
       });
   }
 
-  this.handleSubmit = handleSubmit;
+  vm.handleSubmit = handleSubmit;
 }
 
 export default AuthLoginCtrl;
