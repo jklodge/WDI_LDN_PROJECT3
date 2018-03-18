@@ -1,7 +1,12 @@
 BathroomsEditCtrl.$inject = ['Bathroom', '$state'];
 function BathroomsEditCtrl(Bathroom, $state) {
   const vm = this;
-  vm.bathroom = {};
+  vm.bathroom = {
+    location: {
+      lat: 0,
+      lng: 0
+    }
+  };
 
   Bathroom.findById($state.params.id)
     .then(res => vm.bathroom = res.data);
@@ -23,7 +28,7 @@ function BathroomsEditCtrl(Bathroom, $state) {
 
   vm.handleSubmit = handleSubmit;
   vm.toggleAll = toggleAll;
-  
+
 }
 
 export default BathroomsEditCtrl;
