@@ -15,7 +15,7 @@
     </form>
 
     <ul ng-if="bathroomsShow.userId" ng-controller="BathroomsShowCtrl as bathroomsShow">
-      <li ng-repeat="request in bathroomsShow.bathroom.requests" ng-if="bathroomsShow.userId._id === request.user">
+      <li ng-repeat="request in bathroomsShow.bathroom.requests" ng-if="bathroomsShow.userId._id === request.user || bathroomsShow.userId._id === bathroomsShow.bathroom.user">
       Requests:  {{ request.content }}
       <br>
       <!-- user:  {{ request.user }} -->
