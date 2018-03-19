@@ -26,15 +26,13 @@ function googleMap() {
         marker.setPosition($scope.center);
       }, true);
 
-      // console.log(marker.addListener());
-      //
-      // const infoWindow = google.maps.InfoWindow({
-      //   content: ''
-      // });
-      //
-      // marker.addListener('click', () => {
-      //   infoWindow.open(map, marker);
-      // });
+      const infoWindow = new google.maps.InfoWindow({
+        content: '<h1 ng-controller="BathroomsShowCtrl as bathroomsShow">{{ bathroomsShow.bathroom.address}}</h1>'
+      });
+
+      marker.addListener('click', () => {
+        infoWindow.open(map, marker);
+      });
     }
   };
 }
