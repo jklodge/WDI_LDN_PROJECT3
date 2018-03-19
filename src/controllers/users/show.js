@@ -13,10 +13,8 @@ function UsersShowCtrl(User, $state, $auth) {
     .then(res => {
       vm.bathrooms = res.data;
       vm.bathrooms.forEach(bathroom => {
-        // console.log(bathroom);
         if(vm.user._id === bathroom.user) vm.ownedBathrooms.push(bathroom);
       });
-      console.log(vm.ownedBathrooms);
     });
 }
 

@@ -7,7 +7,8 @@ function googleMap() {
     replace: true,
     scope: {
       center: '=',
-      zoom: '='
+      zoom: '=',
+      bathroom: '='
     },
     link($scope, $element) {
       const map = new google.maps.Map($element[0], {
@@ -26,9 +27,11 @@ function googleMap() {
         marker.setPosition($scope.center);
       }, true);
 
-      const infoWindow = new google.maps.InfoWindow({
-        content: '<h1 ng-controller="BathroomsShowCtrl as bathroomsShow">{{ bathroomsShow.bathroom.address}}</h1>'
-      });
+      const infoWindow = new google.maps.InfoWindow();
+
+      $scope.$watch('bathroom', () => {
+        infoWindow.setContent(`<div><h1>${$scope.bathroom.description}</h1><h1>${$scope.bathroom.address}</h1></div>`);
+      }, true);
 
       marker.addListener('click', () => {
         infoWindow.open(map, marker);
