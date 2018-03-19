@@ -8,7 +8,10 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
   vm.userId = null;
 
   Bathroom.findById($state.params.id)
-    .then(res => vm.bathroom = res.data);
+    .then(res => {
+      vm.bathroom = res.data;
+      console.log(vm.bathroom.user);
+    });
 
 
   if($auth.getPayload()){
