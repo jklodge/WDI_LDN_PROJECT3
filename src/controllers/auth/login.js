@@ -13,6 +13,10 @@ function AuthLoginCtrl(User, $auth, $state, $rootScope){
           content: res.data.message
         });
         $state.go('bathroomsIndex');
+      })
+      .then(() => {
+        User.findById($auth.getPayload().sub)
+          .then(res => vm.userId = res.data);
       });
   }
 
