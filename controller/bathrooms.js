@@ -35,10 +35,10 @@ function deleteRoute(req, res, next) {
 }
 
 function requestCreateRoute(req, res, next){
+  req.body.user = req.currentUser;
   Bathroom.findById(req.params.id)
     .then(bathroom => {
-      const request = { content: req.body.content, user: req.body.user };
-      bathroom.requests.push(request);
+      bathroom.requests.push(req.body);
       return bathroom.save();
     })
     .then(bathroom => res.json(bathroom))

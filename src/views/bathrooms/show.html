@@ -14,11 +14,12 @@
       <button class="button is-primary" value="Submit">Submit</button>
     </form>
 
-    <ul>
-      <li ng-repeat="comment in bathroomsShow.bathroom.requests">
-      Requests:  {{ comment.content }}
+    <ul ng-if="bathroomsShow.userId">
+      USER ID: {{bathroomsShow.userId}}
+      <li ng-repeat="request in bathroomsShow.bathroom.requests" ng-if="bathroomsShow.userId._id === request.user">
+      Requests:  {{ request.content }}
       <br>
-      user:  {{ comment._id }}
+      <!-- user:  {{ request.user }} -->
       </li>
     </ul>
 

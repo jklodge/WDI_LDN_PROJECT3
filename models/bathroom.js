@@ -5,9 +5,9 @@ const requestSchema = new mongoose.Schema({
   user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
-// commentSchema.methods.isOwnedBy = function(user){
-//   return this.user._id && user._id.equals(this.user._id);
-// };
+requestSchema.methods.isOwnedBy = function(user){
+  return this.user._id && user._id.equals(this.user._id);
+};
 
 const bathroomSchema = new mongoose.Schema({
   name: {type: String},
@@ -23,7 +23,8 @@ const bathroomSchema = new mongoose.Schema({
     lat: {type: Number},
     lng: {type: Number}
   },
-  requests: [requestSchema]
+  requests: [requestSchema],
+  user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
 module.exports = mongoose.model('Bathroom', bathroomSchema);
