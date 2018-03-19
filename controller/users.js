@@ -8,7 +8,12 @@ function indexRoute(req, res, next){
 
 function showRoute(req, res, next){
   User.findById(req.params.id)
-    .populate('bathrooms')
+    .populate({
+      path: 'bathrooms',
+      populate: {
+        path: 'requests.user'
+      }
+    })
     .then(user => res.json(user))
     .catch(next);
 }
@@ -20,7 +25,6 @@ function updateRoute(req, res, next) {
     .then(user => res.json(user))
     .catch(next);
 }
-
 
 module.exports = {
   index: indexRoute,

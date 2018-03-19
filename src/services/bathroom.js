@@ -26,6 +26,7 @@ function Bathroom($http) {
     return $http.get(`/api/bathrooms/${id}`);
   }
 
+
   function createRequest(bathroom, request) {
     return $http.post(`/api/bathrooms/${bathroom._id}/requests`, request);
   }

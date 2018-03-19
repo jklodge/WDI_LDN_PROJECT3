@@ -5,10 +5,6 @@ const requestSchema = new mongoose.Schema({
   user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
-requestSchema.methods.isOwnedBy = function(user){
-  return this.user._id && user._id.equals(this.user._id);
-};
-
 const bathroomSchema = new mongoose.Schema({
   name: {type: String},
   address: {type: String, required: true},
