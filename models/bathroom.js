@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 
 const requestSchema = new mongoose.Schema({
-  content: {type: String, minLength: 2},
-  user: {type: mongoose.Schema.ObjectId, ref: 'User'}
-});
+  // content: {type: String, minLength: 2},
+  user: {type: mongoose.Schema.ObjectId, ref: 'User'},
+  status: {type: String, default: 'pending', enum: ['accepted', 'pending', 'rejected']}
+  // dialogue: {type: Array}
+}, { timestamps: true });
+
 
 requestSchema.methods.isOwnedBy = function(user){
   return this.user._id && user._id.equals(this.user._id);
