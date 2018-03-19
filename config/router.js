@@ -9,10 +9,19 @@ router.route('/bathrooms')
   .get(bathrooms.index)
   .post(secureRoute, bathrooms.create);
 
+router.route('/bathrooms/map')
+  .get(bathrooms.indexMap);
+
 router.route('/bathrooms/:id')
   .get(bathrooms.show)
   .put(secureRoute, bathrooms.update)
   .delete(secureRoute, bathrooms.delete);
+
+router.route('/bathrooms/:id/requests/:requestId/accepted')
+  .put(secureRoute, bathrooms.requestAccept);
+
+router.route('/bathrooms/:id/requests/:requestId/rejected')
+  .put(secureRoute, bathrooms.requestReject);
 
 router.route('/bathrooms/:id/requests')
   .post(secureRoute, bathrooms.requestCreate);

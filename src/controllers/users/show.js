@@ -10,31 +10,17 @@ function UsersShowCtrl(Bathroom, User, $state, $auth) {
       // console.log(vm.user.bathrooms);
     });
 
-  function rejectRequest(bathroom, request) {
-    console.log(bathroom, request);
-    // vm.user.bathrooms.find(bathroom => bathroom._id = bathroomId).requests[0].status = 'rejected';
-    // console.log(vm.user.bathrooms);
-    // updateBathrooms();
-  }
-
   function acceptRequest(bathroom, request) {
-    // console.log(requestId, bathroomId);
-    console.log(bathroom._id, request._id);
-    // vm.user.bathrooms.find(bathroom => bathroom._id = bathroomId).requests[0].status = 'accepted';
-    // console.log(vm.user.bathrooms);
-    // updateBathrooms();
+    Bathroom.acceptRequest(bathroom, request)
+      .then(() => $state.go('usersShow'));
   }
 
-  // function updateBathrooms() {
-  //   vm.user.bathrooms.forEach(bathroom => {
-  //     Bathroom.update(bathroom._id);
-  //   });
-  //   console.log(vm.user.bathrooms);
-  // }
-
-  this.rejectRequest = rejectRequest;
+  function rejectRequest(bathroom, request) {
+    Bathroom.rejectRequest(bathroom, request)
+      .then(() => $state.go('usersShow'));
+  }
   this.acceptRequest = acceptRequest;
-
+  this.rejectRequest = rejectRequest;
 }
 
 export default UsersShowCtrl;
