@@ -1,13 +1,15 @@
-<div class="card">
-  <!-- <div class="card-image">
-    <figure class="image">
-      <img ng-src="{{ usersShow.user.image }}" alt="{{ usersShow.user.name }}" />
-    </figure> -->
-  <div class="card-content">
+<div class="card" ng-repeat="bathroom in usersShow.ownedBathrooms">
+  <div class="card-image is-one-quarter">
+    <figure class="image is-64x64">
+      <img ng-src="{{ bathroom.image }}" alt="{{ bathroom.name }}" />
+    </figure>
+  </div>
+  <div class="card-content is-one-quarter">
     <h4>Username: {{ usersShow.user.username }}</h4>
     <p>Name: {{ usersShow.user.firstName }}</p>
     <p>Email: {{ usersShow.user.email }}</p>
-    <p>Requests: {{usersShow.bathroom.requests}}</p>
+    <p>Requests: {{ bathroom.requests.content }}</p>
+    <p ng-repeat="request in usersShow.ownedBathrooms.requests">Requests2: {{ request }}</p>
 
 
   </div>
