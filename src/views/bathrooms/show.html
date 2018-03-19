@@ -14,8 +14,7 @@
       <button class="button is-primary" value="Submit">Submit</button>
     </form>
 
-    <ul ng-if="bathroomsShow.userId">
-      USER ID: {{bathroomsShow.userId}}
+    <ul ng-if="bathroomsShow.userId" ng-controller="BathroomsShowCtrl as bathroomsShow">
       <li ng-repeat="request in bathroomsShow.bathroom.requests" ng-if="bathroomsShow.userId._id === request.user">
       Requests:  {{ request.content }}
       <br>
