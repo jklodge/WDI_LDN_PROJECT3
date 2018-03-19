@@ -7,6 +7,7 @@
   <div class="card-content column is-half">
     <h4>{{ bathroomsShow.bathroom.name }}</h4>
     <p>{{ bathroomsShow.bathroom.address }}</p>
+    <p>{{ bathroomsShow.bathroom.user }}</p>
 
     <form ng-submit="bathroomsShow.handleSubmit()">
       Enter comment:
@@ -22,32 +23,32 @@
       </li>
     </ul>
 
-    <a ui-sref="bathroomsEdit({ id: bathroomsShow.bathroom._id })" class="button">Edit</a>
-    <button class="button is-danger" ng-click="bathroomsShow.remove()">Delete</button>
+    <a ui-sref="bathroomsEdit({ id: bathroomsShow.bathroom._id })" class="button" ng-if="bathroomsShow.userId._id === bathroomsShow.bathroom.user">Edit</a>
+    <button class="button is-danger" ng-click="bathroomsShow.remove()" ng-if="bathroomsShow.userId._id === bathroomsShow.bathroom.user">Delete</button>
     <div class="column is-full columns">
       <div class="column">
         <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.toilet">
-          <img src="../../assets/images/toilet.png" alt="toilet">
+          <img src="/assets/images/toilet.png" alt="toilet">
         </figure>
       </div>
       <div class="column">
         <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.shower">
-          <img src="../../assets/images/shower.png" alt="shower">
+          <img src="/assets/images/shower.png" alt="shower">
         </figure>
       </div>
       <div class="column">
         <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.bidet">
-          <img src="../../assets/images/bidet.png" alt="bidet">
+          <img src="/assets/images/bidet.png" alt="bidet">
         </figure>
       </div>
       <div class="column">
         <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.babyChanging">
-          <!-- <img src="../../assets/images/sanitary.png" alt="sanitary products"> -->
+          <!-- <img src="/assets/images/sanitary.png" alt="sanitary products"> -->
         </figure>
       </div>
       <div class="column">
         <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.babyChanging">
-          <img src="../../assets/images/baby.png" alt="baby">
+          <img src="/assets/images/baby.png" alt="baby">
         </figure>
       </div>
     </div>
