@@ -12,7 +12,7 @@
       <button class="button is-primary" value="Submit">Request bathroom</button>
     </form>
     <div class="subtitle" ng-if="bathroomsShow.userId && bathroomsShow.bathroom.requests">
-      <h4>Your request is pending.</h4>
+      <p class="title is-6">Status of your request: {{bathroomsShow.bathroom.requests[0].status}}</p>
     </div>
 
     <!-- <ul ng-if="bathroomsShow.userId" ng-controller="BathroomsShowCtrl as bathroomsShow">

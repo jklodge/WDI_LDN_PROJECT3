@@ -11,6 +11,16 @@
     <label for="name">Email</label>
     <input class="input" placeholder="Email" name="email" ng-model="usersEdit.user.email" />
   </div>
+
+  <div class="field">
+   <label class="label">Image</label>
+   <div class="control">
+     <img class="imgPreview newimgPrview" src="" alt="" style="background-image">
+     <input type="hidden" name="image" required />
+     <button ng-click="bathroomsNew.uploadImage()" class="button image-upload" type="button">Choose an image to upload</button>
+   </div>
+ </div>
+
   <button class="button is-primary" >Submit</button>
 
 </form>

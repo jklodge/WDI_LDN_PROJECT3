@@ -54,6 +54,7 @@ function requestCreateRoute(req, res, next){
 
 function requestAcceptRoute(req, res, next) {
   Bathroom.findById(req.params.id)
+    .populate('requests.user user')
     .then(bathroom => {
       const request = bathroom.requests.id(req.params.requestId);
       request.status = 'accepted';
