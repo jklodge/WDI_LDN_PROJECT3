@@ -14,6 +14,7 @@ function googleMap() {
         zoom: $scope.zoom,
         center: $scope.center
       });
+
       const marker = new google.maps.Marker({
         position: $scope.center,
         map: map,
@@ -24,6 +25,16 @@ function googleMap() {
         map.setCenter($scope.center);
         marker.setPosition($scope.center);
       }, true);
+
+      // console.log(marker.addListener());
+      //
+      // const infoWindow = google.maps.InfoWindow({
+      //   content: ''
+      // });
+      //
+      // marker.addListener('click', () => {
+      //   infoWindow.open(map, marker);
+      // });
     }
   };
 }
