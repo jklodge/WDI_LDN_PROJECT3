@@ -22,8 +22,8 @@
       </li>
     </ul>
 
-    <a ui-sref="bathroomsEdit({ id: bathroomsShow.bathroom._id })" class="button">Edit</a>
-    <button class="button is-danger" ng-click="bathroomsShow.remove()">Delete</button>
+    <a ui-sref="bathroomsEdit({ id: bathroomsShow.bathroom._id })" class="button" ng-if="bathroomsShow.userId._id === bathroomsShow.bathroom.user">Edit</a>
+    <button class="button is-danger" ng-click="bathroomsShow.remove()" ng-if="bathroomsShow.userId._id === bathroomsShow.bathroom.user">Delete</button>
     <div class="column is-full columns">
       <div class="column">
         <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.toilet">
