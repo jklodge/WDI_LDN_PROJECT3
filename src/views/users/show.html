@@ -10,13 +10,25 @@
   <br>
 </div>
 <br>
-<div class="card">
+<div class="card" ng-controller="UsersShowCtrl as usersShow">
   <h1 class="title is-4">Your Bathroom requests</h1>
-    <div ng-repeat="bathroom in usersShow.user.bathrooms">Your bathroom:{{bathroom.name}}
-      <p>Requests:</p>
-      <p ng-repeat="request in bathroom.requests">{{request.user.username}}: {{request.content}}</p>
+  <div ng-repeat="bathroom in usersShow.user.bathrooms">
+    <div ng-if="bathroom.requests.length > 0">Your bathroom:{{bathroom.name}}
+      <div ng-repeat="request in bathroom.requests">
+        <p >Requests: {{ request._id }}</p>
+        <div ng-if="request.status === 'pending'">
+          {{ bathroom._id }}
+          <button ng-click="usersShow.acceptRequest(bathroom, request)" type="button" class="button is-success">Accept</button>
+          <button ng-click="usersShow.rejectRequest(bathroom, request)" type="button" class="button is-danger">Reject</button>
+        </div>
+        <div ng-if="request.status !== 'pending'">
+          <p ng-if="request.status === 'accepted'">You have accepted this request</p>
+          <p ng-if="request.status === 'rejected'">You have rejected this request</p>
+        </div>
+      </div>
     </div>
-  <button type="button" class="button is-warning">Approve</button>
+
+  </div >
 
 </div>
 <br>
