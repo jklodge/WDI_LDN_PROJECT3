@@ -7,6 +7,7 @@ function indexRoute(req, res, next){
 }
 
 function createRoute(req, res, next) {
+  req.body.user = req.currentUser;
   Bathroom.create(req.body)
     .then(() => console.log(req.body))
     .then(bathroom => res.status(201).json(bathroom))
