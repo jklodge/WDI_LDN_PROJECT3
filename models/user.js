@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
 userSchema.virtual('bathrooms', {
   ref: 'Bathroom',
   localField: '_id',
-  foreignField: 'isOwnedBy'
+  foreignField: 'user'
 });
 
 userSchema.virtual('passwordConfirmation')
@@ -37,5 +37,7 @@ userSchema.pre('save', function hashPassword(next) {
 userSchema.methods.validatePassword = function validatePassword(password) {
   return bcrypt.compareSync(password, this.password);
 };
+
+userSchema.set('toJSON', { virtuals: true });
 
 module.exports = mongoose.model('User', userSchema);
