@@ -9,6 +9,9 @@ router.route('/bathrooms')
   .get(bathrooms.index)
   .post(secureRoute, bathrooms.create);
 
+router.route('/bathrooms/map')
+  .get(bathrooms.indexMap);
+
 router.route('/bathrooms/:id')
   .get(bathrooms.show)
   .put(secureRoute, bathrooms.update)

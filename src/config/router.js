@@ -26,6 +26,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/bathrooms/index.html',
       controller: 'BathroomsIndexCtrl as bathroomsIndex'
     })
+    .state('bathroomsMapIndex', {
+      url: '/bathrooms/map',
+      templateUrl: 'views/bathrooms/indexMap.html',
+      controller: 'BathroomsIndexMapCtrl as bathroomsMapIndex'
+    })
     .state('login', {
       url: '/login',
       templateUrl: 'views/auth/login.html',

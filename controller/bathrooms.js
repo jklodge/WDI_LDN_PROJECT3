@@ -6,6 +6,12 @@ function indexRoute(req, res, next){
     .catch(next);
 }
 
+function indexMapRoute(req, res, next){
+  Bathroom.find()
+    .then(bathrooms => res.json(bathrooms))
+    .catch(next);
+}
+
 function createRoute(req, res, next) {
   req.body.user = req.currentUser;
   Bathroom.create(req.body)
@@ -68,6 +74,7 @@ function requestRejectRoute(req, res, next) {
 }
 module.exports = {
   index: indexRoute,
+  indexMap: indexMapRoute,
   create: createRoute,
   show: showRoute,
   update: updateRoute,

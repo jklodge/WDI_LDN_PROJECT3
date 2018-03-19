@@ -4,7 +4,8 @@ function googleMapAutofill(){
   return{
     restrict: 'C',
     scope: {
-      location: '='
+      location: '=',
+      address: '='
     },
     link($scope, $element){
       const input = $element[0];
