@@ -22,6 +22,10 @@ function Bathroom($http) {
     return $http.delete(`/api/bathrooms/${bathroom._id}`);
   }
 
+  function findBathroom(id) {
+    return $http.get(`/api/bathrooms/${id}`);
+  }
+
   function createRequest(bathroom, request) {
     return $http.post(`/api/bathrooms/${bathroom._id}/requests`, request);
   }
@@ -31,7 +35,7 @@ function Bathroom($http) {
   this.update = update;
   this.remove = remove;
   this.createRequest = createRequest;
-
+  this.findBathroom = findBathroom;
 }
 
 export default Bathroom;
