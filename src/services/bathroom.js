@@ -15,7 +15,7 @@ function Bathroom($http) {
   }
 
   function update(bathroom) {
-    return $http.put(`/api/bathrooms/${bathroom._id}`, bathroom);
+    return $http.put(`/api/bathrooms/${bathroom._id}/`, bathroom);
   }
 
   function remove(bathroom) {
@@ -30,12 +30,22 @@ function Bathroom($http) {
   function createRequest(bathroom, request) {
     return $http.post(`/api/bathrooms/${bathroom._id}/requests`, request);
   }
+
+  function acceptRequest(bathroom, request) {
+    return $http.put(`/api/bathrooms/${bathroom._id}/requests/${request._id}/accepted`, request);
+  }
+  function rejectRequest(bathroom, request) {
+    return $http.put(`/api/bathrooms/${bathroom._id}/requests/${request._id}/rejected`, request);
+  }
+
   this.find = find;
   this.create = create;
   this.findById = findById;
   this.update = update;
   this.remove = remove;
   this.createRequest = createRequest;
+  this.acceptRequest = acceptRequest;
+  this.rejectRequest = rejectRequest;
   this.findBathroom = findBathroom;
 }
 

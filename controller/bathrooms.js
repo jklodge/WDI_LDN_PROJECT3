@@ -46,11 +46,34 @@ function requestCreateRoute(req, res, next){
     .catch(next);
 }
 
+function requestAcceptRoute(req, res, next) {
+  Bathroom.findById(req.params.id)
+    .then(bathroom => {
+      const request = bathroom.requests.id(req.params.requestId);
+      request.status = 'accepted';
+      return bathroom.save();
+    })
+    .then(bathroom => res.json(bathroom))
+    .catch(next);
+}
+function requestRejectRoute(req, res, next) {
+  Bathroom.findById(req.params.id)
+    .then(bathroom => {
+      const request = bathroom.requests.id(req.params.requestId);
+      request.status = 'rejected';
+      return bathroom.save();
+    })
+    .then(bathroom => res.json(bathroom))
+    .catch(next);
+}
 module.exports = {
   index: indexRoute,
   create: createRoute,
   show: showRoute,
   update: updateRoute,
   delete: deleteRoute,
-  requestCreate: requestCreateRoute
+  requestCreate: requestCreateRoute,
+  requestAccept: requestAcceptRoute,
+  requestReject: requestRejectRoute
+
 };

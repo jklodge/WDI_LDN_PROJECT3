@@ -14,6 +14,12 @@ router.route('/bathrooms/:id')
   .put(secureRoute, bathrooms.update)
   .delete(secureRoute, bathrooms.delete);
 
+router.route('/bathrooms/:id/requests/:requestId/accepted')
+  .put(secureRoute, bathrooms.requestAccept);
+
+router.route('/bathrooms/:id/requests/:requestId/rejected')
+  .put(secureRoute, bathrooms.requestReject);
+
 router.route('/bathrooms/:id/requests')
   .post(secureRoute, bathrooms.requestCreate);
 
