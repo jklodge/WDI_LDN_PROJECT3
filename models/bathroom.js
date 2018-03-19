@@ -23,7 +23,8 @@ const bathroomSchema = new mongoose.Schema({
     lat: {type: Number},
     lng: {type: Number}
   },
-  requests: [requestSchema]
+  requests: [requestSchema],
+  user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
 module.exports = mongoose.model('Bathroom', bathroomSchema);
