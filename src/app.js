@@ -20,6 +20,7 @@ import UsersEditCtrl from './controllers/users/edit';
 import UsersIndexCtrl from './controllers/users/index';
 import googleMapAutofill from './directives/google-map-autofill';
 import googleMap from './directives/google-map';
+import googleMapIndex from './directives/google-map-index';
 
 import Bathroom from './services/bathroom';
 import User from './services/user';
@@ -43,6 +44,7 @@ angular.module('pooberApp', ['ui.router', 'satellizer'])
   .controller('UsersIndexCtrl', UsersIndexCtrl)
   .directive('googleMapAutofill', googleMapAutofill)
   .directive('googleMap', googleMap)
+  .directive('googleMapIndex', googleMapIndex)
 
   .service('Bathroom', Bathroom)
   .service('User', User);
