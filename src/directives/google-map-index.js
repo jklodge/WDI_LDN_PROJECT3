@@ -12,12 +12,16 @@ function googleMapIndex() {
     link($scope, $element) {
 
       const map = new google.maps.Map($element[0], {
-        zoom: 8,
-        center: { lat: 51.515328, lng: -0.072031 }
+        zoom: 13,
+        center: $scope.center
       });
 
+      let infoWindow = null;
+
+      $scope.$watch('center', () => map.setCenter($scope.center), true);
+
       $scope.$watch('bathroom', () => {
-        console.log($scope.bathroom);
+        infoWindow = new google.maps.InfoWindow();
         $scope.bathroom.forEach(bathroom => showMarkers(bathroom));
       });
 
@@ -31,8 +35,7 @@ function googleMapIndex() {
         });
       }
       function showInfoWindow(bathroom, marker){
-        if(infoWindow) infoWindow.close();
-        const infoWindow = new google.maps.InfoWindow();
+        infoWindow.close();
         infoWindow.setContent(`<div><img class="info-marker" src=${bathroom.image}><h1>${bathroom.description}</h1><h1>${bathroom.address}</h1><a href="/#!/bathrooms/${bathroom._id}">Show More</a></div>`);
         infoWindow.open(map, marker);
         map.setCenter(marker.getPosition());

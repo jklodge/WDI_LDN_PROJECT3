@@ -1,12 +1,13 @@
 <div class="card columns">
   <div class="card-image column is-half">
     <figure class="image">
-      <img ng-src="{{ bathroomsShow.image }}" alt="{{ bathroomsShow.bathroom.address }}" />
+      <img ng-src="{{ bathroomsShow.bathroom.image }}" alt="{{ bathroomsShow.bathroom.address }}" />
     </figure>
   </div>
   <div class="card-content column is-half">
     <h4>Name: {{ bathroomsShow.bathroom.name }}</h4>
     <p>Address: {{ bathroomsShow.bathroom.address }}</p>
+    <p>Average Rating: {{bathroomsShow.bathroom.avgRating}}</p>
 
 
     <form ng-submit="bathroomsShow.handleRequest()" ng-if="bathroomsShow.bathroom.requests[0].user !== bathroomsShow.user._id">
@@ -54,11 +55,13 @@
     <google-map zoom="15" center="bathroomsShow.bathroom.location" bathroom="bathroomsShow.bathroom"></google-map>
   </div>
 </div>
-<ul>
-  <li ng-repeat="comments in bathroomsShow.bathroom.comments">
+<div class="container">
+  <div class="card" ng-repeat="comments in bathroomsShow.bathroom.comments">
+    <p>{{ comments.user }}</p>
+    <p>{{ comments.rating }} Stars</p>
     <p>{{ comments.comment }}</p>
-  </li>
-</ul>
+  </div>
+</div>
 <form ng-submit="bathroomsShow.handleComment()">
   <textarea class="input" name="comment" ng-model="bathroomsShow.comments.comment"></textarea>
   <div class="field">

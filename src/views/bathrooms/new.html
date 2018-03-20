@@ -7,14 +7,30 @@
     <label for="name">Address</label>
     <input class="input google-map-autofill" address="bathroomsNew.bathroom.address" location="bathroomsNew.bathroom.location" placeholder="Address" name="address" ng-model="bathroomsNew.bathroom.address" />
   </div>
-
-  <div class="field">
-   <label class="label">Image</label>
-   <div class="control">
-     <img class="imgPreview newimgPrview" ng-src="bathroomsNew.bathroom.image">
-     <button ng-click="bathroomsNew.uploadImage()" class="button image-upload" type="button">Choose an image to upload</button>
-   </div>
- </div>
+  {{ bathroomsNew.bathroom }}
+  <div class="field" ng-if="bathroomsNew.bathroom.image">
+  <label class="label">Profile Picture Preview</label>
+  <div class="control">
+    <figure class="image is-128x128">
+      <img src="{{ bathroomsNew.bathroom.image }}">
+    </figure>
+  </div>
+</div>
+  <div class="control">
+    <div class="file">
+      <label class="file-label">
+        <input class="file-input" type="file" ng-model="bathroomsNew.bathroom.image" upload-image>
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fa fa-upload"></i>
+          </span>
+          <span class="file-label">
+            Choose a file…
+          </span>
+        </span>
+      </label>
+    </div>
+  </div>
 
   <div class="filed">
     <label for="name">Description</label>
