@@ -6,7 +6,6 @@ function UsersShowCtrl(Bathroom, User, $state, $auth) {
 
   User.findById($auth.getPayload().sub)
     .then(res => {
-      console.log(res.data);
       res.data.requests = res.data.requests.filter(request => request.user === $auth.getPayload().sub);
       vm.user = res.data;
     });
@@ -15,11 +14,10 @@ function UsersShowCtrl(Bathroom, User, $state, $auth) {
     .then(res => {
       res.data.forEach(bathroom => {
         if(bathroom.requests.length > 0 && bathroom.requests[0].user === $auth.getPayload().sub) {
-          // console.log(bathroom.requests[0].user);
           vm.user.requests.push(bathroom);
         }
       });
-      // console.log(vm.user.requests);
+      console.log(vm.user.requests);
     });
 
   function acceptRequest(bathroom, request) {

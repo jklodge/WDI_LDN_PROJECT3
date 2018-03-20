@@ -1,0 +1,16 @@
+<div class="field">
+  <label for="name">Facilities</label>
+  <input type="checkbox" ng-click="bathroomsMapIndex.toggleAll()"/> Check all<br>
+  <input type="checkbox" ng-model="bathroomsMapIndex.toilet">Toilet<br>
+  <input type="checkbox" ng-model="bathroomsMapIndex.shower">Shower<br>
+  <input type="checkbox" ng-model="bathroomsMapIndex.bidet">Bidet<br>
+  <input type="checkbox" ng-model="bathroomsMapIndex.sanitaryProducts">Sanitary Products<br>
+  <input type="checkbox" ng-model="bathroomsMapIndex.babyChanging">Baby Changing<br>
+</div>
+
+<div class="columns is-multiline">
+  <div class="column is-full-desktop">
+    <google-map-index class="all-google" zoom="15" bathroom="bathroomsMapIndex.bathrooms"></google-map-index>
+  </div>
+  <a class="navbar-item button is-primary listView" ui-sref="bathroomsIndex">All Bathrooms List</a>
+</div>

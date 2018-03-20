@@ -14,6 +14,7 @@ function showRoute(req, res, next){
         path: 'requests.user'
       }
     })
+    .populate('requests')
     .then(user => res.json(user))
     .catch(next);
 }
@@ -25,6 +26,8 @@ function updateRoute(req, res, next) {
     .then(user => res.json(user))
     .catch(next);
 }
+
+
 
 module.exports = {
   index: indexRoute,

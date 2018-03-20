@@ -15,7 +15,7 @@ function Bathroom($http) {
   }
 
   function update(bathroom) {
-    return $http.put(`/api/bathrooms/${bathroom._id}`, bathroom);
+    return $http.put(`/api/bathrooms/${bathroom._id}/`, bathroom);
   }
 
   function remove(bathroom) {
@@ -26,17 +26,32 @@ function Bathroom($http) {
     return $http.get(`/api/bathrooms/${id}`);
   }
 
-
   function createRequest(bathroom, request) {
     return $http.post(`/api/bathrooms/${bathroom._id}/requests`, request);
   }
+
+  function acceptRequest(bathroom, request) {
+    return $http.put(`/api/bathrooms/${bathroom._id}/requests/${request._id}/accepted`, request);
+  }
+
+  function rejectRequest(bathroom, request) {
+    return $http.put(`/api/bathrooms/${bathroom._id}/requests/${request._id}/rejected`, request);
+  }
+
+  function commentCreate(id, comment){
+    return $http.post(`/api/bathrooms/${id}/comments`, comment);
+  }
+
   this.find = find;
   this.create = create;
   this.findById = findById;
   this.update = update;
   this.remove = remove;
   this.createRequest = createRequest;
+  this.acceptRequest = acceptRequest;
+  this.rejectRequest = rejectRequest;
   this.findBathroom = findBathroom;
+  this.commentCreate = commentCreate;
 }
 
 export default Bathroom;

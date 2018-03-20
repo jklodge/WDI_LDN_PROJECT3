@@ -1,20 +1,21 @@
 <div class="card columns">
   <div class="card-image column is-half">
     <figure class="image">
-      <img ng-src="{{ bathroomsShow.bathroom.image }}" alt="{{ bathroomsShow.bathroom.address }}" />
+      <img ng-src="{{ bathroomsShow.image }}" alt="{{ bathroomsShow.bathroom.address }}" />
     </figure>
   </div>
   <div class="card-content column is-half">
-    <h4>{{ bathroomsShow.bathroom.name }}</h4>
-    <p>{{ bathroomsShow.bathroom.address }}</p>
+    <h4>Name: {{ bathroomsShow.bathroom.name }}</h4>
+    <p>Address: {{ bathroomsShow.bathroom.address }}</p>
 
-    <form ng-submit="bathroomsShow.handleRequest()" ng-if="bathroomsShow.userId && bathroomsShow.bathroom.requests.length === 0">
+
+    <form ng-submit="bathroomsShow.handleRequest()" ng-if="bathroomsShow.bathroom.requests[0].user !== bathroomsShow.user._id">
       <button class="button is-primary" value="Submit">Request bathroom</button>
     </form>
     <div class="subtitle" ng-if="bathroomsShow.userId && bathroomsShow.bathroom.requests">
-      <h4>Your request is pending.</h4>
+      <p class="title is-6">Status of your request: {{bathroomsShow.bathroom.requests[0].status}}</p>
     </div>
-
+<!-- ng-if="bathroomsShow.user._id && bathroomsShow.bathroom.requests.length === 0" -->
     <!-- <ul ng-if="bathroomsShow.userId" ng-controller="BathroomsShowCtrl as bathroomsShow">
       <li ng-repeat="request in bathroomsShow.bathroom.requests" ng-if="bathroomsShow.userId._id === request.user || bathroomsShow.userId._id === bathroomsShow.bathroom.user">
         Requests:  {{ request.content }}
@@ -53,3 +54,27 @@
     <google-map zoom="15" center="bathroomsShow.bathroom.location" bathroom="bathroomsShow.bathroom"></google-map>
   </div>
 </div>
+<ul>
+  <li ng-repeat="comments in bathroomsShow.bathroom.comments">
+    <p>{{ comments.comment }}</p>
+  </li>
+</ul>
+<form ng-submit="bathroomsShow.handleComment()">
+  <textarea class="input" name="comment" ng-model="bathroomsShow.comments.comment"></textarea>
+  <div class="field">
+  <label for="name">Rating</label>
+  <div class="control">
+    <div class="select">
+      <select name="rating" ng-model="bathroomsShow.comments.rating">
+        <option value="">All</option>
+        <option value="1">💩</option>
+        <option value="2">💩💩</option>
+        <option value="3">💩💩💩</option>
+        <option value="4">💩💩💩💩</option>
+        <option value="5">💩💩💩💩💩</option>
+      </select>
+    </div>
+  </div>
+</div>
+  <button class="button is-primary">Submit</button>
+</form>

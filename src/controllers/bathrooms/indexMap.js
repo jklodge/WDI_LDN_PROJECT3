@@ -1,6 +1,6 @@
-BathroomsIndexCtrl.$inject = ['Bathroom', 'filterFilter', '$scope'];
+BathroomsIndexMapCtrl.$inject = ['Bathroom', 'filterFilter', '$scope'];
 
-function BathroomsIndexCtrl(Bathroom, filterFilter, $scope) {
+function BathroomsIndexMapCtrl(Bathroom, filterFilter, $scope) {
 
   const vm = this;
 
@@ -14,8 +14,7 @@ function BathroomsIndexCtrl(Bathroom, filterFilter, $scope) {
   vm.babyChanging = false;
 
   Bathroom.find()
-    .then(res => vm.bathrooms = res.data)
-    .then(filterBathrooms);
+    .then(res => vm.bathrooms = res.data);
 
   function filterBathrooms(){
     const params = {};
@@ -46,4 +45,5 @@ function BathroomsIndexCtrl(Bathroom, filterFilter, $scope) {
   vm.toggleAll = toggleAll;
 }
 
-export default BathroomsIndexCtrl;
+
+export default BathroomsIndexMapCtrl;

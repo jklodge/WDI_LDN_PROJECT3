@@ -13,7 +13,6 @@ function User($http) {
     return $http.put(`/api/users/${user._id}`, user);
   }
 
-
   this.find = find;
   this.findById = findById;
   this.update = update;

@@ -4,6 +4,7 @@ function MainCtrl($auth, $state, $rootScope, $timeout){
   const vm = this;
   vm.isAuthenticated = $auth.isAuthenticated;
   vm.flashMessage = null;
+  vm.clicked = false;
 
 
 
