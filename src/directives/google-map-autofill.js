@@ -15,13 +15,12 @@ function googleMapAutofill(){
         const location = autocomplete.getPlace().geometry.location;
         const lat = location.lat();
         const lng = location.lng();
-
         $scope.location.lat = lat;
         $scope.location.lng = lng;
         if($scope.bathroomsNew){
-          $scope.bathroomsNew.bathroom.address = address;
+          $scope.address = address;
         } else if($scope.bathroomsEdit) {
-          $scope.bathroomsEdit.bathroom.address = address;
+          $scope.address = address;
         }
       });
     }
