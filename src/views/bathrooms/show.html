@@ -13,9 +13,9 @@
     <form ng-submit="bathroomsShow.handleRequest()" ng-if="bathroomsShow.bathroom.isAvailable">
       <button class="button is-primary" value="Submit">Request bathroom</button>
     </form>
-    <div class="subtitle" ng-if="bathroomsShow.userId && bathroomsShow.bathroom.requests">
+    <!-- <div class="subtitle" ng-if="bathroomsShow.userId && bathroomsShow.bathroom.requests">
       <p class="title is-6">Status of your request: {{bathroomsShow.bathroom.requests[0].status}}</p>
-    </div>
+    </div> -->
 <!-- ng-if="bathroomsShow.user._id && bathroomsShow.bathroom.requests.length === 0" -->
     <!-- <ul ng-if="bathroomsShow.userId" ng-controller="BathroomsShowCtrl as bathroomsShow">
       <li ng-repeat="request in bathroomsShow.bathroom.requests" ng-if="bathroomsShow.userId._id === request.user || bathroomsShow.userId._id === bathroomsShow.bathroom.user">

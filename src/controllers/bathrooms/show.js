@@ -14,8 +14,6 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
       console.log(vm.bathroom);
     });
 
-
-
   if($auth.getPayload()){
     User.findById($auth.getPayload().sub)
       .then(res =>  {
