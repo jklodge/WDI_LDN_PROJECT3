@@ -10,7 +10,7 @@
     <p>Average Rating: {{bathroomsShow.bathroom.avgRating}}</p>
 
 
-    <form ng-submit="bathroomsShow.handleRequest()" ng-if="bathroomsShow.bathroom.requests[0].user !== bathroomsShow.user._id">
+    <form ng-submit="bathroomsShow.handleRequest()" ng-if="bathroomsShow.bathroom.isAvailable">
       <button class="button is-primary" value="Submit">Request bathroom</button>
     </form>
     <div class="subtitle" ng-if="bathroomsShow.userId && bathroomsShow.bathroom.requests">

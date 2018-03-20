@@ -15,7 +15,6 @@ function UsersShowCtrl(Bathroom, User, $state, $auth) {
               vm.user.requests.push(bathroom);
             }
           });
-          console.log(vm.user.requests);
         });
     });
 
