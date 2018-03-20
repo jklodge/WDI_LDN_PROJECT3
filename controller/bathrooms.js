@@ -74,6 +74,7 @@ function requestRejectRoute(req, res, next) {
 }
 
 function commentCreateRoute(req, res, next){
+  req.body.user = req.currentUser;
   Bathroom.findById(req.params.id)
     .then(bathroom => {
       bathroom.comments.push(req.body);

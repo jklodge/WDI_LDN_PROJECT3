@@ -12,9 +12,11 @@ function googleMapIndex() {
     link($scope, $element) {
 
       const map = new google.maps.Map($element[0], {
-        zoom: 8,
-        center: { lat: 51.515328, lng: -0.072031 }
+        zoom: 13,
+        center: $scope.center
       });
+
+      $scope.$watch('center', () => map.setCenter($scope.center), true);
 
       $scope.$watch('bathroom', () => {
         console.log($scope.bathroom);

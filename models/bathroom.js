@@ -9,9 +9,13 @@ const requestSchema = new mongoose.Schema({
 
 const commentSchema = new mongoose.Schema({
   comment: {type: String},
-  rating: {type: Number, enum: ['1', '2', '3', '4', '5']}
+  rating: {type: Number, enum: ['1', '2', '3', '4', '5']},
+  user: { type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
+commentSchema.methods.isOwnedBy = function(user){
+  return this.user._id && user._id.equals(this.user._id);
+};
 
 const bathroomSchema = new mongoose.Schema({
   name: {type: String},
