@@ -1,18 +1,19 @@
 <div class="card columns">
   <div class="card-image column is-half">
     <figure class="image">
-      <img ng-src="{{ bathroomsShow.bathroom.image }}" alt="{{ bathroomsShow.bathroom.address }}" />
+      <img ng-src="{{ bathroomsShow.image }}" alt="{{ bathroomsShow.bathroom.address }}" />
     </figure>
   </div>
   <div class="card-content column is-half">
     <h4>{{ bathroomsShow.bathroom.name }}</h4>
     <p>{{ bathroomsShow.bathroom.address }}</p>
 
+
     <form ng-submit="bathroomsShow.handleRequest()" ng-if="bathroomsShow.userId && bathroomsShow.bathroom.requests.length === 0">
       <button class="button is-primary" value="Submit">Request bathroom</button>
     </form>
     <div class="subtitle" ng-if="bathroomsShow.userId && bathroomsShow.bathroom.requests">
-      <h4>Your request is pending.</h4>
+      <p class="title is-6">Status of your request: {{bathroomsShow.bathroom.requests[0].status}}</p>
     </div>
 
     <!-- <ul ng-if="bathroomsShow.userId" ng-controller="BathroomsShowCtrl as bathroomsShow">

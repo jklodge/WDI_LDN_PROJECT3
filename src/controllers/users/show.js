@@ -19,6 +19,7 @@ function UsersShowCtrl(Bathroom, User, $state, $auth) {
     Bathroom.rejectRequest(bathroom, request)
       .then(() => $state.go('usersShow'));
   }
+
   this.acceptRequest = acceptRequest;
   this.rejectRequest = rejectRequest;
 }

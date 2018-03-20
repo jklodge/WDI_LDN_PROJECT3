@@ -1,6 +1,9 @@
+/* global filestack */
 BathroomsNewCtrl.$inject = ['Bathroom', '$state'];
 function BathroomsNewCtrl(Bathroom, $state,) {
   const vm = this;
+  const client = filestack.init('AB6Lmdk1RRjG0sQAhRSpsz');
+  let image = '';
   vm.bathroom = {
     location: {
       lat: 0,
@@ -22,7 +25,19 @@ function BathroomsNewCtrl(Bathroom, $state,) {
     vm.bathroom = {};
     $state.go('bathroomsIndex');
   }
+
+  function uploadImage() {
+    client.pick({})
+      .then(function(result) {
+        console.log(JSON.stringify(result));
+        image = result.filesUploaded[0].url;
+        console.log(image);
+        document.querySelector('.imgPreview').setAttribute('src', image);
+      });
+  }
+
   vm.handleSubmit = handleSubmit;
+  vm.uploadImage = uploadImage;
   vm.toggleAll = toggleAll;
 }
 

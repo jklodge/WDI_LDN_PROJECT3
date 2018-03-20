@@ -15,9 +15,10 @@
   <div ng-repeat="bathroom in usersShow.user.bathrooms">
     <div ng-if="bathroom.requests.length > 0">Your bathroom:{{bathroom.name}}
       <div ng-repeat="request in bathroom.requests">
-        <p >Requests: {{ request._id }}</p>
+        <p >Request Status: {{ request.status }}</p>
+        <p >Request User: {{ request.user.username }}</p>
+
         <div ng-if="request.status === 'pending'">
-          {{ bathroom._id }}
           <button ng-click="usersShow.acceptRequest(bathroom, request)" type="button" class="button is-success">Accept</button>
           <button ng-click="usersShow.rejectRequest(bathroom, request)" type="button" class="button is-danger">Reject</button>
         </div>

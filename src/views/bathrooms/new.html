@@ -7,10 +7,16 @@
     <label for="name">Address</label>
     <input class="input google-map-autofill" address="bathroomsNew.bathroom.address" location="bathroomsNew.bathroom.location" placeholder="Address" name="address" ng-model="bathroomsNew.bathroom.address" />
   </div>
+
   <div class="field">
-    <label for="name">Image</label>
-    <input class="input" placeholder="Image" name="image" ng-model="bathroomsNew.bathroom.image" />
-  </div>
+   <label class="label">Image</label>
+   <div class="control">
+     <img class="imgPreview newimgPrview" src="" alt="" style="background-image">
+     <input type="hidden" name="image" required />
+     <button ng-click="bathroomsNew.uploadImage()" class="button image-upload" type="button">Choose an image to upload</button>
+   </div>
+ </div>
+
   <div class="filed">
     <label for="name">Description</label>
     <input class="input" placeholder="Description" name="description" ng-model="bathroomsNew.bathroom.description"  />
