@@ -1,6 +1,6 @@
 
-BathroomsEditCtrl.$inject = ['Bathroom', '$state'];
-function BathroomsEditCtrl(Bathroom, $state) {
+BathroomsEditCtrl.$inject = ['Bathroom', '$state', '$scope'];
+function BathroomsEditCtrl(Bathroom, $state, $scope) {
   const vm = this;
   vm.bathroom = {
     location: {
@@ -12,24 +12,23 @@ function BathroomsEditCtrl(Bathroom, $state) {
   Bathroom.findById($state.params.id)
     .then(res => vm.bathroom = res.data);
 
+  function toggleAll() {
+    console.log(vm.toilet);
+    vm.bathroom.toilet = vm.all;
+    vm.bathroom.shower = vm.all;
+    vm.bathroom.bidet = vm.all;
+    vm.bathroom.sanitaryProducts = vm.all;
+    vm.bathroom.babyChanging = vm.all;
+  }
+
   function handleSubmit() {
     Bathroom.update(vm.bathroom)
       .then(() => $state.go('bathroomsShow', {
         id: $state.params.id }));
   }
 
-  function toggleAll() {
-    console.log(vm);
-    vm.bathroom.toilet = !vm.bathroom.toilet;
-    vm.bathroom.shower = !vm.bathroom.shower;
-    vm.bathroom.bidet = !vm.bathroom.bidet;
-    vm.bathroom.sanitaryProducts = !vm.bathroom.sanitaryProducts;
-    vm.bathroom.babyChanging = !vm.bathroom.babyChanging;
-  }
-
-
+  $scope.$watch(()=> vm.all, toggleAll);
   vm.handleSubmit = handleSubmit;
-  vm.toggleAll = toggleAll;
 
 }
 
