@@ -7,6 +7,10 @@ const requestSchema = new mongoose.Schema({
   // dialogue: {type: Array}
 }, { timestamps: true });
 
+const commentSchema = new mongoose.Schema({
+  comment: {type: String}
+});
+
 
 const bathroomSchema = new mongoose.Schema({
   name: {type: String},
@@ -23,6 +27,7 @@ const bathroomSchema = new mongoose.Schema({
     lng: {type: Number}
   },
   requests: [requestSchema],
+  comments: [commentSchema],
   user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
