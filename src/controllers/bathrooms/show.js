@@ -38,8 +38,28 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
     console.log(vm.bathroom.requests);
   }
 
+  // function handleDialogue() {
+  // if(vm.message){
+  //   console.log(vm.bathroom);
+  //   vm.bathroom.requests.forEach(request => {
+  //     request.dialogue.push(vm.message);
+  //     console.log(request.dialogue);
+  //   });
+  //   vm.message = '';
+  //   Bathroom.update(vm.bathroom);
+  // }
+  // }
+
+  function handleComment(){
+    Bathroom.commentCreate($state.params.id, this.comments)
+      .then(() => $state.go('bathroomsShow', {id: $state.params.id}));
+    console.log(vm.bathroom.comments);
+  }
+
   vm.remove = remove;
   vm.handleRequest = handleRequest;
+  vm.handleComment = handleComment;
+  // vm.handleDialogue = handleDialogue;
 
 }
 

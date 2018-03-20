@@ -72,6 +72,17 @@ function requestRejectRoute(req, res, next) {
     .then(bathroom => res.json(bathroom))
     .catch(next);
 }
+
+function commentCreateRoute(req, res, next){
+  Bathroom.findById(req.params.id)
+    .then(bathroom => {
+      bathroom.comments.push(req.body);
+      bathroom.save();
+    })
+    .then(bathroom => res.json(bathroom))
+    .catch(next);
+}
+
 module.exports = {
   index: indexRoute,
   indexMap: indexMapRoute,
@@ -81,6 +92,6 @@ module.exports = {
   delete: deleteRoute,
   requestCreate: requestCreateRoute,
   requestAccept: requestAcceptRoute,
-  requestReject: requestRejectRoute
-
+  requestReject: requestRejectRoute,
+  commentCreate: commentCreateRoute
 };

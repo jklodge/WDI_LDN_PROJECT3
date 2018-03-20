@@ -54,3 +54,12 @@
     <google-map zoom="15" center="bathroomsShow.bathroom.location" bathroom="bathroomsShow.bathroom"></google-map>
   </div>
 </div>
+<ul>
+  <li ng-repeat="comments in bathroomsShow.bathroom.comments">
+    <p>{{ comments.comment }}</p>
+  </li>
+</ul>
+<form ng-submit="bathroomsShow.handleComment()">
+  <textarea class="input" name="comment" ng-model="bathroomsShow.comments.comment"></textarea>
+  <button class="button is-primary">Submit</button>
+</form>
