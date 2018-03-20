@@ -8,17 +8,18 @@ function UsersShowCtrl(Bathroom, User, $state, $auth) {
     .then(res => {
       res.data.requests = res.data.requests.filter(request => request.user === $auth.getPayload().sub);
       vm.user = res.data;
+      Bathroom.find()
+        .then(res => {
+          res.data.forEach(bathroom => {
+            if(bathroom.requests.length > 0 && bathroom.requests[0].user === $auth.getPayload().sub) {
+              vm.user.requests.push(bathroom);
+            }
+          });
+          console.log(vm.user.requests);
+        });
     });
 
-  Bathroom.find()
-    .then(res => {
-      res.data.forEach(bathroom => {
-        if(bathroom.requests.length > 0 && bathroom.requests[0].user === $auth.getPayload().sub) {
-          vm.user.requests.push(bathroom);
-        }
-      });
-      console.log(vm.user.requests);
-    });
+
 
   function acceptRequest(bathroom, request) {
     Bathroom.acceptRequest(bathroom, request)
