@@ -7,7 +7,6 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
   vm.user = null;
   vm.message = '';
 
-
   Bathroom.findById($state.params.id)
     .then(res => {
       vm.bathroom = res.data;
@@ -18,6 +17,7 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
     User.findById($auth.getPayload().sub)
       .then(res =>  {
         vm.user = res.data;
+        console.log(vm.user);
       });
   }
 
@@ -32,7 +32,7 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
       .then(res => {
         Bathroom.createRequest(vm.bathroom, {user: vm.bathroom.requests._id});
         vm.bathroom = res.data;
-        console.log(vm.bathroom);
+        // console.log(vm.bathroom);
       });
   }
 
@@ -40,7 +40,7 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
   function handleComment(){
     Bathroom.commentCreate($state.params.id, this.comments)
       .then(() => $state.go('bathroomsShow', {id: $state.params.id}));
-    console.log(vm.bathroom.avgRating);
+    // console.log(vm.bathroom.avgRating);
   }
 
   vm.remove = remove;
