@@ -6,6 +6,9 @@
     <li>Email: {{usersShow.user.email}}</li>
     <li>Username: {{usersShow.user.username}}</li>
   </ul>
+  <figure class="image">
+    <img ng-src="{{ usersShow.user.image }}" alt="{{ usersShow.user.name }}" />
+  </figure>
   <a ui-sref="usersEdit({ id: usersShow.user._id })" class="button">Edit</a>
   <br>
 </div>
