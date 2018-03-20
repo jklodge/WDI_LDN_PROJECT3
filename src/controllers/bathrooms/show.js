@@ -50,8 +50,15 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
   // }
   // }
 
+  function handleComment(){
+    Bathroom.commentCreate($state.params.id, this.comments)
+      .then(() => $state.go('bathroomsShow', {id: $state.params.id}));
+    console.log(vm.bathroom.comments);
+  }
+
   vm.remove = remove;
   vm.handleRequest = handleRequest;
+  vm.handleComment = handleComment;
   // vm.handleDialogue = handleDialogue;
 
 }
