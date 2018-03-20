@@ -12,13 +12,13 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
   Bathroom.findById($state.params.id)
     .then(res => {
       vm.bathroom = res.data;
-      // if($auth.getPayload()) res.data.requests = res.data.requests.filter(request => request.user === $auth.getPayload().sub);
+      if($auth.getPayload()) res.data.requests = res.data.requests.filter(request => request.user === $auth.getPayload().sub);
       if(vm.bathroom.requests.length > 0 && vm.bathroom.requests[0].status === 'pending'){
         vm.bathroom.isAvailable = false;
       }
     });
 
-  console.log(vm.bathroom.isAvailable);
+  console.log(vm.bathroom);
 
   if($auth.getPayload()){
     User.findById($auth.getPayload().sub)
