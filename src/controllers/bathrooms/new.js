@@ -1,6 +1,7 @@
-BathroomsNewCtrl.$inject = ['Bathroom', '$state'];
-function BathroomsNewCtrl(Bathroom, $state) {
+BathroomsNewCtrl.$inject = ['Bathroom', '$state', '$scope'];
+function BathroomsNewCtrl(Bathroom, $state, $scope) {
   const vm = this;
+
   vm.bathroom = {
     location: {
       lat: 0,
@@ -9,12 +10,12 @@ function BathroomsNewCtrl(Bathroom, $state) {
   };
 
   function toggleAll() {
-    console.log(vm);
-    vm.bathroom.toilet = !vm.bathroom.toilet;
-    vm.bathroom.shower = !vm.bathroom.shower;
-    vm.bathroom.bidet = !vm.bathroom.bidet;
-    vm.bathroom.sanitaryProducts = !vm.bathroom.sanitaryProducts;
-    vm.bathroom.babyChanging = !vm.bathroom.babyChanging;
+    console.log(vm.toilet);
+    vm.bathroom.toilet = vm.all;
+    vm.bathroom.shower = vm.all;
+    vm.bathroom.bidet = vm.all;
+    vm.bathroom.sanitaryProducts = vm.all;
+    vm.bathroom.babyChanging = vm.all;
   }
 
   function handleSubmit() {
@@ -24,9 +25,10 @@ function BathroomsNewCtrl(Bathroom, $state) {
         vm.bathroom = {};
       });
   }
+  $scope.$watch(()=> vm.all, toggleAll);
+
 
   vm.handleSubmit = handleSubmit;
-  vm.toggleAll = toggleAll;
 }
 
 export default BathroomsNewCtrl;

@@ -33,7 +33,8 @@ const bathroomSchema = new mongoose.Schema({
   },
   requests: [requestSchema],
   comments: [commentSchema],
-  user: {type: mongoose.Schema.ObjectId, ref: 'User'}
+  user: {type: mongoose.Schema.ObjectId, ref: 'User'},
+  isAvailable: {type: Boolean, default: true}
 });
 
 bathroomSchema
