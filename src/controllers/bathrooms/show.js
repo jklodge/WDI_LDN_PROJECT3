@@ -22,10 +22,6 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
         vm.user = res.data;
         console.log(vm.user);
       });
-<<<<<<< HEAD
-=======
-    console.log(vm.userId);
->>>>>>> development
   }
 
   function remove() {
