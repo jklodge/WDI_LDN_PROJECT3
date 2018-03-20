@@ -14,7 +14,6 @@ function UsersShowCtrl(Bathroom, User, $state, $auth) {
     .then(res => {
       res.data.forEach(bathroom => {
         if(bathroom.requests.length > 0 && bathroom.requests[0].user === $auth.getPayload().sub) {
-          // console.log(bathroom.requests[0].user);
           vm.user.requests.push(bathroom);
         }
       });
