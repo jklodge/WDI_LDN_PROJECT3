@@ -19,7 +19,7 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
       .then(res =>  {
         vm.userId = res.data;
       });
-    // console.log(vm.userId);
+    console.log(vm.userId);
   }
 
 

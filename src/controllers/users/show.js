@@ -5,8 +5,9 @@ function UsersShowCtrl(Bathroom, User, $state, $auth) {
 
   User.findById($auth.getPayload().sub)
     .then(res => {
-      console.log(res);
+      // console.log(res);
       vm.user = res.data;
+      // console.log(vm.user.bathrooms);
     });
 
   function acceptRequest(bathroom, request) {

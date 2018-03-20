@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/9.8.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js start:client
+  /usr/local/Cellar/node/9.8.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js test
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -33,9 +33,10 @@ npm manifest:
       "bcrypt": "^1.0.3",
       "bluebird": "^3.5.1",
       "body-parser": "^1.18.2",
-      "jsonwebtoken": "^8.2.0",
       "bulma": "^0.6.2",
-      "mongoose": "^5.0.10"
+      "jsonwebtoken": "^8.2.0",
+      "mongoose": "^5.0.10",
+      "satellizer": "^0.15.5"
     },
     "devDependencies": {
       "babel-cli": "^6.18.0",
@@ -5289,6 +5290,10 @@ Lockfile:
       neo-async "^2.5.0"
       pify "^3.0.0"
   
+  satellizer@^0.15.5:
+    version "0.15.5"
+    resolved "https://registry.yarnpkg.com/satellizer/-/satellizer-0.15.5.tgz#43c93d2d361c4b6b6cf9d06d23b8881302b557a4"
+  
   sax@~1.2.1:
     version "1.2.4"
     resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
@@ -6468,7 +6473,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c webpack-dev-server
+  Arguments: -c nyc mocha "test/**/*_spec.js" --require "test/spec_helper" --recursive --exit
   Directory: /Users/Nick/development/WDI_LDN_32_PROJECT3
   Output:
   
