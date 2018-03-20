@@ -1,9 +1,12 @@
 import angular from 'angular';
 import '@uirouter/angularjs';
 import 'satellizer';
+import 'filepicker-js';
+import 'angular-filepicker/dist/angular_filepicker';
 
 import Router from './config/router';
 import Auth from './config/auth';
+import Upload from './config/filestack';
 
 import './assets/scss/style.scss';
 
@@ -21,17 +24,17 @@ import UsersIndexCtrl from './controllers/users/index';
 import googleMapAutofill from './directives/google-map-autofill';
 import googleMap from './directives/google-map';
 import googleMapIndex from './directives/google-map-index';
-import 'angular-filepicker/dist/angular_filepicker';
+import uploadImage from './directives/upload-image';
 
 import Bathroom from './services/bathroom';
 import User from './services/user';
-
 
 import 'bulma';
 
 angular.module('pooberApp', ['ui.router', 'satellizer', 'angular-filepicker'])
   .config(Router)
   .config(Auth)
+  .config(Upload)
   .controller('MainCtrl', MainCtrl)
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
@@ -46,6 +49,7 @@ angular.module('pooberApp', ['ui.router', 'satellizer', 'angular-filepicker'])
   .directive('googleMapAutofill', googleMapAutofill)
   .directive('googleMap', googleMap)
   .directive('googleMapIndex', googleMapIndex)
+  .directive('uploadImage', uploadImage)
 
   .service('Bathroom', Bathroom)
   .service('User', User);
