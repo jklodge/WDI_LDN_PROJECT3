@@ -53,7 +53,7 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
   function handleComment(){
     Bathroom.commentCreate($state.params.id, this.comments)
       .then(() => $state.go('bathroomsShow', {id: $state.params.id}));
-    console.log(vm.bathroom.comments);
+    console.log(vm.bathroom.avgRating);
   }
 
   vm.remove = remove;
