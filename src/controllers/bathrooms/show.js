@@ -19,7 +19,7 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
       .then(res =>  {
         vm.userId = res.data;
       });
-    // console.log(vm.userId);
+    console.log(vm.userId);
   }
 
 
@@ -38,21 +38,8 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
     console.log(vm.bathroom.requests);
   }
 
-  // function handleDialogue() {
-  // if(vm.message){
-  //   console.log(vm.bathroom);
-  //   vm.bathroom.requests.forEach(request => {
-  //     request.dialogue.push(vm.message);
-  //     console.log(request.dialogue);
-  //   });
-  //   vm.message = '';
-  //   Bathroom.update(vm.bathroom);
-  // }
-  // }
-
   vm.remove = remove;
   vm.handleRequest = handleRequest;
-  // vm.handleDialogue = handleDialogue;
 
 }
 
