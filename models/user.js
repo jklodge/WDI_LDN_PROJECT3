@@ -15,6 +15,12 @@ userSchema.virtual('bathrooms', {
   foreignField: 'user'
 });
 
+userSchema.virtual('requests', {
+  ref: 'Bathroom',
+  localField: '_id',
+  foreignField: 'requests.user'
+});
+
 userSchema.virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(passwordConfirmation){
     this._passwordConfirmation = passwordConfirmation;

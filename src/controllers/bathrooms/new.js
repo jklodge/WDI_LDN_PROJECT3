@@ -21,18 +21,18 @@ function BathroomsNewCtrl(Bathroom, $state,) {
   }
 
   function handleSubmit() {
-    Bathroom.create(vm.bathroom);
-    vm.bathroom = {};
-    $state.go('bathroomsIndex');
+    Bathroom.create(vm.bathroom)
+      .then(() => {
+        $state.go('bathroomsIndex');
+        vm.bathroom = {};
+      });
   }
 
   function uploadImage() {
     client.pick({})
       .then(function(result) {
         console.log(JSON.stringify(result));
-        image = result.filesUploaded[0].url;
-        console.log(image);
-        document.querySelector('.imgPreview').setAttribute('src', image);
+        vm.bathroom.image = result.filesUploaded[0].url;
       });
   }
 

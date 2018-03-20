@@ -1,5 +1,14 @@
+<div class="field">
+  <label for="name">Facilities</label>
+  <input type="checkbox" ng-click="bathroomsIndex.toggleAll()"/> Check all<br>
+  <input type="checkbox" ng-model="bathroomsIndex.toilet">Toilet<br>
+  <input type="checkbox" ng-model="bathroomsIndex.shower">Shower<br>
+  <input type="checkbox" ng-model="bathroomsIndex.bidet">Bidet<br>
+  <input type="checkbox" ng-model="bathroomsIndex.sanitaryProducts">Sanitary Products<br>
+  <input type="checkbox" ng-model="bathroomsIndex.babyChanging">Baby Changing<br>
+</div>
 <ul class="columns is-multiline is-mobile">
-  <li class="column is-one-quarter-desktop is-half-mobile" ng-repeat="bathroom in bathroomsIndex.bathrooms">
+  <li class="column is-one-quarter-desktop is-half-mobile" ng-repeat="bathroom in bathroomsIndex.filtered">
     <a ui-sref="bathroomsShow({ id: bathroom._id})">
       <div class="card">
         <div class="card-image">

@@ -14,6 +14,7 @@ function showRoute(req, res, next){
         path: 'requests.user'
       }
     })
+    .populate('requests')
     .then(user => res.json(user))
     .catch(next);
 }

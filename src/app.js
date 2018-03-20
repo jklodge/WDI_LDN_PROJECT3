@@ -21,6 +21,7 @@ import UsersIndexCtrl from './controllers/users/index';
 import googleMapAutofill from './directives/google-map-autofill';
 import googleMap from './directives/google-map';
 import googleMapIndex from './directives/google-map-index';
+import 'angular-filepicker/dist/angular_filepicker';
 
 import Bathroom from './services/bathroom';
 import User from './services/user';
@@ -28,7 +29,7 @@ import User from './services/user';
 
 import 'bulma';
 
-angular.module('pooberApp', ['ui.router', 'satellizer'])
+angular.module('pooberApp', ['ui.router', 'satellizer', 'angular-filepicker'])
   .config(Router)
   .config(Auth)
   .controller('MainCtrl', MainCtrl)
