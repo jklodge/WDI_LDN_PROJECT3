@@ -7,6 +7,7 @@ function UsersShowCtrl(Bathroom, User, $state, $auth) {
     .then(res => {
       res.data.requests = res.data.requests.filter(request => request.user === $auth.getPayload().sub);
       vm.user = res.data;
+      // console.log(vm.user.bathrooms);
     });
 
 

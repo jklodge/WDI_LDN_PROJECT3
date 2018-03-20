@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>WDI32 Group Project</title>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLRriqK4HNKKWPPdFSVD8PIWFO-9PoKZ8&libraries=places"></script>
+
 </head>
 <body ng-controller="MainCtrl as main">
 
@@ -16,19 +17,19 @@
         Poober
       </a>
 
-      <div class="navbar-burger ng-class:clicked ? 'is-active' : 'is-not-active'" data-target="#mobile-menu" ng-click="clicked = !clicked">
+      <div class="navbar-burger ng-class:main.clicked ? 'is-active' : 'is-not-active'" data-target="#mobile-menu" ng-click="main.clicked = !main.clicked">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
-    <div id="mobile-menu" class="navbar-menu ng-class:clicked ? 'is-active' : 'is-not-active'">
+    <div id="mobile-menu" class="navbar-menu ng-class:main.clicked ? 'is-active' : 'is-not-active'">
       <div class="navbar-end">
-        <a class="navbar-item" ng-click="clicked = !clicked" ui-sref="bathroomsMapIndex">All Bathrooms Map</a>
-        <a class="navbar-item" ng-click="clicked = !clicked" ui-sref="bathroomsNew" ng-if="main.isAuthenticated()">New Bathroom</a>
-        <a class="navbar-item" ui-sref="register" ng-if="!main.isAuthenticated()" ng-click="clicked = !clicked">Register</a>
-        <a class="navbar-item" ng-click="clicked = !clicked" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
-        <a class="navbar-item" ng-click="clicked = !clicked" ng-controller="AuthLoginCtrl as authLogin" ui-sref="usersShow({ id: authLogin.userId })" ng-if="main.isAuthenticated()">Profile</a>
+        <a class="navbar-item" ng-click="main.clicked = !main.clicked" ui-sref="bathroomsMapIndex">All Bathrooms Map</a>
+        <a class="navbar-item" ng-click="main.clicked = !main.clicked" ui-sref="bathroomsNew" ng-if="main.isAuthenticated()">New Bathroom</a>
+        <a class="navbar-item" ui-sref="register" ng-if="!main.isAuthenticated()" ng-click="main.clicked = !main.clicked">Register</a>
+        <a class="navbar-item" ng-click="main.clicked = !main.clicked" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
+        <a class="navbar-item" ng-click="main.clicked = !main.clicked" ng-controller="AuthLoginCtrl as authLogin" ui-sref="usersShow({ id: authLogin.userId })" ng-if="main.isAuthenticated()">Profile</a>
         <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
       </div>
     </div>
