@@ -17,19 +17,25 @@ function googleMapIndex() {
       });
 
       let infoWindow = null;
+      const mapMarkers = [];
 
       $scope.$watch('center', () => map.setCenter($scope.center), true);
 
       $scope.$watch('bathroom', () => {
+        $scope.bathroom;
+        console.log('bathrooms scope', $scope.bathroom);
         infoWindow = new google.maps.InfoWindow();
+        mapMarkers.forEach(marker => marker.setMap(null));
         $scope.bathroom.forEach(bathroom => showMarkers(bathroom));
       });
 
       function showMarkers(bathroom){
         const marker = new google.maps.Marker({
           position: {lat: bathroom.location.lat, lng: bathroom.location.lng},
+          icon: 'https://findicons.com/files/icons/2698/free_mobile_icon_kit/48/restrooms.png',
           map: map
         });
+        mapMarkers.push(marker);
         marker.addListener('click', () => {
           showInfoWindow(bathroom, marker);
         });
