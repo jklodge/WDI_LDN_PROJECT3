@@ -8,7 +8,7 @@ const requestSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 const commentSchema = new mongoose.Schema({
-  comment: {type: String},
+  content: {type: String},
   rating: {type: Number, enum: ['1', '2', '3', '4', '5']},
   user: { type: mongoose.Schema.ObjectId, ref: 'User'}
 });
