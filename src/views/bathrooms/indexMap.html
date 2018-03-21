@@ -1,16 +1,46 @@
-<div class="field">
+<div class="field filter-settings">
   <label for="name">Facilities</label>
-  <input type="checkbox" ng-click="bathroomsMapIndex.toggleAll()"/> Check all<br>
-  <input type="checkbox" ng-model="bathroomsMapIndex.toilet">Toilet<br>
-  <input type="checkbox" ng-model="bathroomsMapIndex.shower">Shower<br>
-  <input type="checkbox" ng-model="bathroomsMapIndex.bidet">Bidet<br>
-  <input type="checkbox" ng-model="bathroomsMapIndex.sanitaryProducts">Sanitary Products<br>
-  <input type="checkbox" ng-model="bathroomsMapIndex.babyChanging">Baby Changing<br>
+  <div class="columns is-multiline is-mobile">
+    <div class="column is-half-desktop is-half-tablet is-half-mobile">
+      Check all <input type="checkbox" ng-click="bathroomsMapIndex.toggleAll()">
+    </div>
+    <div class="column is-half-desktop is-half-tablet is-half-mobile">
+      Toilet <input type="checkbox" ng-model="bathroomsMapIndex.toilet">
+    </div>
+    <div class="column is-half-desktop is-half-tablet is-half-mobile">
+      Shower <input type="checkbox" ng-model="bathroomsMapIndex.shower">
+    </div>
+    <div class="column is-half-desktop is-half-tablet is-half-mobile">
+      Bidet <input type="checkbox" ng-model="bathroomsMapIndex.bidet">
+    </div>
+    <div class="column is-half-desktop is-half-tablet is-half-mobile">
+      Sanitary Products <input type="checkbox" ng-model="bathroomsMapIndex.sanitaryProducts">
+    </div>
+    <div class="column is-half-desktop is-half-tablet is-half-mobile">
+      Baby Changing <input type="checkbox" ng-model="bathroomsMapIndex.babyChanging">
+    </div>
+    <div class="column is-one-half-desktop is-one-half-tablet is-half-mobile">
+      <div class="control">
+        <div class="select">
+          <select name="rating" ng-model="bathroomsMapIndex.min">
+            <option value="">Filter By Rating</option>
+            <option value="1">💩</option>
+            <option value="2">💩💩</option>
+            <option value="3">💩💩💩</option>
+            <option value="4">💩💩💩💩</option>
+            <option value="5">💩💩💩💩💩</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="columns is-multiline">
-  <div class="column is-full-desktop">
+  <div class="column is-full-desktop is-full-mobile is-full-tablet">
     <google-map-index class="all-google" zoom="15" bathroom="bathroomsMapIndex.filtered" center="bathroomsMapIndex.center"></google-map-index>
   </div>
-  <a class="navbar-item button is-primary listView" ui-sref="bathroomsIndex">All Bathrooms List</a>
+  <div class="column">
+    <a class="navbar-item button is-primary listView" ui-sref="bathroomsIndex">All Bathrooms List</a>
+  </div>
 </div>

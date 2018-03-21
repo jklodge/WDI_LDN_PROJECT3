@@ -10,7 +10,7 @@
   <div class="control">
     <div class="select">
       <select name="rating" ng-model="bathroomsIndex.min">
-        <option value="">All</option>
+        <option value="">Filter By Rating</option>
         <option value="1">💩</option>
         <option value="2">💩💩</option>
         <option value="3">💩💩💩</option>
@@ -21,7 +21,7 @@
   </div>
 </div>
 <ul class="columns is-multiline is-mobile">
-  <li class="column is-one-quarter-desktop is-half-mobile" ng-repeat="bathroom in bathroomsIndex.filtered">
+  <li class="column is-one-quarter-desktop is-full-mobile is-one-third-tablet" ng-repeat="bathroom in bathroomsIndex.filtered">
     <a ui-sref="bathroomsShow({ id: bathroom._id})">
       <div class="card">
         <div class="card-image">
