@@ -84,6 +84,18 @@ function commentCreateRoute(req, res, next){
     .catch(next);
 }
 
+function commentDeleteRoute(req, res, next){
+  Bathroom.findById(req.params.id)
+    .then(bathroom => {
+      const comment = bathroom.comments.id(req.params.commentId);
+      console.log(comment);
+      comment.remove();
+      bathroom.save();
+    })
+    .then(bathroom => res.json(bathroom))
+    .catch(next);
+}
+
 module.exports = {
   index: indexRoute,
   indexMap: indexMapRoute,
@@ -94,5 +106,6 @@ module.exports = {
   requestCreate: requestCreateRoute,
   requestAccept: requestAcceptRoute,
   requestReject: requestRejectRoute,
-  commentCreate: commentCreateRoute
+  commentCreate: commentCreateRoute,
+  commentDelete: commentDeleteRoute
 };
