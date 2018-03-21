@@ -13,7 +13,6 @@ function BathroomsEditCtrl(Bathroom, $state, $scope) {
     .then(res => vm.bathroom = res.data);
 
   function toggleAll() {
-    console.log(vm.toilet);
     vm.bathroom.toilet = vm.all;
     vm.bathroom.shower = vm.all;
     vm.bathroom.bidet = vm.all;
