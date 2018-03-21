@@ -12,7 +12,7 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
     Bathroom.findById($state.params.id)
       .then(res => {
         vm.bathroom = res.data;
-        console.log(vm.bathroom);
+        console.log(vm.bathroom.comments);
       });
   }
 
@@ -21,7 +21,7 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
     User.findById($auth.getPayload().sub)
       .then(res =>  {
         vm.user = res.data;
-        console.log(vm.user);
+        console.log(vm.user._id);
       });
   }
 

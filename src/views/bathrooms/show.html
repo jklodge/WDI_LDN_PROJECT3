@@ -47,12 +47,12 @@
   </div>
 </div>
 <div class="container">
-  <div class="card" ng-repeat="comments in bathroomsShow.bathroom.comments">
-    <p>{{ comments.user }}</p>
-    <p>{{ comments.rating }} Stars</p>
-    <p>{{ comments.comment }}</p>
+  <div class="card" ng-repeat="comment in bathroomsShow.bathroom.comments">
+    <p>{{ comment.user }}</p>
+    <p>{{ comment.rating }} Stars</p>
+    <p>{{ comment.comment }}</p>
     <form ng-submit="bathroomsShow.handleDelete(comments._id)">
-    <button class="button is-danger">Delete</button>
+    <button class="button is-danger" ng-if="bathroomsShow.user._id === comment.user">Delete</button>
     </form>
   </div>
 </div>
