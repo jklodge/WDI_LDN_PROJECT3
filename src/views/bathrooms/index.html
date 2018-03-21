@@ -6,6 +6,19 @@
   <input type="checkbox" ng-model="bathroomsIndex.bidet">Bidet<br>
   <input type="checkbox" ng-model="bathroomsIndex.sanitaryProducts">Sanitary Products<br>
   <input type="checkbox" ng-model="bathroomsIndex.babyChanging">Baby Changing<br>
+  <label for="name">Min Rating</label>
+  <div class="control">
+    <div class="select">
+      <select name="rating" ng-model="bathroomsIndex.min">
+        <option value="">All</option>
+        <option value="1">💩</option>
+        <option value="2">💩💩</option>
+        <option value="3">💩💩💩</option>
+        <option value="4">💩💩💩💩</option>
+        <option value="5">💩💩💩💩💩</option>
+      </select>
+    </div>
+  </div>
 </div>
 <ul class="columns is-multiline is-mobile">
   <li class="column is-one-quarter-desktop is-half-mobile" ng-repeat="bathroom in bathroomsIndex.filtered">
