@@ -11,6 +11,8 @@ import Upload from './config/filestack';
 import './assets/scss/style.scss';
 
 import MainCtrl from './controllers/main';
+import HomeCtrl from './controllers/home';
+
 import AuthLoginCtrl from './controllers/auth/login';
 import AuthRegisterCtrl from './controllers/auth/register';
 import BathroomsIndexCtrl from './controllers/bathrooms/index';
@@ -38,6 +40,7 @@ angular.module('pooberApp', ['ui.router', 'satellizer', 'angular-filepicker', 'n
   .config(Auth)
   .config(Upload)
   .controller('MainCtrl', MainCtrl)
+  .controller('HomeCtrl', HomeCtrl)
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .controller('BathroomsIndexCtrl', BathroomsIndexCtrl)

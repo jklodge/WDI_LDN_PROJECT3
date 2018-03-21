@@ -21,6 +21,11 @@ function Router($stateProvider, $urlRouterProvider) {
   // $locationProvider.html5mode(true);
 
   $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: 'views/home.html',
+      controller: 'BathroomsIndexCtrl as home'
+    })
     .state('bathroomsIndex', {
       url: '/bathrooms',
       templateUrl: 'views/bathrooms/index.html',
