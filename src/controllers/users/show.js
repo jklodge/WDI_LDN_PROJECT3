@@ -15,15 +15,20 @@ function UsersShowCtrl(Bathroom, User, $state, $auth) {
               vm.user.requests.push(bathroom);
             }
           });
-          console.log(vm.user.requests);
         });
     });
 
 
 
   function acceptRequest(bathroom, request) {
-    Bathroom.acceptRequest(bathroom, request)
-      .then(() => request.status = 'accepted');
+    bathroom.isAvailable = true;
+    bathroom.previousUsers.push(request.user._id);
+    Bathroom.update(bathroom)
+      .then(() => {
+        Bathroom.acceptRequest(bathroom, request)
+          .then(() => request.status = 'accepted');
+      });
+    // console.log(bathroom);
   }
 
 

@@ -1,5 +1,5 @@
 <form ng-submit="bathroomsEdit.handleSubmit()">
-  <div class="filed">
+  <div class="field">
     <label for="name">Name</label>
     <input class="input" placeholder="Name" name="name" ng-model="bathroomsEdit.bathroom.name" />
   </div>
@@ -44,6 +44,16 @@
     <input type="checkbox" ng-model="bathroomsEdit.bathroom.sanitaryProducts" >Sanitary Products<br>
     <input type="checkbox" ng-model="bathroomsEdit.bathroom.babyChanging">Baby Changing<br>
 
+  </div>
+  <div class="field">
+    <label class="label">Is your bathroom currently available?</label>
+    <div class="">
+      <label>Available</label>
+      <input type="radio" name="isAvailable" value="true" ng-model="bathroomsEdit.bathroom.isAvailable">
+      <label>Not Available</label>
+      <input type="radio" name="isAvailable" value="false" ng-model="bathroomsEdit.bathroom.isAvailable">
+
+    </div>
   </div>
     <button class="button is-primary" >Submit</button>
 

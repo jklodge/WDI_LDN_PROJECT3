@@ -10,21 +10,12 @@
     <p>Average Rating: {{bathroomsShow.bathroom.avgRating}}</p>
 
 
-    <form ng-submit="bathroomsShow.handleRequest()" ng-if="bathroomsShow.bathroom.requests[0].user !== bathroomsShow.user._id">
+    <form ng-submit="bathroomsShow.handleRequest()" ng-if="bathroomsShow.bathroom.isAvailable && bathroomsShow.user._id !== bathroomsShow.bathroom.user && bathroomsShow.user">
       <button class="button is-primary" value="Submit">Request bathroom</button>
     </form>
-    <div class="subtitle" ng-if="bathroomsShow.userId && bathroomsShow.bathroom.requests">
-      <p class="title is-6">Status of your request: {{bathroomsShow.bathroom.requests[0].status}}</p>
-    </div>
-<!-- ng-if="bathroomsShow.user._id && bathroomsShow.bathroom.requests.length === 0" -->
-    <!-- <ul ng-if="bathroomsShow.userId" ng-controller="BathroomsShowCtrl as bathroomsShow">
-      <li ng-repeat="request in bathroomsShow.bathroom.requests" ng-if="bathroomsShow.userId._id === request.user || bathroomsShow.userId._id === bathroomsShow.bathroom.user">
-        Requests:  {{ request.content }}
-      </li>
-    </ul> -->
 
-    <a ui-sref="bathroomsEdit({ id: bathroomsShow.bathroom._id })" class="button" ng-if="bathroomsShow.userId._id === bathroomsShow.bathroom.user">Edit</a>
-    <button class="button is-danger" ng-click="bathroomsShow.remove()" ng-if="bathroomsShow.userId._id === bathroomsShow.bathroom.user">Delete</button>
+    <a ui-sref="bathroomsEdit({ id: bathroomsShow.bathroom._id })" class="button" ng-if="bathroomsShow.user._id === bathroomsShow.bathroom.user">Edit</a>
+    <button class="button is-danger" ng-click="bathroomsShow.remove()" ng-if="bathroomsShow.user._id === bathroomsShow.bathroom.user">Delete</button>
     <div class="column is-full columns">
       <div class="column">
         <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.toilet">
@@ -56,20 +47,23 @@
   </div>
 </div>
 <div class="container">
-  <div class="card" ng-repeat="comments in bathroomsShow.bathroom.comments">
-    <p>{{ comments.user }}</p>
-    <p>{{ comments.rating }} Stars</p>
-    <p>{{ comments.comment }}</p>
+  <div class="card" ng-repeat="comment in bathroomsShow.bathroom.comments">
+    <p>{{ comment.user }}</p>
+    <p>{{ comment.rating }} Stars</p>
+    <p>{{ comment.content }}</p>
+    <form ng-submit="bathroomsShow.handleDelete(comment._id)">
+    <button class="button is-danger" ng-if="bathroomsShow.user._id === comment.user">Delete</button>
+    </form>
   </div>
 </div>
-<form ng-submit="bathroomsShow.handleComment()">
+<form ng-submit="bathroomsShow.handleComment()" ng-if="bathroomsShow.user.isPrevious">
   <textarea class="input" name="comment" ng-model="bathroomsShow.comments.comment"></textarea>
   <div class="field">
   <label for="name">Rating</label>
   <div class="control">
     <div class="select">
       <select name="rating" ng-model="bathroomsShow.comments.rating">
-        <option value="">All</option>
+        <option value="">Please Select</option>
         <option value="1">💩</option>
         <option value="2">💩💩</option>
         <option value="3">💩💩💩</option>

@@ -20,10 +20,14 @@ router.route('/bathrooms/:id')
   .delete(secureRoute, bathrooms.delete);
 
 router.route('/bathrooms/:id/comments')
-  .post(bathrooms.commentCreate);
+  .post(secureRoute, bathrooms.commentCreate);
+
+router.route('/bathrooms/:id/comments/:commentId')
+  .delete(secureRoute, bathrooms.commentDelete);
 
 router.route('/bathrooms/:id/requests/:requestId/accepted')
   .put(secureRoute, bathrooms.requestAccept);
+
 
 router.route('/bathrooms/:id/requests/:requestId/rejected')
   .put(secureRoute, bathrooms.requestReject);

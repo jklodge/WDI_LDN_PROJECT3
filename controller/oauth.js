@@ -49,7 +49,6 @@ function facebook(req, res, next) {
       const token = jwt.sign({ sub: user._id }, secret, { expiresIn: '6h' });
       res.json({ token, message: `Welcome back ${user.username}!`});
     })
-    // .then(user => user.json(user))
     .catch(next);
 }
 
