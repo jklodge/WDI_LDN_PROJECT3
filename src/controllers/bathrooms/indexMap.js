@@ -41,21 +41,21 @@ function BathroomsIndexMapCtrl(Bathroom, filterFilter, $scope) {
     if(vm.sanitaryProducts) params.sanitaryProducts = vm.sanitaryProducts;
     if(vm.babyChanging) params.babyChanging = vm.babyChanging;
 
-
     vm.filtered = filterFilter(vm.bathrooms, params);
     console.log('test', vm.filtered);
   }
 
-  // function toggleAll() {
-  //   vm.toilet = !vm.toilet;
-  //   vm.shower = !vm.shower;
-  //   vm.bidet = !vm.bidet;
-  //   vm.sanitaryProducts = !vm.sanitaryProducts;
-  //   vm.babyChanging = !vm.babyChanging;
-  // }
+  function toggleAll() {
 
+    vm.toilet = vm.all;
+    vm.shower = vm.all;
+    vm.bidet = vm.all;
+    vm.sanitaryProducts = vm.all;
+    vm.babyChanging = vm.all;
+  }
+
+  $scope.$watch(() => vm.all, toggleAll);
   vm.filtered = filterFilter(vm.bathrooms, params);
-  // $scope.$watch(() => vm.all, toggleAll);
 
   $scope.$watchGroup([
     () => vm.toilet,
