@@ -5,6 +5,13 @@ function AuthLoginCtrl(User, $auth, $state, $rootScope){
   vm.credentials = {};
   vm.userId = '';
 
+  function authenticate(provider) {
+    $auth.authenticate(provider)
+      .then(()=> $state.go('bathroomsIndex'))
+      .catch(err => console.log(err));
+  }
+
+
   function handleSubmit(){
     $auth.login(vm.credentials)
       .then(res => {
@@ -19,7 +26,7 @@ function AuthLoginCtrl(User, $auth, $state, $rootScope){
           .then(res => vm.userId = res.data);
       });
   }
-
+  vm.authenticate = authenticate;
   vm.handleSubmit = handleSubmit;
 }
 

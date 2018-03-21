@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html ng-app="pooberApp">
 <head>
+  <base href="/">
   <meta charset="utf-8">
   <title>WDI32 Group Project</title>
-<script type="text/javascript" src="/app.js"></script></head>
-<body>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLRriqK4HNKKWPPdFSVD8PIWFO-9PoKZ8&libraries=places"></script>
 
-  <h1>Poober</h1>
-  <ui-view></ui-view>
+<script type="text/javascript" src="/app.js"></script></head>
+<body ng-controller="MainCtrl as main">
+
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="https://thumbs.dreamstime.com/b/funny-poo-cartoon-vector-illustration-white-50907210.jpg" alt="Poober">
+        &nbsp;
+        Poober
+      </a>
+
+      <div class="navbar-burger ng-class:main.clicked ? 'is-active' : 'is-not-active'" data-target="#mobile-menu" ng-click="main.clicked = !main.clicked">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div id="mobile-menu" class="navbar-menu ng-class:main.clicked ? 'is-active' : 'is-not-active'">
+      <div class="navbar-end">
+        <a class="navbar-item" ng-click="main.clicked = !main.clicked" ui-sref="bathroomsMapIndex">All Bathrooms Map</a>
+        <a class="navbar-item" ng-click="main.clicked = !main.clicked" ui-sref="bathroomsNew" ng-if="main.isAuthenticated()">New Bathroom</a>
+        <a class="navbar-item" ui-sref="register" ng-if="!main.isAuthenticated()" ng-click="main.clicked = !main.clicked">Register</a>
+        <a class="navbar-item" ng-click="main.clicked = !main.clicked" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
+        <a class="navbar-item" ng-click="main.clicked = !main.clicked" ng-controller="AuthLoginCtrl as authLogin" ui-sref="usersShow({ id: authLogin.userId })" ng-if="main.isAuthenticated()">Profile</a>
+
+
+          <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
+      </div>
+    </div>
+  </nav>
+  <div ng-if="main.flashMessage" class="notification is-{{main.flashMessage.type}}">{{main.flashMessage.content}}</div>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Poober</h1>
+      <ui-view></ui-view>
+    </div>
+  </section>
 
 </body>
 </html>

@@ -28,7 +28,7 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
 
   function remove() {
     Bathroom.remove(vm.bathroom)
-      .then(() => $state.go('bathroomsIndex'));
+      .then(() => $state.go($state.current, {}, {reload: true}));
   }
 
   function handleRequest() {
@@ -37,20 +37,22 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
       .then(res => {
         Bathroom.createRequest(vm.bathroom, {user: vm.bathroom.requests._id});
         vm.bathroom = res.data;
-        // console.log(vm.bathroom);
-      });
+      })
+      .then(() => $state.go($state.current, {}, {reload: true}));
   }
+  // vm.text = '';
 
 
   function handleComment(){
     Bathroom.commentCreate($state.params.id, this.comments)
+      .then(() => $state.go($state.current, {id: $state.params.id}, {reload: true}))
       .then(() => {
         this.comments.content = '';
         this.comments.rating = '';
         getBathroomData();
       });
-    // console.log(vm.bathroom.avgRating);
   }
+
 
   function handleDelete(commentId){
     Bathroom.deleteComment($state.params.id, commentId)
