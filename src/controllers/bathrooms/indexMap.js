@@ -3,7 +3,7 @@ BathroomsIndexMapCtrl.$inject = ['Bathroom', 'filterFilter', '$scope'];
 function BathroomsIndexMapCtrl(Bathroom, filterFilter, $scope) {
 
   const vm = this;
-  vm.center = {lat: 51.5034, lng: 0.1276};
+  vm.center = {lat: 51.5034, lng: -0.1276};
   vm.destination = {lat: 38.8977, lng: -76.0365};
 
   navigator.geolocation.getCurrentPosition(pos => {
