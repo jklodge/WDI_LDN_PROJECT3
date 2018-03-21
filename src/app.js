@@ -29,6 +29,8 @@ import uploadImage from './directives/upload-image';
 import Bathroom from './services/bathroom';
 import User from './services/user';
 
+import rangeFilter from './filters/range';
+
 import 'bulma';
 
 angular.module('pooberApp', ['ui.router', 'satellizer', 'angular-filepicker'])
@@ -50,6 +52,6 @@ angular.module('pooberApp', ['ui.router', 'satellizer', 'angular-filepicker'])
   .directive('googleMap', googleMap)
   .directive('googleMapIndex', googleMapIndex)
   .directive('uploadImage', uploadImage)
-
   .service('Bathroom', Bathroom)
-  .service('User', User);
+  .service('User', User)
+  .filter('range', rangeFilter);
