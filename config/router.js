@@ -16,7 +16,7 @@ router.route('/bathrooms/map')
 
 router.route('/bathrooms/:id')
   .get(bathrooms.show)
-  .put(secureRoute, bathrooms.update)
+  .put(bathrooms.update)
   .delete(secureRoute, bathrooms.delete);
 
 router.route('/bathrooms/:id/comments')

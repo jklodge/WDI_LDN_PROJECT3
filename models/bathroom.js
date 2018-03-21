@@ -33,7 +33,7 @@ const bathroomSchema = new mongoose.Schema({
   comments: [commentSchema],
   user: {type: mongoose.Schema.ObjectId, ref: 'User'},
   isAvailable: {type: Boolean, default: true},
-  previousUsers: {type: Array}
+  previousUsers: [{type: mongoose.Schema.ObjectId, ref: 'User'}]
 });
 
 bathroomSchema
