@@ -44,7 +44,7 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
   function handleComment(){
     Bathroom.commentCreate($state.params.id, this.comments)
       .then(() => {
-        this.comments.comment = '';
+        this.comments.content = '';
         this.comments.rating = '';
         getBathroomData();
       });
