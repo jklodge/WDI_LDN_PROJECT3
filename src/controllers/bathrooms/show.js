@@ -13,7 +13,6 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
     Bathroom.findById($state.params.id)
       .then(res => {
         vm.bathroom = res.data;
-        // console.log('previous users',vm.bathroom.previousUsers, vm.user);
       });
   }
 
