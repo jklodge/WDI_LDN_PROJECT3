@@ -51,6 +51,9 @@
     <p>{{ comments.user }}</p>
     <p>{{ comments.rating }} Stars</p>
     <p>{{ comments.comment }}</p>
+    <form ng-submit="bathroomsShow.handleDelete(comments._id)">
+    <button class="button is-danger">Delete</button>
+    </form>
   </div>
 </div>
 <form ng-submit="bathroomsShow.handleComment()">

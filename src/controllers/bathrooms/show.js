@@ -7,11 +7,15 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
   vm.user = null;
   vm.message = '';
 
-  Bathroom.findById($state.params.id)
-    .then(res => {
-      vm.bathroom = res.data;
-      console.log(vm.bathroom);
-    });
+
+  function getBathroomData(){
+    Bathroom.findById($state.params.id)
+      .then(res => {
+        vm.bathroom = res.data;
+        console.log(vm.bathroom);
+      });
+  }
+
 
   if($auth.getPayload()){
     User.findById($auth.getPayload().sub)
@@ -39,14 +43,25 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
 
   function handleComment(){
     Bathroom.commentCreate($state.params.id, this.comments)
-      .then(() => $state.go('bathroomsShow', {id: $state.params.id}));
+      .then(() => {
+        this.comments.comment = '';
+        this.comments.rating = '';
+        getBathroomData();
+      });
     // console.log(vm.bathroom.avgRating);
+  }
+
+  function handleDelete(commentId){
+    Bathroom.deleteComment($state.params.id, commentId)
+      .then(getBathroomData);
   }
 
   vm.remove = remove;
   vm.handleRequest = handleRequest;
   vm.handleComment = handleComment;
+  vm.handleDelete = handleDelete;
 
+  getBathroomData();
 }
 
 export default BathroomsShowCtrl;

@@ -42,6 +42,10 @@ function Bathroom($http) {
     return $http.post(`/api/bathrooms/${id}/comments`, comment);
   }
 
+  function deleteComment(id, commentId){
+    return $http.delete(`/api/bathrooms/${id}/comments/${commentId}`);
+  }
+
   this.find = find;
   this.create = create;
   this.findById = findById;
@@ -52,6 +56,7 @@ function Bathroom($http) {
   this.rejectRequest = rejectRequest;
   this.findBathroom = findBathroom;
   this.commentCreate = commentCreate;
+  this.deleteComment = deleteComment;
 }
 
 export default Bathroom;
