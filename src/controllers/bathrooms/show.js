@@ -8,11 +8,12 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
   vm.message = '';
 
 
+
   function getBathroomData(){
     Bathroom.findById($state.params.id)
       .then(res => {
         vm.bathroom = res.data;
-        console.log(vm.bathroom.comments);
+        // console.log('previous users',vm.bathroom.previousUsers, vm.user);
       });
   }
 
@@ -21,7 +22,8 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
     User.findById($auth.getPayload().sub)
       .then(res =>  {
         vm.user = res.data;
-        console.log(vm.user._id);
+        getBathroomData();
+        if(vm.bathroom.previousUsers.includes(vm.user._id)) vm.user.isPrevious = true;
       });
   }
 

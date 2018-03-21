@@ -56,7 +56,7 @@
     </form>
   </div>
 </div>
-<form ng-submit="bathroomsShow.handleComment()" ng-if="bathroomsShow.user">
+<form ng-submit="bathroomsShow.handleComment()" ng-if="bathroomsShow.user.isPrevious">
   <textarea class="input" name="comment" ng-model="bathroomsShow.comments.comment"></textarea>
   <div class="field">
   <label for="name">Rating</label>
