@@ -1,16 +1,14 @@
 const mongoose = require('mongoose');
 
 const requestSchema = new mongoose.Schema({
-  // content: {type: String, minLength: 2},
   user: {type: mongoose.Schema.ObjectId, ref: 'User'},
   status: {type: String, default: 'pending', enum: ['accepted', 'pending', 'rejected']}
-  // dialogue: {type: Array}
 }, { timestamps: true });
 
 const commentSchema = new mongoose.Schema({
   content: {type: String},
   rating: {type: Number, enum: ['1', '2', '3', '4', '5']},
-  user: { type: mongoose.Schema.ObjectId, ref: 'User'}
+  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true}
 });
 
 commentSchema.methods.isOwnedBy = function(user){
@@ -34,7 +32,8 @@ const bathroomSchema = new mongoose.Schema({
   requests: [requestSchema],
   comments: [commentSchema],
   user: {type: mongoose.Schema.ObjectId, ref: 'User'},
-  isAvailable: {type: Boolean, default: true}
+  isAvailable: {type: Boolean, default: true},
+  previousUsers: {type: Array}
 });
 
 bathroomSchema

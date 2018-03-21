@@ -8,11 +8,12 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
   vm.message = '';
 
 
+
   function getBathroomData(){
     Bathroom.findById($state.params.id)
       .then(res => {
         vm.bathroom = res.data;
-        console.log(vm.bathroom);
+        // console.log('previous users',vm.bathroom.previousUsers, vm.user);
       });
   }
 
@@ -21,13 +22,14 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
     User.findById($auth.getPayload().sub)
       .then(res =>  {
         vm.user = res.data;
-        console.log(vm.user);
+        getBathroomData();
+        if(vm.bathroom.previousUsers.includes(vm.user._id)) vm.user.isPrevious = true;
       });
   }
 
   function remove() {
     Bathroom.remove(vm.bathroom)
-      .then(() => $state.go('bathroomsIndex'));
+      .then(() => $state.go($state.current, {}, {reload: true}));
   }
 
   function handleRequest() {
@@ -36,19 +38,22 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
       .then(res => {
         Bathroom.createRequest(vm.bathroom, {user: vm.bathroom.requests._id});
         vm.bathroom = res.data;
-        // console.log(vm.bathroom);
-      });
+      })
+      .then(() => $state.go($state.current, {}, {reload: true}));
   }
+  // vm.text = '';
 
 
   function handleComment(){
     Bathroom.commentCreate($state.params.id, this.comments)
+      .then(() => $state.go($state.current, {id: $state.params.id}, {reload: true}))
       .then(() => {
         this.comments.content = '';
         this.comments.rating = '';
         getBathroomData();
       });
   }
+
 
   function handleDelete(commentId){
     Bathroom.deleteComment($state.params.id, commentId)

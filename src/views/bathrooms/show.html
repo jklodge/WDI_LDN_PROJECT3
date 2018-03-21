@@ -52,12 +52,12 @@
     <p>{{ comment.rating }} Stars</p>
     <p>{{ comment.content }}</p>
     <form ng-submit="bathroomsShow.handleDelete(comment._id)">
-    <button class="button is-danger">Delete</button>
+    <button class="button is-danger" ng-if="bathroomsShow.user._id === comment.user">Delete</button>
     </form>
   </div>
 </div>
-<form ng-submit="bathroomsShow.handleComment()">
-  <textarea class="input" name="comment" ng-model="bathroomsShow.comments.content"></textarea>
+<form ng-submit="bathroomsShow.handleComment()" ng-if="bathroomsShow.user.isPrevious">
+  <textarea class="input" name="comment" ng-model="bathroomsShow.comments.comment"></textarea>
   <div class="field">
   <label for="name">Rating</label>
   <div class="control">

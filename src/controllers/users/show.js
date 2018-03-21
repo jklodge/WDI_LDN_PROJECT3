@@ -22,12 +22,13 @@ function UsersShowCtrl(Bathroom, User, $state, $auth) {
 
   function acceptRequest(bathroom, request) {
     bathroom.isAvailable = true;
+    bathroom.previousUsers.push(request.user._id);
     Bathroom.update(bathroom)
       .then(() => {
         Bathroom.acceptRequest(bathroom, request)
           .then(() => request.status = 'accepted');
       });
-    console.log(bathroom);
+    // console.log(bathroom);
   }
 
 
