@@ -4,6 +4,7 @@ function BathroomsIndexMapCtrl(Bathroom, filterFilter, $scope) {
 
   const vm = this;
   vm.center = {lat: 38.8977, lng: -77.0365};
+  vm.destination = {lat: 38.8977, lng: -76.0365};
 
   navigator.geolocation.getCurrentPosition(pos => {
     console.log(pos.coords.latitude);
