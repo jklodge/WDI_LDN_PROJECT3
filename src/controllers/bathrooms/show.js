@@ -23,7 +23,7 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
         getBathroomData();
         if(vm.bathroom.previousUsers.includes(vm.user._id)) vm.user.isPrevious = true;
         vm.user.index = vm.bathroom.previousUsers.indexOf(vm.user._id);
-        // console.log(vm.user.index);
+        console.log(vm.user.isPrevious);
       });
   }
 
