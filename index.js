@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 app.use('/api', router);
 
 app.use((err, req, res, next) => {
+  console.log(err);
   if (err.name === 'ValidationError') {
     return res.status(422).json({ message: 'Unprocessable Entity' });
   }

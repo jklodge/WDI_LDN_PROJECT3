@@ -3,6 +3,8 @@ const bathrooms = require('../controller/bathrooms');
 const auth = require('../controller/auth');
 const users = require('../controller/users');
 const secureRoute = require('../lib/secureRoute');
+const oauth = require('../controller/oauth');
+
 
 
 router.route('/bathrooms')
@@ -38,5 +40,7 @@ router.route('/users')
 router.route('/users/:id')
   .get(users.show)
   .put(users.update);
+
+router.post('/facebook', oauth.facebook);
 
 module.exports = router;
