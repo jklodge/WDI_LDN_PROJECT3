@@ -54,4 +54,4 @@ angular.module('pooberApp', ['ui.router', 'satellizer', 'angular-filepicker'])
   .directive('uploadImage', uploadImage)
   .service('Bathroom', Bathroom)
   .service('User', User)
-  .filter('range', rangeFilter);
+  .filter('rangeFilter', rangeFilter);

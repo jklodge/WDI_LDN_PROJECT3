@@ -1,6 +1,6 @@
-BathroomsIndexCtrl.$inject = ['Bathroom', 'filterFilter', '$scope'];
+BathroomsIndexCtrl.$inject = ['Bathroom', 'filterFilter', 'rangeFilter', '$scope'];
 
-function BathroomsIndexCtrl(Bathroom, filterFilter, $scope) {
+function BathroomsIndexCtrl(Bathroom, filterFilter, rangeFilter, $scope) {
 
   const vm = this;
 
@@ -19,15 +19,17 @@ function BathroomsIndexCtrl(Bathroom, filterFilter, $scope) {
 
   function filterBathrooms(){
     const params = {};
-    console.log(params);
+    // console.log(params);
 
     if(vm.toilet) params.toilet = vm.toilet;
     if(vm.shower) params.shower = vm.shower;
     if(vm.bidet) params.bidet = vm.bidet;
     if(vm.sanitaryProducts) params.sanitaryProducts = vm.sanitaryProducts;
     if(vm.babyChanging) params.babyChanging = vm.babyChanging;
-    console.log(params);
+    // console.log(params);
     vm.filtered = filterFilter(vm.bathrooms, params);
+
+    if(vm.min) vm.filtered = rangeFilter(vm.filtered, { rating: [vm.min, 5]});
   }
   function toggleAll() {
 
@@ -45,7 +47,8 @@ function BathroomsIndexCtrl(Bathroom, filterFilter, $scope) {
     () => vm.shower,
     () => vm.bidet,
     () => vm.sanitaryProducts,
-    () => vm.babyChanging
+    () => vm.babyChanging,
+    () => vm.min
   ], filterBathrooms);
 
 }
