@@ -2,18 +2,32 @@ UsersShowCtrl.$inject = ['Bathroom', 'User', '$state', '$auth'];
 function UsersShowCtrl(Bathroom, User, $state, $auth) {
   const vm = this;
   vm.user = {};
+  vm.user.requests = [];
 
   User.findById($auth.getPayload().sub)
     .then(res => {
       res.data.requests = res.data.requests.filter(request => request.user === $auth.getPayload().sub);
       vm.user = res.data;
-      // console.log(vm.user.bathrooms);
+      Bathroom.find()
+        .then(res => {
+          res.data.forEach(bathroom => {
+            if(bathroom.requests.length > 0 && bathroom.requests[0].user === $auth.getPayload().sub) {
+              vm.user.requests.push(bathroom);
+            }
+          });
+        });
     });
 
 
+
   function acceptRequest(bathroom, request) {
-    Bathroom.acceptRequest(bathroom, request)
-      .then(() => request.status = 'accepted');
+    bathroom.isAvailable = true;
+    Bathroom.update(bathroom)
+      .then(() => {
+        Bathroom.acceptRequest(bathroom, request)
+          .then(() => request.status = 'accepted');
+      });
+    console.log(bathroom);
   }
 
 

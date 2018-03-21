@@ -19,6 +19,7 @@ function BathroomsIndexCtrl(Bathroom, filterFilter, $scope) {
 
   function filterBathrooms(){
     const params = {};
+    console.log(params);
 
     if(vm.toilet) params.toilet = vm.toilet;
     if(vm.shower) params.shower = vm.shower;
@@ -29,12 +30,16 @@ function BathroomsIndexCtrl(Bathroom, filterFilter, $scope) {
     vm.filtered = filterFilter(vm.bathrooms, params);
   }
   function toggleAll() {
-    vm.toilet = !vm.toilet;
-    vm.shower = !vm.shower;
-    vm.bidet = !vm.bidet;
-    vm.sanitaryProducts = !vm.sanitaryProducts;
-    vm.babyChanging = !vm.babyChanging;
+
+    vm.toilet = vm.all;
+    vm.shower = vm.all;
+    vm.bidet = vm.all;
+    vm.sanitaryProducts = vm.all;
+    vm.babyChanging = vm.all;
   }
+
+  $scope.$watch(()=> vm.all, toggleAll);
+
   $scope.$watchGroup([
     () => vm.toilet,
     () => vm.shower,
@@ -43,7 +48,5 @@ function BathroomsIndexCtrl(Bathroom, filterFilter, $scope) {
     () => vm.babyChanging
   ], filterBathrooms);
 
-  vm.toggleAll = toggleAll;
 }
-
 export default BathroomsIndexCtrl;
