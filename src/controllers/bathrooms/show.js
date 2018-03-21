@@ -48,7 +48,6 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
         this.comments.rating = '';
         getBathroomData();
       });
-    // console.log(vm.bathroom.avgRating);
   }
 
   function handleDelete(commentId){
