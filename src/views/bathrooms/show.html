@@ -13,15 +13,6 @@
     <form ng-submit="bathroomsShow.handleRequest()" ng-if="bathroomsShow.bathroom.isAvailable && bathroomsShow.user._id !== bathroomsShow.bathroom.user">
       <button class="button is-primary" value="Submit">Request bathroom</button>
     </form>
-    <!-- <div class="subtitle" ng-if="bathroomsShow.userId && bathroomsShow.bathroom.requests">
-      <p class="title is-6">Status of your request: {{bathroomsShow.bathroom.requests[0].status}}</p>
-    </div> -->
-<!-- ng-if="bathroomsShow.user._id && bathroomsShow.bathroom.requests.length === 0" -->
-    <!-- <ul ng-if="bathroomsShow.userId" ng-controller="BathroomsShowCtrl as bathroomsShow">
-      <li ng-repeat="request in bathroomsShow.bathroom.requests" ng-if="bathroomsShow.userId._id === request.user || bathroomsShow.userId._id === bathroomsShow.bathroom.user">
-        Requests:  {{ request.content }}
-      </li>
-    </ul> -->
 
     <a ui-sref="bathroomsEdit({ id: bathroomsShow.bathroom._id })" class="button" ng-if="bathroomsShow.user._id === bathroomsShow.bathroom.user">Edit</a>
     <button class="button is-danger" ng-click="bathroomsShow.remove()" ng-if="bathroomsShow.user._id === bathroomsShow.bathroom.user">Delete</button>
