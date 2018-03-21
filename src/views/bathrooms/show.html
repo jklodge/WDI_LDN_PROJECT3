@@ -49,29 +49,29 @@
 <div class="container">
   <div class="card" ng-repeat="comment in bathroomsShow.bathroom.comments">
     <p>{{ comment.user }}</p>
-    <p>{{ comment.rating }} Stars</p>
+    <p>{{ comment.rating }} </p>
     <p>{{ comment.content }}</p>
     <form ng-submit="bathroomsShow.handleDelete(comment._id)">
-    <button class="button is-danger" ng-if="bathroomsShow.user._id === comment.user">Delete</button>
+      <button class="button is-danger" ng-if="bathroomsShow.user._id === comment.user">Delete</button>
     </form>
   </div>
 </div>
 <form ng-submit="bathroomsShow.handleComment()" ng-if="bathroomsShow.user.isPrevious">
-  <textarea class="input" name="comment" ng-model="bathroomsShow.comments.comment"></textarea>
+  <textarea class="input" name="comment" ng-model="bathroomsShow.comments.content"></textarea>
   <div class="field">
-  <label for="name">Rating</label>
-  <div class="control">
-    <div class="select">
-      <select name="rating" ng-model="bathroomsShow.comments.rating">
-        <option value="">Please Select</option>
-        <option value="1">💩</option>
-        <option value="2">💩💩</option>
-        <option value="3">💩💩💩</option>
-        <option value="4">💩💩💩💩</option>
-        <option value="5">💩💩💩💩💩</option>
-      </select>
+    <label for="name">Rating</label>
+    <div class="control">
+      <div class="select">
+        <select name="rating" ng-model="bathroomsShow.comments.rating">
+          <option value="">Please Select</option>
+          <option value="1">💩</option>
+          <option value="2">💩💩</option>
+          <option value="3">💩💩💩</option>
+          <option value="4">💩💩💩💩</option>
+          <option value="5">💩💩💩💩💩</option>
+        </select>
+      </div>
     </div>
   </div>
-</div>
   <button class="button is-primary">Submit</button>
 </form>
