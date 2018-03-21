@@ -27,10 +27,22 @@ function updateRoute(req, res, next) {
     .catch(next);
 }
 
+function commentCreateRoute(req, res, next){
+  req.body.user = req.currentUser;
+  User.findById(req.params.id)
+    .then(user => {
+      user.comments.push(req.body);
+      user.save();
+    })
+    .then(user => res.json(user))
+    .catch(next);
+}
+
 
 
 module.exports = {
   index: indexRoute,
   show: showRoute,
-  update: updateRoute
+  update: updateRoute,
+  commentCreate: commentCreateRoute
 };

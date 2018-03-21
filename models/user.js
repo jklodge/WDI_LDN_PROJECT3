@@ -1,14 +1,29 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const commentSchema = new mongoose.Schema({
+  rating: {type: Number, enum: ['1', '2', '3', '4', '5']}
+});
+
 const userSchema = new mongoose.Schema({
   username: {type: String, required: true},
   firstName: {type: String, required: true},
   lastName: {type: String, required: true},
   email: {type: String, required: true},
   image: {type: String },
-  password: {type: String }
+  password: {type: String},
+  comments: [commentSchema],
+  previousUsers: [{type: mongoose.Schema.ObjectId, ref: 'User'}]
 });
+
+
+userSchema
+  .virtual('avgRating')
+  .get(function getAvgRating(){
+    if(this.comments.length === 0) return 'N/A';
+    const ratings = this.comments.map(comment => comment.rating);
+    return Math.round(((ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length) * 2) / 2);
+  });
 
 // passwordConfirmation virtual
 
