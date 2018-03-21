@@ -49,14 +49,14 @@
 <div class="container">
   <div class="card" ng-repeat="comment in bathroomsShow.bathroom.comments">
     <p>{{ comment.user }}</p>
-    <p>{{ comment.rating }} Stars</p>
+    <p>{{ comment.rating }} </p>
     <p>{{ comment.content }}</p>
     <form ng-submit="bathroomsShow.handleDelete(comment._id)">
       <button class="button is-danger" ng-if="bathroomsShow.user._id === comment.user">Delete</button>
     </form>
   </div>
 </div>
-<form ng-submit="bathroomsShow.handleComment()" ng-if="bathroomsShow.user.isPrevious">
+<form ng-submit="bathroomsShow.handleComment()">
   <textarea class="input" name="comment" ng-model="bathroomsShow.comments.comment"></textarea>
   <div class="field">
     <label for="name">Rating</label>

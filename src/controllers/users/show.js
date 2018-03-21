@@ -28,7 +28,6 @@ function UsersShowCtrl(Bathroom, User, $state, $auth) {
         Bathroom.acceptRequest(bathroom, request)
           .then(() => request.status = 'accepted');
       });
-    // console.log(bathroom);
   }
 
 
