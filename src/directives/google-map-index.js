@@ -12,7 +12,7 @@ function googleMapIndex() {
     link($scope, $element) {
 
       const map = new google.maps.Map($element[0], {
-        zoom: 13,
+        zoom: 16,
         center: $scope.center
       });
 
