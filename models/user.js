@@ -7,7 +7,19 @@ const userSchema = new mongoose.Schema({
   lastName: {type: String, required: true},
   email: {type: String, required: true},
   image: {type: String },
-  password: {type: String, required: true}
+  password: {type: String }
+});
+
+// passwordConfirmation virtual
+
+userSchema.pre('validate', function checkPasswordMatch(next) {
+  if(!this.password && !this.facebookId) {
+    this.invalidate('password', 'password is required');
+  }
+  if(this.password && this.isModified('password') && this._passwordConfirmation !== this.password) {
+    this.invalidate('passwordConfirmation', 'passwords do not match');
+  }
+  next();
 });
 
 userSchema.virtual('bathrooms', {

@@ -1,0 +1,40 @@
+<form ng-submit="usersEdit.handleSubmit()">
+  <div class="filed">
+    <label for="name">Username</label>
+    <input class="input" placeholder="Username" name="username" ng-model="usersEdit.user.username"  />
+  </div>
+  <div class="filed">
+    <label for="name">Name</label>
+    <input class="input" placeholder="FirstName" name="firstname" ng-model="usersEdit.user.firstName" />
+  </div>
+  <div class="field">
+    <label for="name">Email</label>
+    <input class="input" placeholder="Email" name="email" ng-model="usersEdit.user.email" />
+  </div>
+  <div class="field" ng-if="usersEdit.user.image">
+  <label class="label">Profile Picture Preview</label>
+  <div class="control">
+    <figure class="image is-128x128">
+      <img src="{{ usersEdit.user.image }}">
+    </figure>
+  </div>
+</div>
+  <div class="control">
+    <div class="file">
+      <label class="file-label">
+        <input class="file-input" type="file" ng-model="usersEdit.user.image" upload-image>
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fa fa-upload"></i>
+          </span>
+          <span class="file-label">
+            Choose a file…
+          </span>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <button class="button is-primary" >Submit</button>
+
+</form>

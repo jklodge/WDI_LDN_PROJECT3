@@ -1,1 +1,50 @@
-<p>edit form goes here</p>
+<form ng-submit="bathroomsEdit.handleSubmit()">
+  <div class="filed">
+    <label for="name">Name</label>
+    <input class="input" placeholder="Name" name="name" ng-model="bathroomsEdit.bathroom.name" />
+  </div>
+  <div class="field">
+    <label for="name">Address</label>
+    <input class="input google-map-autofill" placeholder="Address" address="bathroomsEdit.bathroom.address" location="bathroomsEdit.bathroom.location" name="address" ng-model="bathroomsEdit.bathroom.address" />
+  </div>
+  <div class="field" ng-if="bathroomsEdit.bathroom.image">
+  <label class="label">Profile Picture Preview</label>
+  <div class="control">
+    <figure class="image is-128x128">
+      <img src="{{ bathroomsEdit.bathroom.image }}">
+    </figure>
+  </div>
+</div>
+  <div class="control">
+    <div class="file">
+      <label class="file-label">
+        <input class="file-input" type="file" ng-model="bathroomsEdit.bathroom.image" upload-image>
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fa fa-upload"></i>
+          </span>
+          <span class="file-label">
+            Choose a file…
+          </span>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <div class="filed">
+    <label for="name">Description</label>
+    <input class="input" placeholder="Description" name="description" ng-model="bathroomsEdit.bathroom.description"  />
+  </div>
+  <div class="field">
+    <label for="name">Facilities</label>
+    <input type="checkbox" ng-model="bathroomsEdit.all"/> Check all<br><br>
+    <input type="checkbox" ng-model="bathroomsEdit.bathroom.toilet" >Toilet<br>
+    <input type="checkbox" ng-model="bathroomsEdit.bathroom.shower" >Shower<br>
+    <input type="checkbox" ng-model="bathroomsEdit.bathroom.bidet" >Bidet<br>
+    <input type="checkbox" ng-model="bathroomsEdit.bathroom.sanitaryProducts" >Sanitary Products<br>
+    <input type="checkbox" ng-model="bathroomsEdit.bathroom.babyChanging">Baby Changing<br>
+
+  </div>
+    <button class="button is-primary" >Submit</button>
+
+</form>
