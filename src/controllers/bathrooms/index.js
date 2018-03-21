@@ -1,6 +1,6 @@
-BathroomsIndexCtrl.$inject = ['Bathroom', 'filterFilter', '$scope'];
+BathroomsIndexCtrl.$inject = ['Bathroom', 'filterFilter', 'rangeFilter', '$scope'];
 
-function BathroomsIndexCtrl(Bathroom, filterFilter, $scope) {
+function BathroomsIndexCtrl(Bathroom, filterFilter, rangeFilter, $scope) {
 
   const vm = this;
 
@@ -14,21 +14,33 @@ function BathroomsIndexCtrl(Bathroom, filterFilter, $scope) {
   vm.babyChanging = false;
 
   Bathroom.find()
-    .then(res => vm.bathrooms = res.data)
+    .then(res => {
+      vm.bathrooms = res.data;
+      console.log(vm.bathrooms);
+    })
     .then(filterBathrooms);
 
   function filterBathrooms(){
     const params = {};
-    console.log(params);
+    // console.log(params);
 
     if(vm.toilet) params.toilet = vm.toilet;
     if(vm.shower) params.shower = vm.shower;
     if(vm.bidet) params.bidet = vm.bidet;
     if(vm.sanitaryProducts) params.sanitaryProducts = vm.sanitaryProducts;
     if(vm.babyChanging) params.babyChanging = vm.babyChanging;
-    console.log(params);
+    // console.log(params);
     vm.filtered = filterFilter(vm.bathrooms, params);
+
+
+    if(vm.min) {
+      vm.filtered.forEach(item => {
+        if(item.avgRating === 'N/A') item.avgRating = 5;
+      });
+      vm.filtered = rangeFilter(vm.filtered, { avgRating: [vm.min, 5]});
+    }
   }
+
   function toggleAll() {
 
     vm.toilet = vm.all;
@@ -45,7 +57,8 @@ function BathroomsIndexCtrl(Bathroom, filterFilter, $scope) {
     () => vm.shower,
     () => vm.bidet,
     () => vm.sanitaryProducts,
-    () => vm.babyChanging
+    () => vm.babyChanging,
+    () => vm.min
   ], filterBathrooms);
 
 }
