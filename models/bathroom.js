@@ -18,7 +18,7 @@ commentSchema.methods.isOwnedBy = function(user){
 const bathroomSchema = new mongoose.Schema({
   name: {type: String},
   address: {type: String, required: true},
-  image: {type: String },
+  image: {type: String, required: true },
   description: {type: String, required: true, maxLength: 500},
   toilet: {type: Boolean},
   shower: {type: Boolean},

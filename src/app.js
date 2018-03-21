@@ -3,7 +3,7 @@ import '@uirouter/angularjs';
 import 'satellizer';
 import 'filepicker-js';
 import 'angular-filepicker/dist/angular_filepicker';
-
+import 'angular-messages';
 import Router from './config/router';
 import Auth from './config/auth';
 import Upload from './config/filestack';
@@ -33,7 +33,7 @@ import rangeFilter from './filters/range';
 
 import 'bulma';
 
-angular.module('pooberApp', ['ui.router', 'satellizer', 'angular-filepicker'])
+angular.module('pooberApp', ['ui.router', 'satellizer', 'angular-filepicker', 'ngMessages'])
   .config(Router)
   .config(Auth)
   .config(Upload)

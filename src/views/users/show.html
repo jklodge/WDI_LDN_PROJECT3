@@ -9,9 +9,10 @@
   <figure class="image">
     <img ng-src="{{ usersShow.user.image }}" alt="{{ usersShow.user.name }}" />
   </figure>
-  <a ui-sref="usersEdit({ id: usersShow.user._id })" class="button">Edit</a>
+  <a ui-sref="usersEdit({ id: usersShow.user._id })" class="button"><i class="fas fa-pencil-alt"></i>Edit</a>
   <br>
 </div>
+
 <br>
 <div class="card" ng-controller="UsersShowCtrl as usersShow" ng-if="usersShow.user.bathrooms.length > 0">
   <h1 class="title is-4" ng-if="usersShow.user.bathrooms.length > 0">Your Bathroom requests</h1>
@@ -36,6 +37,8 @@
   </div>
 </div>
 <br>
+
+
 <div class="card" ng-controller="UsersShowCtrl as usersShow">
   <h1 class="title is-4">Your Own Requests</h1>
   <div ng-repeat="request in usersShow.user.requests">

@@ -6,8 +6,6 @@ function MainCtrl($auth, $state, $rootScope, $timeout){
   vm.flashMessage = null;
   vm.clicked = false;
 
-
-
   $rootScope.$on('flashMessage', (e, data) => {
     vm.flashMessage = data;
 
