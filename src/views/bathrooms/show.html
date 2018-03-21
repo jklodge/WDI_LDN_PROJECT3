@@ -48,7 +48,7 @@
 </div>
 <div class="container">
   <div class="card" ng-repeat="comment in bathroomsShow.bathroom.comments">
-    <p>{{ comment.user }}</p>
+    <p>{{ comment.user.firstName }}</p>
     <p>{{ comment.rating }} </p>
     <p>{{ comment.content }}</p>
     <form ng-submit="bathroomsShow.handleDelete(comment._id)">
