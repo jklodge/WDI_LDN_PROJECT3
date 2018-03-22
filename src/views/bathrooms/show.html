@@ -1,91 +1,96 @@
-  <div class="card">
-    <div class="columns is-multiline is-mobile">
-    <div class="card-image column is-half-desktop is-full-mobile">
-      <figure class="image">
-        <img class="show-page-image" ng-src="{{ bathroomsShow.bathroom.image }}" alt="{{ bathroomsShow.bathroom.address }}" />
-      </figure>
-    </div>
-    <div class="card-content info-card column is-half-desktop is-half-tablet is-full-mobile">
-      <div class="card bathroom-user-card">
-        <div class="card-content bathroom-info">
-          <h4>Name: {{ bathroomsShow.bathroom.name }}</h4>
-          <p>Address: {{ bathroomsShow.bathroom.address }}</p>
-          <p>Average Rating: {{bathroomsShow.bathroom.avgRating}}</p>
+<section id="section" class="section">
+  <div class="container">
+    <div class="card">
+      <div class="columns is-multiline is-mobile">
+        <div class="card-image column is-half-desktop is-full-mobile">
+          <figure class="image">
+            <img class="show-page-image" ng-src="{{ bathroomsShow.bathroom.image }}" alt="{{ bathroomsShow.bathroom.address }}" />
+          </figure>
         </div>
-      </div>
-      <div class="edit-and-delete">
-        <a ui-sref="bathroomsEdit({ id: bathroomsShow.bathroom._id })" class="button" ng-if="bathroomsShow.user._id === bathroomsShow.bathroom.user">Edit</a>
-        <button class="button is-danger" ng-click="bathroomsShow.remove()" ng-if="bathroomsShow.user._id === bathroomsShow.bathroom.user">Delete</button>
-      </div>
-      <div class="icon-images">
-        <div class="columns is-multiline is-mobile">
-          <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-mobile">
-            <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.toilet">
-              <img src="/assets/images/toilet.png" alt="toilet">
-            </figure>
+        <div class="card-content info-card column is-half-desktop is-half-tablet is-full-mobile">
+          <div class="card bathroom-user-card">
+            <div class="card-content bathroom-info">
+              <h4>Name: {{ bathroomsShow.bathroom.name }}</h4>
+              <p>Address: {{ bathroomsShow.bathroom.address }}</p>
+              <p>Average Rating: {{bathroomsShow.bathroom.avgRating}}</p>
+            </div>
           </div>
-          <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-mobile">
-            <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.shower">
-              <img src="/assets/images/shower.png" alt="shower">
-            </figure>
+          <div class="edit-and-delete">
+            <a ui-sref="bathroomsEdit({ id: bathroomsShow.bathroom._id })" class="button" ng-if="bathroomsShow.user._id === bathroomsShow.bathroom.user">Edit</a>
+            <button class="button is-danger" ng-click="bathroomsShow.remove()" ng-if="bathroomsShow.user._id === bathroomsShow.bathroom.user">Delete</button>
           </div>
-          <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-mobile">
-            <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.bidet">
-              <img src="/assets/images/bidet.png" alt="bidet">
-            </figure>
-          </div>
-          <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-mobile">
-            <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.babyChanging">
-              <!-- <img src="/assets/images/sanitary.png" alt="sanitary products"> -->
-            </figure>
-          </div>
-          <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-mobile">
-            <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.babyChanging">
-              <img src="/assets/images/baby.png" alt="baby">
-            </figure>
-          </div>
-        </div>
+          <div class="icon-images">
+            <div class="columns is-multiline is-mobile">
+              <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-mobile">
+                <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.toilet">
+                  <img src="/assets/images/toilet.png" alt="toilet">
+                </figure>
+              </div>
+              <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-mobile">
+                <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.shower">
+                  <img src="/assets/images/shower.png" alt="shower">
+                </figure>
+              </div>
+              <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-mobile">
+                <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.bidet">
+                  <img src="/assets/images/bidet.png" alt="bidet">
+                </figure>
+              </div>
+              <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-mobile">
+                <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.babyChanging">
+                  <!-- <img src="/assets/images/sanitary.png" alt="sanitary products"> -->
+                </figure>
+              </div>
+              <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-mobile">
+                <figure class="image is-64x64" ng-if="bathroomsShow.bathroom.babyChanging">
+                  <img src="/assets/images/baby.png" alt="baby">
+                </figure>
+              </div>
+            </div>
 
+          </div>
+          <form ng-submit="bathroomsShow.handleRequest()" ng-if="bathroomsShow.bathroom.isAvailable && bathroomsShow.user._id !== bathroomsShow.bathroom.user && bathroomsShow.user">
+            <button class="button is-primary" value="Submit">Request bathroom</button>
+          </form>
+        </div>
       </div>
-      <form ng-submit="bathroomsShow.handleRequest()" ng-if="bathroomsShow.bathroom.isAvailable && bathroomsShow.user._id !== bathroomsShow.bathroom.user && bathroomsShow.user">
-        <button class="button is-primary" value="Submit">Request bathroom</button>
-      </form>
+      <div class="column is-full-desktop is-full-mobile">
+        <google-map zoom="15" center="bathroomsShow.bathroom.location" origin="{lat: 0, lng: 0}" bathroom="bathroomsShow.bathroom"></google-map>
+      </div>
+      <div class="column is-full-desktop">
+        <div id="directions-show">
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="column is-full-desktop is-full-mobile">
-    <google-map zoom="15" center="bathroomsShow.bathroom.location" origin="{lat: 0, lng: 0}" bathroom="bathroomsShow.bathroom"></google-map>
-  </div>
-  <div class="column is-full-desktop">
-    <div id="directions-show">
+    <div class="card comment-card" ng-repeat="comment in bathroomsShow.bathroom.comments">
+      <div class="card-content column is-full-desktop is-full-mobile is-full-tablet">
+        <p>{{ comment.user.firstName }}</p>
+        <p>{{ comment.rating }} </p>
+        <p>{{ comment.content }}</p>
+        <form ng-submit="bathroomsShow.handleDelete(comment._id)">
+          <button class="button is-danger" ng-if="bathroomsShow.user._id === comment.user">Delete</button>
+        </form>
+      </div>
     </div>
-  </div>
-</div>
-<div class="card comment-card" ng-repeat="comment in bathroomsShow.bathroom.comments">
-  <div class="card-content column is-full-desktop is-full-mobile is-full-tablet">
-    <p>{{ comment.user.firstName }}</p>
-    <p>{{ comment.rating }} </p>
-    <p>{{ comment.content }}</p>
-    <form ng-submit="bathroomsShow.handleDelete(comment._id)">
-      <button class="button is-danger" ng-if="bathroomsShow.user._id === comment.user">Delete</button>
+    <form ng-submit="bathroomsShow.handleComment()" ng-if="bathroomsShow.user.isPrevious">
+      <textarea class="input" name="comment" ng-model="bathroomsShow.comments.content"></textarea>
+      <div class="field">
+        <label for="name">Rating</label>
+        <div class="control">
+          <div class="select">
+            <select name="rating" ng-model="bathroomsShow.comments.rating">
+              <option value="">Please Select</option>
+              <option value="1">💩</option>
+              <option value="2">💩💩</option>
+              <option value="3">💩💩💩</option>
+              <option value="4">💩💩💩💩</option>
+              <option value="5">💩💩💩💩💩</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button class="button is-primary">Submit</button>
     </form>
+    
   </div>
-</div>
-<form ng-submit="bathroomsShow.handleComment()" ng-if="bathroomsShow.user.isPrevious">
-  <textarea class="input" name="comment" ng-model="bathroomsShow.comments.content"></textarea>
-  <div class="field">
-    <label for="name">Rating</label>
-    <div class="control">
-      <div class="select">
-        <select name="rating" ng-model="bathroomsShow.comments.rating">
-          <option value="">Please Select</option>
-          <option value="1">💩</option>
-          <option value="2">💩💩</option>
-          <option value="3">💩💩💩</option>
-          <option value="4">💩💩💩💩</option>
-          <option value="5">💩💩💩💩💩</option>
-        </select>
-      </div>
-    </div>
-  </div>
-  <button class="button is-primary">Submit</button>
-</form>
+</section>

@@ -1,47 +1,51 @@
-<div class="field">
-  <label for="name">Facilities</label>
-  <div class="columns is-multiline is-mobile">
-    <div class="column is-two-thirds-desktop is-full-mobile">
-      Check all <input type="checkbox" ng-model="bathroomsIndex.all">
-      Toilet <input type="checkbox" ng-model="bathroomsIndex.toilet">
-      Shower <input type="checkbox" ng-model="bathroomsIndex.shower">
-      Bidet <input type="checkbox" ng-model="bathroomsIndex.bidet">
-      Sanitary Products <input type="checkbox" ng-model="bathroomsIndex.sanitaryProducts">
-      Baby Changing <input type="checkbox" ng-model="bathroomsIndex.babyChanging">
-    </div>
-    <div class="">
+<section id="section" class="section">
+  <div class="container">
+    <div class="field">
+      <label for="name">Facilities</label>
+      <div class="columns is-multiline is-mobile">
+        <div class="column is-two-thirds-desktop is-full-mobile">
+          Check all <input type="checkbox" ng-model="bathroomsIndex.all">
+          Toilet <input type="checkbox" ng-model="bathroomsIndex.toilet">
+          Shower <input type="checkbox" ng-model="bathroomsIndex.shower">
+          Bidet <input type="checkbox" ng-model="bathroomsIndex.bidet">
+          Sanitary Products <input type="checkbox" ng-model="bathroomsIndex.sanitaryProducts">
+          Baby Changing <input type="checkbox" ng-model="bathroomsIndex.babyChanging">
+        </div>
+        <div class="">
 
-    </div>
-    <div class="column is-one-third-desktop is-one-half-tablet is-half-mobile">
-      <div class="control">
-        <div class="select">
-          <select name="rating" ng-model="bathroomsIndex.min">
-            <option value="">Filter By Rating</option>
-            <option value="1">💩</option>
-            <option value="2">💩💩</option>
-            <option value="3">💩💩💩</option>
-            <option value="4">💩💩💩💩</option>
-            <option value="5">💩💩💩💩💩</option>
-          </select>
+        </div>
+        <div class="column is-one-third-desktop is-one-half-tablet is-half-mobile">
+          <div class="control">
+            <div class="select">
+              <select name="rating" ng-model="bathroomsIndex.min">
+                <option value="">Filter By Rating</option>
+                <option value="1">💩</option>
+                <option value="2">💩💩</option>
+                <option value="3">💩💩💩</option>
+                <option value="4">💩💩💩💩</option>
+                <option value="5">💩💩💩💩💩</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <ul class="columns is-multiline is-mobile">
+      <li class="column is-one-quarter-desktop is-full-mobile is-half-tablet" ng-repeat="bathroom in bathroomsIndex.filtered">
+        <a ui-sref="bathroomsShow({ id: bathroom._id})">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image">
+                <img ng-src="{{ bathroom.image }}" alt="{{ bathroom.address }}" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <h4>{{ bathroom.address }}</h4>
+            </div>
+          </div>
+        </a>
+      </li>
+
+    </ul>
   </div>
-</div>
-<ul class="columns is-multiline is-mobile">
-  <li class="column is-one-quarter-desktop is-full-mobile is-half-tablet" ng-repeat="bathroom in bathroomsIndex.filtered">
-    <a ui-sref="bathroomsShow({ id: bathroom._id})">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image">
-            <img ng-src="{{ bathroom.image }}" alt="{{ bathroom.address }}" />
-          </figure>
-        </div>
-        <div class="card-content">
-          <h4>{{ bathroom.address }}</h4>
-        </div>
-      </div>
-    </a>
-  </li>
-
-</ul>
+</section>
