@@ -30,7 +30,7 @@
               <h3 class="title is-6">Your bathroom:{{bathroom.address}}</h3>
               <div ng-repeat="request in bathroom.requests" ng-if="request.status === 'pending'">
                 <p >User: {{ request.user.username }}</p>
-                <p >User Rating: {{ request.user.avgRating }} 💩</p>
+                <p class="user-rating-styling">User Rating: {{ request.user.avgRating }} 💩</p>
 
                 <div ng-if="request.status === 'pending'">
                   <button ng-click="usersShow.acceptRequest(bathroom, request)" type="button" class="button is-success">Accept</button>
@@ -78,7 +78,7 @@
                 </div>
               </div>
             </div>
-            <button class="button is-primary">Submit</button>
+            <button class="button submit-button">Submit</button>
           </form>
         </div>
       </div>

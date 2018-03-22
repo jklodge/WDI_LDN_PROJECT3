@@ -50,7 +50,7 @@
 
           </div>
           <form ng-submit="bathroomsShow.handleRequest()" ng-if="bathroomsShow.bathroom.isAvailable && bathroomsShow.user._id !== bathroomsShow.bathroom.user && bathroomsShow.user">
-            <button class="button is-primary" value="Submit">Request bathroom</button>
+            <button class="button request-button" value="Submit">Request bathroom</button>
           </form>
         </div>
       </div>
@@ -64,33 +64,39 @@
     </div>
     <div class="card comment-card" ng-repeat="comment in bathroomsShow.bathroom.comments">
       <div class="card-content column is-full-desktop is-full-mobile is-full-tablet">
-        <p>{{ comment.user.firstName }}</p>
-        <p>{{ comment.rating }} </p>
-        <p>{{ comment.content }}</p>
+        <p class="comment-styling"><strong>User:</strong> {{ comment.user.firstName }}</p>
+        <p><strong>Rating:</strong> {{ comment.rating }} </p>
+        <p><strong>Comment:</strong> {{ comment.content }}</p>
         <form ng-submit="bathroomsShow.handleDelete(comment._id)">
           <button class="button is-danger" ng-if="bathroomsShow.user._id === comment.user">Delete</button>
         </form>
       </div>
     </div>
-    <form ng-submit="bathroomsShow.handleComment()" ng-if="bathroomsShow.user.isPrevious">
-      <textarea class="input" name="comment" ng-model="bathroomsShow.comments.content"></textarea>
-      <div class="field">
-        <label for="name">Rating</label>
-        <div class="control">
-          <div class="select">
-            <select name="rating" ng-model="bathroomsShow.comments.rating">
-              <option value="">Please Select</option>
-              <option value="1">💩</option>
-              <option value="2">💩💩</option>
-              <option value="3">💩💩💩</option>
-              <option value="4">💩💩💩💩</option>
-              <option value="5">💩💩💩💩💩</option>
-            </select>
+    <form ng-submit="bathroomsShow.handleComment()" ng-if="bathroomsShow.user.isPrevious" class="comment-form-styling">
+    <div class="card comment-form-styling">
+      <div class="card-content">
+        <p class="comment-form-styling">Please leave a comment</p>
+        <textarea class="input" name="comment" ng-model="bathroomsShow.comments.content"></textarea>
+        <div class="field">
+          <label for="name">Rating</label>
+          <div class="control">
+            <div class="select">
+              <select name="rating" ng-model="bathroomsShow.comments.rating">
+                <option value="">Please Select</option>
+                <option value="1">💩</option>
+                <option value="2">💩💩</option>
+                <option value="3">💩💩💩</option>
+                <option value="4">💩💩💩💩</option>
+                <option value="5">💩💩💩💩💩</option>
+              </select>
+            </div>
           </div>
         </div>
+        <button class="button submit-button">Submit</button>
+
       </div>
-      <button class="button is-primary">Submit</button>
+    </div>
     </form>
-    
+
   </div>
 </section>
