@@ -16,7 +16,26 @@ function googleMap() {
       const map = new google.maps.Map($element[0], {
         zoom: $scope.zoom,
         center: $scope.center,
-        styles: [
+        styles:
+        [
+          {
+            'featureType': 'all',
+            'elementType': 'labels',
+            'stylers': [
+              {
+                'visibility': 'on'
+              }
+            ]
+          },
+          {
+            'featureType': 'all',
+            'elementType': 'labels.text',
+            'stylers': [
+              {
+                'visibility': 'on'
+              }
+            ]
+          },
           {
             'featureType': 'all',
             'elementType': 'labels.text.fill',
@@ -25,10 +44,13 @@ function googleMap() {
                 'saturation': 36
               },
               {
-                'color': '#000000'
+                'color': '#dee6f0'
               },
               {
                 'lightness': 40
+              },
+              {
+                'visibility': 'on'
               }
             ]
           },
@@ -37,7 +59,7 @@ function googleMap() {
             'elementType': 'labels.text.stroke',
             'stylers': [
               {
-                'visibility': 'on'
+                'visibility': 'off'
               },
               {
                 'color': '#000000'
@@ -53,6 +75,9 @@ function googleMap() {
             'stylers': [
               {
                 'visibility': 'off'
+              },
+              {
+                'hue': '#ff0000'
               }
             ]
           },
@@ -60,6 +85,9 @@ function googleMap() {
             'featureType': 'administrative',
             'elementType': 'geometry.fill',
             'stylers': [
+              {
+                'color': '#353c44'
+              },
               {
                 'lightness': 20
               }
@@ -81,42 +109,6 @@ function googleMap() {
             ]
           },
           {
-            'featureType': 'administrative.province',
-            'elementType': 'labels.text.fill',
-            'stylers': [
-              {
-                'color': '#e3b141'
-              }
-            ]
-          },
-          {
-            'featureType': 'administrative.locality',
-            'elementType': 'labels.text.fill',
-            'stylers': [
-              {
-                'color': '#e0a64b'
-              }
-            ]
-          },
-          {
-            'featureType': 'administrative.locality',
-            'elementType': 'labels.text.stroke',
-            'stylers': [
-              {
-                'color': '#0e0d0a'
-              }
-            ]
-          },
-          {
-            'featureType': 'administrative.neighborhood',
-            'elementType': 'labels.text.fill',
-            'stylers': [
-              {
-                'color': '#d1b995'
-              }
-            ]
-          },
-          {
             'featureType': 'landscape',
             'elementType': 'geometry',
             'stylers': [
@@ -125,6 +117,36 @@ function googleMap() {
               },
               {
                 'lightness': 20
+              }
+            ]
+          },
+          {
+            'featureType': 'landscape',
+            'elementType': 'geometry.fill',
+            'stylers': [
+              {
+                'color': '#1c1e25'
+              }
+            ]
+          },
+          {
+            'featureType': 'landscape.man_made',
+            'elementType': 'labels.text',
+            'stylers': [
+              {
+                'visibility': 'on'
+              }
+            ]
+          },
+          {
+            'featureType': 'landscape.man_made',
+            'elementType': 'labels.icon',
+            'stylers': [
+              {
+                'visibility': 'on'
+              },
+              {
+                'hue': '#e0ff00'
               }
             ]
           },
@@ -141,11 +163,29 @@ function googleMap() {
             ]
           },
           {
-            'featureType': 'road',
-            'elementType': 'labels.text.stroke',
+            'featureType': 'poi',
+            'elementType': 'geometry.fill',
             'stylers': [
               {
-                'color': '#12120f'
+                'color': '#1e212b'
+              }
+            ]
+          },
+          {
+            'featureType': 'poi',
+            'elementType': 'labels.text',
+            'stylers': [
+              {
+                'visibility': 'on'
+              }
+            ]
+          },
+          {
+            'featureType': 'poi',
+            'elementType': 'labels.icon',
+            'stylers': [
+              {
+                'visibility': 'on'
               }
             ]
           },
@@ -154,16 +194,13 @@ function googleMap() {
             'elementType': 'geometry.fill',
             'stylers': [
               {
-                'lightness': '-77'
+                'color': '#00cebd'
               },
               {
-                'gamma': '4.48'
+                'lightness': 17
               },
               {
-                'saturation': '24'
-              },
-              {
-                'weight': '0.65'
+                'saturation': '11'
               }
             ]
           },
@@ -171,6 +208,9 @@ function googleMap() {
             'featureType': 'road.highway',
             'elementType': 'geometry.stroke',
             'stylers': [
+              {
+                'color': '#000000'
+              },
               {
                 'lightness': 29
               },
@@ -180,41 +220,56 @@ function googleMap() {
             ]
           },
           {
-            'featureType': 'road.highway.controlled_access',
+            'featureType': 'road.highway',
+            'elementType': 'labels.text.fill',
+            'stylers': [
+              {
+                'visibility': 'simplified'
+              }
+            ]
+          },
+          {
+            'featureType': 'road.highway',
+            'elementType': 'labels.icon',
+            'stylers': [
+              {
+                'hue': '#ff7a00'
+              },
+              {
+                'saturation': '79'
+              },
+              {
+                'visibility': 'on'
+              },
+              {
+                'lightness': '-33'
+              },
+              {
+                'gamma': '0.63'
+              }
+            ]
+          },
+          {
+            'featureType': 'road.arterial',
+            'elementType': 'geometry',
+            'stylers': [
+              {
+                'color': '#000000'
+              },
+              {
+                'lightness': 18
+              }
+            ]
+          },
+          {
+            'featureType': 'road.arterial',
             'elementType': 'geometry.fill',
             'stylers': [
               {
-                'color': '#f6b044'
-              }
-            ]
-          },
-          {
-            'featureType': 'road.arterial',
-            'elementType': 'geometry',
-            'stylers': [
-              {
-                'color': '#4f4e49'
+                'color': '#256a72'
               },
               {
-                'weight': '0.36'
-              }
-            ]
-          },
-          {
-            'featureType': 'road.arterial',
-            'elementType': 'labels.text.fill',
-            'stylers': [
-              {
-                'color': '#c4ac87'
-              }
-            ]
-          },
-          {
-            'featureType': 'road.arterial',
-            'elementType': 'labels.text.stroke',
-            'stylers': [
-              {
-                'color': '#262307'
+                'saturation': '61'
               }
             ]
           },
@@ -223,22 +278,25 @@ function googleMap() {
             'elementType': 'geometry',
             'stylers': [
               {
-                'color': '#a4875a'
+                'color': '#000000'
               },
               {
                 'lightness': 16
-              },
-              {
-                'weight': '0.16'
               }
             ]
           },
           {
             'featureType': 'road.local',
-            'elementType': 'labels.text.fill',
+            'elementType': 'geometry.fill',
             'stylers': [
               {
-                'color': '#deb483'
+                'gamma': '1'
+              },
+              {
+                'lightness': '0'
+              },
+              {
+                'color': '#2d414b'
               }
             ]
           },
@@ -255,29 +313,59 @@ function googleMap() {
             ]
           },
           {
-            'featureType': 'water',
-            'elementType': 'geometry',
+            'featureType': 'transit.line',
+            'elementType': 'geometry.fill',
             'stylers': [
               {
-                'color': '#0f252e'
+                'color': '#eb0202'
+              }
+            ]
+          },
+          {
+            'featureType': 'transit.station',
+            'elementType': 'geometry.fill',
+            'stylers': [
+              {
+                'color': '#ff1d00'
               },
               {
-                'lightness': 17
+                'saturation': '-35'
+              },
+              {
+                'lightness': '-47'
+              }
+            ]
+          },
+          {
+            'featureType': 'transit.station',
+            'elementType': 'labels.icon',
+            'stylers': [
+              {
+                'hue': '#00d4ff'
+              },
+              {
+                'visibility': 'simplified'
+              },
+              {
+                'lightness': '0'
+              },
+              {
+                'saturation': '0'
+              },
+              {
+                'gamma': '0.5'
               }
             ]
           },
           {
             'featureType': 'water',
-            'elementType': 'geometry.fill',
+            'elementType': 'geometry',
             'stylers': [
               {
-                'color': '#080808'
+                'color': '#000000'
               },
               {
-                'gamma': '3.14'
-              },
-              {
-                'weight': '1.07'
+                'lightness': 17
               }
             ]
           }
