@@ -5,20 +5,20 @@ function UsersShowCtrl(Bathroom, User, $state, $auth, $location, $anchorScroll) 
   vm.user.requests = [];
   vm.newRating = null;
 
+  Bathroom.find()
+    .then(res => {
+      res.data.forEach(bathroom => {
+        //find all bathrooms, check if they have any requests and if the request is owned by the current user
+        if(bathroom.requests[0] && bathroom.requests[0].user === $auth.getPayload().sub) {
+          vm.user.requests.push(bathroom);
+        }
+      });
+    });
 
   function getUserData() {
     User.findById($auth.getPayload().sub)
       .then(res => {
         vm.user = res.data;
-        Bathroom.find()
-          .then(res => {
-            res.data.forEach(bathroom => {
-              //find all bathrooms, check if they have any requests and if the request is owned by the current user
-              if(bathroom.requests.length > 0 && bathroom.requests[0].user === $auth.getPayload().sub) {
-                vm.user.requests.push(bathroom);
-              }
-            });
-          });
         findPreviousUsers();
       });
   }

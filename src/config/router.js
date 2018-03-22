@@ -82,7 +82,7 @@ function Router($stateProvider, $urlRouterProvider) {
       resolve: {secureState}
     });
 
-  $urlRouterProvider.otherwise('/bathrooms');
+  $urlRouterProvider.otherwise('/');
 
 }
 

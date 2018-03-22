@@ -8,7 +8,7 @@ import Router from './config/router';
 import Auth from './config/auth';
 import Upload from './config/filestack';
 
-import './assets/scss/style.scss';
+import './assets/css/style.css';
 
 import MainCtrl from './controllers/main';
 import HomeCtrl from './controllers/home';
@@ -32,7 +32,6 @@ import Bathroom from './services/bathroom';
 import User from './services/user';
 
 import rangeFilter from './filters/range';
-import 'anchorscroll';
 
 import 'bulma';
 
