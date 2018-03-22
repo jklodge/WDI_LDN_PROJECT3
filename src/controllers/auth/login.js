@@ -12,7 +12,7 @@ function AuthLoginCtrl(User, $auth, $state, $rootScope){
           type: 'success',
           content: 'We\'ve hacked your facebook!'
         });
-        $state.go('bathroomsIndex');
+        $state.go('bathroomsMapIndex');
       })
       .catch(err => console.log(err));
   }
@@ -25,7 +25,7 @@ function AuthLoginCtrl(User, $auth, $state, $rootScope){
           type: 'success',
           content: res.data.message
         });
-        $state.go('bathroomsIndex');
+        $state.go('bathroomsMapIndex');
       })
       .then(() => {
         User.findById($auth.getPayload().sub)
