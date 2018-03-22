@@ -1,0 +1,30 @@
+.aboutbox{
+  height: 5px;
+  transition: 0.5s;
+  // overflow-x: hidden;
+
+}
+
+.is-active {
+  height: 400px;
+  transition: 0.5s;
+  overflow-x: hidden;
+  position: fixed;
+
+}
+
+.home {
+    background-image: url(/assets/images/placeholder.jpg);
+    justify-content: center;
+    background-size: cover;
+  .buttons {
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    .button {
+      width: 30%;
+
+    }
+  }
+}
