@@ -20,6 +20,7 @@ function UsersShowCtrl(Bathroom, User, $state, $auth, $location, $anchorScroll) 
             });
           });
         findPreviousUsers();
+        console.log(vm.user.requests);
       });
   }
 
