@@ -17,3 +17,15 @@
   width: 100%;
   height: 400px;
 }
+
+.show-page-image{
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+  .show-page-image{
+    margin: 0px;
+    padding:0 12px ;
+  }
+}
