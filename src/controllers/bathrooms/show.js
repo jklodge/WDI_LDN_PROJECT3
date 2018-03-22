@@ -46,6 +46,7 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
         Bathroom.createRequest(vm.bathroom, {user: vm.bathroom.requests._id});
         vm.bathroom = res.data;
       });
+    // .then(() => $state.go($state.current, {}, {reload: true}));
   }
 
 

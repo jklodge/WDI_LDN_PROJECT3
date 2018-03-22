@@ -29,8 +29,10 @@ npm manifest:
     "license": "ISC",
     "dependencies": {
       "@uirouter/angularjs": "^1.0.15",
+      "anchorscroll": "^0.0.2",
       "angular": "^1.6.0",
       "angular-filepicker": "^1.1.4",
+      "angular-messages": "^1.6.9",
       "bcrypt": "^1.0.3",
       "bluebird": "^3.5.1",
       "body-parser": "^1.18.2",
@@ -38,6 +40,7 @@ npm manifest:
       "filepicker-js": "^2.4.18",
       "jsonwebtoken": "^8.2.0",
       "mongoose": "^5.0.10",
+      "request-promise": "^4.2.2",
       "satellizer": "^0.15.5"
     },
     "devDependencies": {
@@ -149,9 +152,17 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   
+  anchorscroll@^0.0.2:
+    version "0.0.2"
+    resolved "https://registry.yarnpkg.com/anchorscroll/-/anchorscroll-0.0.2.tgz#683995bbb0070df8b500bdfc1a1aeeef67fa7dee"
+  
   angular-filepicker@^1.1.4:
     version "1.1.4"
     resolved "https://registry.yarnpkg.com/angular-filepicker/-/angular-filepicker-1.1.4.tgz#1293ad69087d1cb57767bcbad23c7e2d9a20adbc"
+  
+  angular-messages@^1.6.9:
+    version "1.6.9"
+    resolved "https://registry.yarnpkg.com/angular-messages/-/angular-messages-1.6.9.tgz#c6958a32ab49316af36e3e5ac6f94c361571fa72"
   
   angular@^1.6.0:
     version "1.6.9"
@@ -926,7 +937,7 @@ Lockfile:
     version "3.5.0"
     resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.0.tgz#791420d7f551eea2897453a8a77653f96606d67c"
   
-  bluebird@^3.4.7, bluebird@^3.5.1:
+  bluebird@^3.4.7, bluebird@^3.5.0, bluebird@^3.5.1:
     version "3.5.1"
     resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
   
@@ -3606,7 +3617,7 @@ Lockfile:
     version "4.5.0"
     resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   
-  lodash@^4.0.0, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@~4.17.4:
+  lodash@^4.0.0, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@~4.17.4:
     version "4.17.5"
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
   
@@ -5099,6 +5110,21 @@ Lockfile:
     dependencies:
       is-finite "^1.0.0"
   
+  request-promise-core@1.1.1:
+    version "1.1.1"
+    resolved "https://registry.yarnpkg.com/request-promise-core/-/request-promise-core-1.1.1.tgz#3eee00b2c5aa83239cfb04c5700da36f81cd08b6"
+    dependencies:
+      lodash "^4.13.1"
+  
+  request-promise@^4.2.2:
+    version "4.2.2"
+    resolved "https://registry.yarnpkg.com/request-promise/-/request-promise-4.2.2.tgz#d1ea46d654a6ee4f8ee6a4fea1018c22911904b4"
+    dependencies:
+      bluebird "^3.5.0"
+      request-promise-core "1.1.1"
+      stealthy-require "^1.1.0"
+      tough-cookie ">=2.3.3"
+  
   request@2:
     version "2.83.0"
     resolved "https://registry.yarnpkg.com/request/-/request-2.83.0.tgz#ca0b65da02ed62935887808e6f510381034e3356"
@@ -5686,6 +5712,10 @@ Lockfile:
     dependencies:
       readable-stream "^2.0.1"
   
+  stealthy-require@^1.1.0:
+    version "1.1.1"
+    resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
+  
   stream-browserify@^2.0.1:
     version "2.0.1"
     resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.1.tgz#66266ee5f9bdb9940a4e4514cafb43bb71e5c9db"
@@ -5948,7 +5978,7 @@ Lockfile:
     version "1.0.6"
     resolved "https://registry.yarnpkg.com/toposort/-/toposort-1.0.6.tgz#c31748e55d210effc00fdcdc7d6e68d7d7bb9cec"
   
-  tough-cookie@~2.3.0, tough-cookie@~2.3.3:
+  tough-cookie@>=2.3.3, tough-cookie@~2.3.0, tough-cookie@~2.3.3:
     version "2.3.4"
     resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.3.4.tgz#ec60cee38ac675063ffc97a5c18970578ee83655"
     dependencies:
@@ -6481,7 +6511,7 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 1
+  Exit code: 2
   Command: sh
   Arguments: -c nyc mocha "test/**/*_spec.js" --require "test/spec_helper" --recursive --exit
   Directory: /Users/Nick/development/WDI_LDN_32_PROJECT3
