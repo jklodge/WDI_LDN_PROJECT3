@@ -385,7 +385,7 @@ function googleMapIndex() {
       function showMarkers(bathroom){
         const marker = new google.maps.Marker({
           position: {lat: bathroom.location.lat, lng: bathroom.location.lng},
-          icon: 'https://findicons.com/files/icons/2698/free_mobile_icon_kit/48/restrooms.png',
+          icon: '../assets/images/toilet.png',
           map: map
         });
         mapMarkers.push(marker);
