@@ -3,7 +3,7 @@ import '@uirouter/angularjs';
 import 'satellizer';
 import 'filepicker-js';
 import 'angular-filepicker/dist/angular_filepicker';
-
+import 'angular-messages';
 import Router from './config/router';
 import Auth from './config/auth';
 import Upload from './config/filestack';
@@ -11,6 +11,8 @@ import Upload from './config/filestack';
 import './assets/scss/style.scss';
 
 import MainCtrl from './controllers/main';
+import HomeCtrl from './controllers/home';
+
 import AuthLoginCtrl from './controllers/auth/login';
 import AuthRegisterCtrl from './controllers/auth/register';
 import BathroomsIndexCtrl from './controllers/bathrooms/index';
@@ -33,11 +35,12 @@ import rangeFilter from './filters/range';
 
 import 'bulma';
 
-angular.module('pooberApp', ['ui.router', 'satellizer', 'angular-filepicker'])
+angular.module('pooberApp', ['ui.router', 'satellizer', 'angular-filepicker', 'ngMessages'])
   .config(Router)
   .config(Auth)
   .config(Upload)
   .controller('MainCtrl', MainCtrl)
+  .controller('HomeCtrl', HomeCtrl)
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .controller('BathroomsIndexCtrl', BathroomsIndexCtrl)
