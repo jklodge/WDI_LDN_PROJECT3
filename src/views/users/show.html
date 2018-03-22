@@ -17,7 +17,6 @@
 <div class="card" ng-controller="UsersShowCtrl as usersShow" ng-if="usersShow.user.bathrooms.length > 0">
   <h1 class="title is-4" ng-if="usersShow.user.bathrooms.length > 0">Your Bathroom requests</h1>
   <div ng-repeat="bathroom in usersShow.user.bathrooms">
-
     <div ng-if="bathroom.requests.length > 0">Your bathroom:{{bathroom.name}}
       <div ng-repeat="request in bathroom.requests">
         <p >Request Status: {{ request.status }}</p>
