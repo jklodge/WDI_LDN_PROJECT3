@@ -3,11 +3,23 @@
 @import "components/login-and-register.scss";
 @import "components/main-index.scss";
 @import "components/new-bathroom.scss";
+@import "components/home.scss";
 
 * {
   box-sizing: border-box;
 }
 
+
 body{
-  margin: 20px;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+
+}
+.navbar-brand {
+  background-color: rgba(0, 243, 255, 0.2);
+}
+.navbar-menu {
+  background-color: rgba(0, 243, 255, 0.2);
+
 }

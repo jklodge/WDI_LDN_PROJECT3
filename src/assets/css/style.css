@@ -52,10 +52,40 @@ button.submit-button {
 div.new-form-styling {
   margin-bottom: 10px; }
 
+.aboutbox {
+  height: 5px;
+  transition: 0.5s; }
+
+.is-active {
+  height: 400px;
+  transition: 0.5s;
+  overflow-x: hidden;
+  position: fixed; }
+
+.home {
+  background-image: url(/assets/images/placeholder.jpg);
+  justify-content: center;
+  background-size: cover; }
+  .home .buttons {
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between; }
+    .home .buttons .button {
+      width: 30%; }
+
 * {
   box-sizing: border-box; }
 
 body {
-  margin: 20px; }
+  padding: 0;
+  margin: 0;
+  background-color: white; }
+
+.navbar-brand {
+  background-color: rgba(0, 243, 255, 0.2); }
+
+.navbar-menu {
+  background-color: rgba(0, 243, 255, 0.2); }
 
 /*# sourceMappingURL=style.css.map */
