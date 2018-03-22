@@ -1,6 +1,6 @@
-BathroomsIndexMapCtrl.$inject = ['Bathroom', 'filterFilter', '$scope'];
+BathroomsIndexMapCtrl.$inject = ['Bathroom', 'filterFilter', '$scope', 'rangeFilter'];
 
-function BathroomsIndexMapCtrl(Bathroom, filterFilter, $scope) {
+function BathroomsIndexMapCtrl(Bathroom, filterFilter, $scope, rangeFilter) {
 
   const vm = this;
   vm.center = {lat: 51.5034, lng: -0.1276};
@@ -42,6 +42,12 @@ function BathroomsIndexMapCtrl(Bathroom, filterFilter, $scope) {
     if(vm.babyChanging) params.babyChanging = vm.babyChanging;
 
     vm.filtered = filterFilter(vm.bathrooms, params);
+    if(vm.min) {
+      vm.filtered.forEach(item => {
+        if(item.avgRating === 'N/A') item.avgRating = 5;
+      });
+      vm.filtered = rangeFilter(vm.filtered, { avgRating: [vm.min, 5]});
+    }
     console.log('test', vm.filtered);
   }
 
@@ -62,7 +68,8 @@ function BathroomsIndexMapCtrl(Bathroom, filterFilter, $scope) {
     () => vm.shower,
     () => vm.bidet,
     () => vm.sanitaryProducts,
-    () => vm.babyChanging
+    () => vm.babyChanging,
+    () => vm.min
   ], filterBathrooms);
 
 }
