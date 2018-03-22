@@ -16,21 +16,25 @@
 body{
   padding: 0;
   margin: 0;
-  background-color: white;
+  background-color: #e5e5e5;
 
 }
 .navbar-brand {
-  background-color: #d3fdff;
+  background-color: #ceeff6;
 }
 .navbar-menu {
-  background-color: #d3fdff;
-  box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+  background-color: #ceeff6;
+  // box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
   padding: 0.5rem 0;
 
 }
 
+.navbar-item {
+  // box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);r
+}
+
 .navbar-menu.is-active {
-  background-color: #d3fdff;
+  background-color: #ceeff6;
   display: block;
   // height: 180px;
   z-index: 99;
