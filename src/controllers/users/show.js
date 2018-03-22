@@ -19,7 +19,6 @@ function UsersShowCtrl(Bathroom, User, $state, $auth, $location, $anchorScroll) 
     User.findById($auth.getPayload().sub)
       .then(res => {
         vm.user = res.data;
-        console.log(vm.user);
         findPreviousUsers();
       });
   }

@@ -15,7 +15,7 @@ function MainCtrl($auth, $state, $rootScope, $timeout){
 
   function logout(){
     $auth.logout();
-    $state.go('bathroomsIndex');
+    $state.go('home');
   }
   vm.logout = logout;
 }

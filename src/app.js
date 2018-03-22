@@ -32,7 +32,6 @@ import Bathroom from './services/bathroom';
 import User from './services/user';
 
 import rangeFilter from './filters/range';
-import 'anchorscroll';
 
 import 'bulma';
 
