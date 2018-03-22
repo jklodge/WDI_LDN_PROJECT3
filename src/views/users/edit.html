@@ -13,16 +13,22 @@
         <label for="name">Email</label>
         <input class="input" placeholder="Email" name="email" ng-model="usersEdit.user.email" />
       </div>
-      <div class="field" ng-if="usersEdit.user.image">
-        <label class="label">Profile Picture Preview</label>
-        <div class="control">
-          <figure class="image is-128x128">
-            <img src="{{ usersEdit.user.image }}">
-          </figure>
+      <div class="card profile-photo-card">
+        <div class="card-content photo-card-styling">
+          <div class="control columns is-multiline is-mobile">
+            <div class="field" ng-if="usersEdit.user.image">
+              <label class="label">Profile Picture Preview</label>
+              <div class="column is-full-mobile">
+                <figure class="image image-size-styling is-128x128">
+                  <img class="image-size-styling" src="{{ usersEdit.user.image }}">
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="control">
-        <div class="file">
+        <div class="file choose-photo-styling">
           <label class="file-label">
             <input class="file-input" type="file" ng-model="usersEdit.user.image" upload-image>
             <span class="file-cta">
@@ -40,6 +46,6 @@
       <button class="button is-primary" >Submit</button>
 
     </form>
-    
+
   </div>
 </section>
