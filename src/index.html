@@ -11,7 +11,7 @@
 </head>
 <body ng-controller="MainCtrl as main">
 
-  <nav class="navbar">
+  <nav class="navbar navbar-styling">
     <div class="navbar-brand">
       <a class="navbar-item" ui-sref="home">
         <img src="https://thumbs.dreamstime.com/b/funny-poo-cartoon-vector-illustration-white-50907210.jpg" alt="Poober">
@@ -27,14 +27,12 @@
     </div>
     <div id="mobile-menu" class="navbar-menu ng-class:main.clicked ? 'is-active' : 'is-not-active'">
       <div class="navbar-end">
-        <a class="navbar-item" ng-click="main.clicked = !main.clicked" ui-sref="bathroomsMapIndex">All Bathrooms Map</a>
-        <a class="navbar-item" ng-click="main.clicked = !main.clicked" ui-sref="bathroomsNew" ng-if="main.isAuthenticated()">New Bathroom</a>
-        <a class="navbar-item" ui-sref="register" ng-if="!main.isAuthenticated()" ng-click="main.clicked = !main.clicked">Register</a>
-        <a class="navbar-item" ng-click="main.clicked = !main.clicked" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
-        <a class="navbar-item" ng-click="main.clicked = !main.clicked" ng-controller="AuthLoginCtrl as authLogin" ui-sref="usersShow({ id: authLogin.userId })" ng-if="main.isAuthenticated()">Profile</a>
-
-
-          <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
+        <a class="navbar-item" ng-click="main.clicked = false" ui-sref="bathroomsMapIndex">All Bathrooms Map</a>
+        <a class="navbar-item" ng-click="main.clicked = false" ui-sref="bathroomsNew" ng-if="main.isAuthenticated()">New Bathroom</a>
+        <a class="navbar-item" ui-sref="register" ng-click="main.clicked = !main.clicked" ng-if="!main.isAuthenticated()">Register</a>
+        <a class="navbar-item" ng-click="main.clicked = false" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
+        <a class="navbar-item" ng-click="main.clicked = false" ng-controller="AuthLoginCtrl as authLogin" ui-sref="usersShow({ id: authLogin.userId })" ng-if="main.isAuthenticated()">Profile</a>
+        <a class="navbar-item" ng-click="main.logout(); main.clicked = false" ng-if="main.isAuthenticated()">Logout</a>
       </div>
     </div>
   </nav>

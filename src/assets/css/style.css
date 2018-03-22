@@ -1,0 +1,58 @@
+.bathroom-user-card {
+  margin-right: 12px;
+  margin-left: 12px; }
+  .bathroom-user-card .bathroom-info {
+    margin-bottom: 10px; }
+
+.icon-images {
+  margin: 0 12px 20px 12px; }
+
+.edit-and-delete {
+  margin: 0 12px 10px 12px; }
+
+.google-map {
+  width: 100%;
+  height: 400px; }
+
+.info-marker {
+  height: 200px; }
+
+.list-view {
+  float: right; }
+
+.google-map-index {
+  width: 100%;
+  height: 550px;
+  margin: 0 auto; }
+
+div.form-positioning {
+  width: 100%;
+  height: 600px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  div.form-positioning section.form-section {
+    width: 100%;
+    padding: 0; }
+
+button.submit-button {
+  background-color: #4dadf7;
+  color: white;
+  border-radius: 6%;
+  font-size: 15px;
+  text-align: center; }
+
+#section {
+  padding: 5px 20px; }
+
+.navbar-styling {
+  margin-bottom: 8px; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 20px; }
+
+/*# sourceMappingURL=style.css.map */
