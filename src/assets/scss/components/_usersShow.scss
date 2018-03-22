@@ -1,0 +1,14 @@
+div.your-profile {
+  div {
+    .profile-top {
+      display: flex;
+      justify-content: space-between;
+    }
+    div.image-container {
+      height: 100px;
+      width: 10px;
+      border: 1px solid black;
+    }
+
+  }
+}
