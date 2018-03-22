@@ -1,21 +1,21 @@
-<div class="card columns is-multiline">
-  <div class="column is-full">
-    <h1 id="top"class="title is-4 top">Your Profile</h1>
-    <a ui-sref="usersEdit({ id: usersShow.user._id })" class="button"><i class="fas fa-pencil-alt"></i> Edit</a>
-  </div>
-  <ul class="column">
+<div class="card your-profile">
+  <div class="columns is-multiline is-mobile">
+    <div class="column is-full profile-top">
+      <h1 id="top" class="title is-4 top">Your Profile</h1>
+      <a ui-sref="usersEdit({ id: usersShow.user._id })" class="button"><i class="fas fa-pencil-alt"></i> Edit</a>
+    </div>
 
-    <li>First Name: {{usersShow.user.firstName}}</li>
-    <li>Email: {{usersShow.user.email}}</li>
-    <li>Username: {{usersShow.user.username}}</li>
-  </ul>
-  <figure class="image">
-    <img ng-src="{{ usersShow.user.image }}" alt="{{ usersShow.user.name }}" />
-  </figure>
-  <br>
+    <ul class="column">
+      <li>First Name: {{usersShow.user.firstName}}</li>
+      <li>Email: {{usersShow.user.email}}</li>
+      <li>Username: {{usersShow.user.username}}</li>
+    </ul>
+    <figure class="image">
+      <img ng-src="{{ usersShow.user.image }}" alt="{{ usersShow.user.name }}" />
+    </figure>
+  </div>
 </div>
 
-<br>
 <div class="card" ng-controller="UsersShowCtrl as usersShow" ng-if="usersShow.user.bathrooms.length > 0">
   <h1 class="title is-4" ng-if="usersShow.user.bathrooms.length > 0">Your Bathroom requests</h1>
   <div ng-repeat="bathroom in usersShow.user.bathrooms" class="card">
@@ -24,7 +24,6 @@
       <div ng-repeat="request in bathroom.requests" ng-if="request.status === 'pending'">
         <p >User: {{ request.user.username }}</p>
         <p >User Rating: {{ request.user.avgRating }} 💩</p>
-        <br>
 
           <div ng-if="request.status === 'pending'">
             <button ng-click="usersShow.acceptRequest(bathroom, request)" type="button" class="button is-success">Accept</button>
@@ -39,13 +38,13 @@
     </div>
   </div>
   <br>
-  <div class="card">
+  <div class="card" ng-if="usersShow.user.requests.length > 0">
     <h1 class="title is-4">Your Own Requests</h1>
     <div ng-repeat="request in usersShow.user.requests">
       <a ui-sref="bathroomsShow({ id: request._id })"><p>{{ request.address }} {{ request.requests[0].status }}</strong></p></a>
     </div>
   </div>
-  <div class="card">
+  <div class="card" ng-if="usersShow.user.previousUsersObject.length > 0">
     <h1 class="title is-4">Rate your users</h1>
     <div ng-repeat="user in usersShow.user.previousUsersObject">
       <p>{{ user.firstName }}</p>
