@@ -49,6 +49,9 @@ button.submit-button {
 .navbar-styling {
   margin-bottom: 8px; }
 
+div.new-form-styling {
+  margin-bottom: 10px; }
+
 * {
   box-sizing: border-box; }
 
