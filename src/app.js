@@ -8,7 +8,7 @@ import Router from './config/router';
 import Auth from './config/auth';
 import Upload from './config/filestack';
 
-import './assets/css/style.css';
+import './assets/scss/main.scss';
 
 import MainCtrl from './controllers/main';
 import HomeCtrl from './controllers/home';

@@ -2,11 +2,13 @@
 @import "components/index-map.scss";
 @import "components/login-and-register.scss";
 @import "components/main-index.scss";
+@import "components/usersShow.scss";
 @import "components/new-bathroom.scss";
 @import "components/home.scss";
 
 * {
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 
@@ -17,9 +19,19 @@ body{
 
 }
 .navbar-brand {
-  background-color: rgba(0, 243, 255, 0.2);
+  background-color: #d3fdff;
 }
 .navbar-menu {
-  background-color: rgba(0, 243, 255, 0.2);
+  background-color: #d3fdff;
+  box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+  padding: 0.5rem 0;
 
+}
+
+.navbar-menu.is-active {
+  background-color: #d3fdff;
+  display: block;
+  height: 180px;
+  z-index: 99;
+  width: 100%;
 }
