@@ -1,77 +1,81 @@
-<div class="form-positioning">
-  <section class="section form-section">
-    <div class="container">
-      <form name="authRegister.form" ng-submit="authRegister.handleSubmit()" novalidate>
-        <div class="field">
-          <label for="username">Username</label>
-          <input class="input input-styling" placeholder="Username" name="username" ng-model="authRegister.user.username" required minlength="2">
-          <div ng-messages="authRegister.form.username.$error" ng-if="authRegister.form.username.$dirty || authRegister.form.$submitted">
-            <div ng-message="required">This field is required</div>
-            <div ng-message="minlength">You must use at least 2 characters</div>
-
-          </div>
-        </div>
-          <div class="field">
-            <label for="firstName">First Name</label>
-            <input class="input input-styling" placeholder="First Name" name="firstName" ng-model="authRegister.user.firstName" required minlength="2">
-            <div ng-messages="authRegister.form.firstName.$error" ng-if="authRegister.form.firstName.$dirty || authRegister.form.$submitted">
-              <div ng-message="required">This field is required</div>
-              <div ng-message="minlength">You must use at least 2 characters</div>
-
-            </div>
-          </div>
-          <div class="field">
-            <label for="lastName">Last Name</label>
-            <input class="input input-styling" placeholder="Last Name" name="lastName" ng-model="authRegister.user.lastName" required minlength="2">
-            <div ng-messages="authRegister.form.lastName.$error" ng-if="authRegister.form.lastName.$dirty || authRegister.form.$submitted">
-              <div ng-message="required">This field is required</div>
-              <div ng-message="minlength">You must use at least 2 characters</div>
-
-            </div>
-
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <div class="control has-icons-left">
-              <input class="input input-styling" placeholder="Email" name="email" ng-model="authRegister.user.email" required minlength="2">
-              <span class="icon is-small is-left"><i class="fas fa-envelope"></i>
-              </span>
-              <div ng-messages="authRegister.form.email.$error" ng-if="authRegister.form.email.$dirty || authRegister.form.$submitted">
+<section id="section" class="section">
+  <div class="container">
+    <div class="form-positioning">
+      <section class="section form-section">
+        <div class="container">
+          <form name="authRegister.form" ng-submit="authRegister.handleSubmit()" novalidate>
+            <div class="field">
+              <label for="username">Username</label>
+              <input class="input input-styling" placeholder="Username" name="username" ng-model="authRegister.user.username" required minlength="2">
+              <div ng-messages="authRegister.form.username.$error" ng-if="authRegister.form.username.$dirty || authRegister.form.$submitted">
                 <div ng-message="required">This field is required</div>
                 <div ng-message="minlength">You must use at least 2 characters</div>
 
               </div>
             </div>
-          </div>
+            <div class="field">
+              <label for="firstName">First Name</label>
+              <input class="input input-styling" placeholder="First Name" name="firstName" ng-model="authRegister.user.firstName" required minlength="2">
+              <div ng-messages="authRegister.form.firstName.$error" ng-if="authRegister.form.firstName.$dirty || authRegister.form.$submitted">
+                <div ng-message="required">This field is required</div>
+                <div ng-message="minlength">You must use at least 2 characters</div>
 
-          <div class="field">
-            <label for="password">Password</label>
-            <div class="control has-icons-left">
-              <input type="password" class="input input-styling" placeholder="Password" name="password" ng-model="authRegister.user.password" required minlength="6">
-              <span class="icon is-small is-left"><i class="fas fa-key"></i>
-              </span>
+              </div>
             </div>
-            <div ng-messages="authRegister.form.password.$error" ng-if="authRegister.form.password.$dirty || authRegister.form.$submitted">
-              <div ng-message="required">This field is required</div>
-              <div ng-message="minlength">You must use at least 6 characters</div>
+            <div class="field">
+              <label for="lastName">Last Name</label>
+              <input class="input input-styling" placeholder="Last Name" name="lastName" ng-model="authRegister.user.lastName" required minlength="2">
+              <div ng-messages="authRegister.form.lastName.$error" ng-if="authRegister.form.lastName.$dirty || authRegister.form.$submitted">
+                <div ng-message="required">This field is required</div>
+                <div ng-message="minlength">You must use at least 2 characters</div>
 
-            </div>
-          </div>
-          <div class="field">
-            <label for="passwordConfirmation">Password Confirmation</label>
-            <div class="control has-icons-left">
-              <input type="password" class="input input-styling" placeholder="Password Confirmation" name="passwordConfirmation" ng-model="authRegister.user.passwordConfirmation" required minlength="6">
-              <span class="icon is-small is-left"><i class="fas fa-key"></i>
-              </span>
-            </div>
-            <div ng-messages="authRegister.form.passwordConfirmation.$error" ng-if="authRegister.form.passwordConfirmation.$dirty || authRegister.form.$submitted">
-              <div ng-message="required">This field is required</div>
-              <div ng-message="minlength">You must use at least 6 characters</div>
+              </div>
 
             </div>
-          </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <div class="control has-icons-left">
+                <input class="input input-styling" placeholder="Email" name="email" ng-model="authRegister.user.email" required minlength="2">
+                <span class="icon is-small is-left"><i class="fas fa-envelope"></i>
+                </span>
+                <div ng-messages="authRegister.form.email.$error" ng-if="authRegister.form.email.$dirty || authRegister.form.$submitted">
+                  <div ng-message="required">This field is required</div>
+                  <div ng-message="minlength">You must use at least 2 characters</div>
 
-          <button class="button is-primary">Submit</button>
-        </form>
-  </section>
-</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="password">Password</label>
+              <div class="control has-icons-left">
+                <input type="password" class="input input-styling" placeholder="Password" name="password" ng-model="authRegister.user.password" required minlength="6">
+                <span class="icon is-small is-left"><i class="fas fa-key"></i>
+                </span>
+              </div>
+              <div ng-messages="authRegister.form.password.$error" ng-if="authRegister.form.password.$dirty || authRegister.form.$submitted">
+                <div ng-message="required">This field is required</div>
+                <div ng-message="minlength">You must use at least 6 characters</div>
+
+              </div>
+            </div>
+            <div class="field">
+              <label for="passwordConfirmation">Password Confirmation</label>
+              <div class="control has-icons-left">
+                <input type="password" class="input input-styling" placeholder="Password Confirmation" name="passwordConfirmation" ng-model="authRegister.user.passwordConfirmation" required minlength="6">
+                <span class="icon is-small is-left"><i class="fas fa-key"></i>
+                </span>
+              </div>
+              <div ng-messages="authRegister.form.passwordConfirmation.$error" ng-if="authRegister.form.passwordConfirmation.$dirty || authRegister.form.$submitted">
+                <div ng-message="required">This field is required</div>
+                <div ng-message="minlength">You must use at least 6 characters</div>
+
+              </div>
+            </div>
+
+            <button class="button is-primary">Submit</button>
+          </form>
+        </section>
+      </div>
+  </div>
+</section>
