@@ -1,6 +1,6 @@
-HomeCtrl.$inject = ['$state', '$location', '$anchorScroll'];
+HomeCtrl.$inject = ['$state', '$location', '$anchorScroll', '$scope'];
 
-function HomeCtrl($state, $location, $anchorScroll){
+function HomeCtrl($state, $location, $anchorScroll, $scope){
 
 
   function homeLogin(){
@@ -17,7 +17,15 @@ function HomeCtrl($state, $location, $anchorScroll){
     $anchorScroll();
 
   }
+  this.aboutIsActive = false;
 
+  function toggleAbout() {
+    this.aboutIsActive = !this.aboutIsActive;
+    if(this.aboutIsActive)
+      return gotoAbout();
+  }
+
+  this.toggleAbout = toggleAbout;
   this.gotoAbout = gotoAbout;
   this.homeLogin = homeLogin;
   this.homeRegister = homeRegister;
