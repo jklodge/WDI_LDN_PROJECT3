@@ -20,7 +20,7 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
         vm.destinationLat = vm.bathroom.location.lat;
         vm.destinationLng =  vm.bathroom.location.lng;
       });
-    console.log(vm.bathroom);
+    console.log('user', vm.user);
   }
 
 
@@ -31,7 +31,6 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
         getBathroomData();
         if(vm.bathroom.previousUsers.includes(vm.user._id)) vm.user.isPrevious = true;
         vm.user.index = vm.bathroom.previousUsers.indexOf(vm.user._id);
-        console.log(vm.user.isPrevious);
       });
   }
 
@@ -60,7 +59,6 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
         getBathroomData();
       });
     vm.bathroom.previousUsers.splice(vm.user.index, 1);
-    console.log(vm.bathroom);
     Bathroom.update(vm.bathroom);
   }
 

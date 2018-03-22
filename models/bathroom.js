@@ -11,10 +11,6 @@ const commentSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true}
 });
 
-commentSchema.methods.isOwnedBy = function(user){
-  return this.user._id && user._id.equals(this.user._id);
-};
-
 const bathroomSchema = new mongoose.Schema({
   name: {type: String},
   address: {type: String, required: true},

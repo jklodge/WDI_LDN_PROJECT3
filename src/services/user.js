@@ -13,9 +13,14 @@ function User($http) {
     return $http.put(`/api/users/${user._id}`, user);
   }
 
+  function commentCreate(id,comment){
+    return $http.post(`/api/users/${id}/comments`, comment);
+  }
+
   this.find = find;
   this.findById = findById;
   this.update = update;
+  this.commentCreate = commentCreate;
 }
 
 export default User;

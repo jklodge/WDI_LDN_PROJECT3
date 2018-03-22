@@ -15,7 +15,7 @@ router.route('/bathrooms/map')
 
 router.route('/bathrooms/:id')
   .get(bathrooms.show)
-  .put(bathrooms.update)
+  .put(secureRoute, bathrooms.update)
   .delete(secureRoute, bathrooms.delete);
 
 router.route('/bathrooms/:id/comments')
@@ -23,6 +23,9 @@ router.route('/bathrooms/:id/comments')
 
 router.route('/bathrooms/:id/comments/:commentId')
   .delete(secureRoute, bathrooms.commentDelete);
+
+router.route('/users/:id/comments')
+  .post(users.commentCreate);
 
 router.route('/bathrooms/:id/requests/:requestId/accepted')
   .put(secureRoute, bathrooms.requestAccept);
@@ -38,7 +41,7 @@ router.post('/register', auth.register);
 router.post('/login', auth.login);
 
 router.route('/users')
-  .get(secureRoute, users.index);
+  .get(users.index);
 
 router.route('/users/:id')
   .get(users.show)
