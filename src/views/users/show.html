@@ -1,42 +1,52 @@
 <section id="section" class="section">
   <div class="container">
     <div class="card your-profile">
-      <div class="columns is-multiline is-mobile">
-        <div class="column is-full profile-top">
-          <h1 id="top" class="title is-4 top">Your Profile</h1>
-          <a ui-sref="usersEdit({ id: usersShow.user._id })" class="button"><i class="fas fa-pencil-alt"></i> Edit</a>
+      <div class="card-content">
+        <h1 id="top" class="title is-4 top">Your Profile</h1>
+        <div class="columns is-multiline is-mobile">
+          <div class="column is-half-desktop is-half-tablet is-full-mobile">
+            <ul>
+              <li>First Name: {{usersShow.user.firstName}}</li>
+              <li>Email: {{usersShow.user.email}}</li>
+              <li>Username: {{usersShow.user.username}}</li>
+            </ul>
+          </div>
+          <div class="column is-half-desktop is-half-tablet is-full-mobile profile-top">
+            <a ui-sref="usersEdit({ id: usersShow.user._id })" class="button"><i class="fas fa-pencil-alt"></i> Edit</a>
+          </div>
+          <figure class="image column is-half-desktop">
+            <img ng-src="{{ usersShow.user.image }}" alt="{{ usersShow.user.name }}" />
+          </figure>
         </div>
-
-        <ul class="column">
-          <li>First Name: {{usersShow.user.firstName}}</li>
-          <li>Email: {{usersShow.user.email}}</li>
-          <li>Username: {{usersShow.user.username}}</li>
-        </ul>
-        <figure class="image">
-          <img ng-src="{{ usersShow.user.image }}" alt="{{ usersShow.user.name }}" />
-        </figure>
       </div>
     </div>
 
     <div class="card" ng-controller="UsersShowCtrl as usersShow" ng-if="usersShow.user.bathrooms.length > 0">
-      <h1 class="title is-4" ng-if="usersShow.user.bathrooms.length > 0">Your Bathroom requests</h1>
-      <div ng-repeat="bathroom in usersShow.user.bathrooms" class="card">
-        <div ng-if="bathroom.requests.length > 0">
-          <h3 class="title is-6">Your bathroom:{{bathroom.address}}</h3>
-          <div ng-repeat="request in bathroom.requests" ng-if="request.status === 'pending'">
-            <p >User: {{ request.user.username }}</p>
-            <p >User Rating: {{ request.user.avgRating }} 💩</p>
+      <div class="card-content">
+        <h1 class="title is-4" ng-if="usersShow.user.bathrooms.length > 0">Your Bathroom requests</h1>
+        <div ng-repeat="bathroom in usersShow.user.bathrooms" class="card">
+          <div class="card-content user-requests-styling">
+            <div ng-if="bathroom.requests.length > 0">
+              <h3 class="title is-6">Your bathroom:{{bathroom.address}}</h3>
+              <div ng-repeat="request in bathroom.requests" ng-if="request.status === 'pending'">
+                <p >User: {{ request.user.username }}</p>
+                <p >User Rating: {{ request.user.avgRating }} 💩</p>
 
-            <div ng-if="request.status === 'pending'">
-              <button ng-click="usersShow.acceptRequest(bathroom, request)" type="button" class="button is-success">Accept</button>
-              <button ng-click="usersShow.rejectRequest(bathroom, request)" type="button" class="button is-danger">Reject</button>
-            </div>
-            <div ng-if="request.status !== 'pending'">
-              <p ng-if="request.status === 'accepted'">You have accepted this request</p>
-              <p ng-if="request.status === 'rejected'">You have rejected this request</p>
+                <div ng-if="request.status === 'pending'">
+                  <button ng-click="usersShow.acceptRequest(bathroom, request)" type="button" class="button is-success">Accept</button>
+                  <button ng-click="usersShow.rejectRequest(bathroom, request)" type="button" class="button is-danger">Reject</button>
+                </div>
+                <div ng-if="request.status !== 'pending'">
+                  <p ng-if="request.status === 'accepted'">You have accepted this request</p>
+                  <p ng-if="request.status === 'rejected'">You have rejected this request</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="card-content">
+        <a ng-click="usersShow.gotoTop()"><i class="fas fa-angle-double-up"></i>Go back to top</a>
       </div>
     </div>
     <br>
@@ -47,32 +57,35 @@
       </div>
     </div>
     <div class="card" ng-if="usersShow.user.previousUsersObject.length > 0">
-      <h1 class="title is-4">Rate your users</h1>
-      <div ng-repeat="user in usersShow.user.previousUsersObject">
-        <p>{{ user.firstName }}</p>
-        <p>{{ user.lastName }}</p>
-        <form ng-submit="usersShow.handleComment(user._id)">
-          <div class="field">
-            <label for="name">Rating</label>
-            <div class="control">
-              <div class="select">
-                <select name="rating" ng-model="usersShow.newRating">
-                  <option value="">Please Select</option>
-                  <option value="1">💩</option>
-                  <option value="2">💩💩</option>
-                  <option value="3">💩💩💩</option>
-                  <option value="4">💩💩💩💩</option>
-                  <option value="5">💩💩💩💩💩</option>
-                </select>
+      <div class="card-content">
+        <h1 class="title is-4">Rate your users</h1>
+        <div ng-repeat="user in usersShow.user.previousUsersObject">
+          <p>{{ user.firstName }}</p>
+          <p>{{ user.lastName }}</p>
+          <form ng-submit="usersShow.handleComment(user._id)">
+            <div class="field">
+              <label for="name">Rating</label>
+              <div class="control">
+                <div class="select">
+                  <select name="rating" ng-model="usersShow.newRating">
+                    <option value="">Please Select</option>
+                    <option value="1">💩</option>
+                    <option value="2">💩💩</option>
+                    <option value="3">💩💩💩</option>
+                    <option value="4">💩💩💩💩</option>
+                    <option value="5">💩💩💩💩💩</option>
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
-          <button class="button is-primary">Submit</button>
-        </form>
+            <button class="button is-primary">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
+    <div class="card-content">
+      <a ng-click="usersShow.gotoTop()"><i class="fas fa-angle-double-up"></i>Go back to top</a>
+    </div>
   </div>
-  <a ng-click="usersShow.gotoTop()"><i class="fas fa-angle-double-up"></i>Go back to top</a>
-    
   </div>
 </section>
