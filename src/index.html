@@ -4,6 +4,8 @@
   <base href="/">
   <meta charset="utf-8">
   <title>WDI32 Group Project</title>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLRriqK4HNKKWPPdFSVD8PIWFO-9PoKZ8&libraries=places"></script>
 
 </head>
@@ -11,10 +13,10 @@
 
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item" href="/">
+      <a class="navbar-item" ui-sref="home">
         <img src="https://thumbs.dreamstime.com/b/funny-poo-cartoon-vector-illustration-white-50907210.jpg" alt="Poober">
         &nbsp;
-        Poober
+
       </a>
 
       <div class="navbar-burger ng-class:main.clicked ? 'is-active' : 'is-not-active'" data-target="#mobile-menu" ng-click="main.clicked = !main.clicked">
@@ -38,9 +40,9 @@
   </nav>
   <div ng-if="main.flashMessage" class="notification is-{{main.flashMessage.type}}">{{main.flashMessage.content}}</div>
 
-  <section class="section">
+  <section id="section" class="section">
     <div class="container">
-      <h1 class="title">Poober</h1>
+      <!-- <h1 class="title">Poober</h1> -->
       <ui-view></ui-view>
     </div>
   </section>

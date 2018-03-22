@@ -4,13 +4,21 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
   const vm = this;
 
   vm.bathroom = {};
+  console.log(vm.bathroom);
   vm.user = null;
   vm.message = '';
+
+  getBathroomData();
 
   function getBathroomData(){
     Bathroom.findById($state.params.id)
       .then(res => {
         vm.bathroom = res.data;
+        // console.log('previous users',vm.bathroom.previousUsers, vm.user);
+      })
+      .then(() => {
+        vm.destinationLat = vm.bathroom.location.lat;
+        vm.destinationLng =  vm.bathroom.location.lng;
       });
     console.log('user', vm.user);
   }
@@ -65,7 +73,6 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
   vm.handleComment = handleComment;
   vm.handleDelete = handleDelete;
 
-  getBathroomData();
 }
 
 export default BathroomsShowCtrl;

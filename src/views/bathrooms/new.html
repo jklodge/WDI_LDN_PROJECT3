@@ -1,11 +1,18 @@
-<form ng-submit="bathroomsNew.handleSubmit()">
+<form  name="bathroomsNew.form" ng-submit="bathroomsNew.handleSubmit()" novalidate>
   <div class="filed">
     <label for="name">Name</label>
-    <input class="input" placeholder="Name" name="name" ng-model="bathroomsNew.bathroom.name" />
+    <input class="input" placeholder="Name" name="name" ng-model="bathroomsNew.bathroom.name" required minlength="2"/>
+    <div ng-messages="bathroomsNew.form.name.$error" ng-if="bathroomsNew.form.name.$touched || bathroomsNew.form.$submitted">
+      <div ng-message="required">This field is required</div>
+      <div ng-message="minlength">You must use at least 2 characters</div>
+
   </div>
   <div class="field">
-    <label for="name">Address</label>
-    <input class="input google-map-autofill" address="bathroomsNew.bathroom.address" location="bathroomsNew.bathroom.location" placeholder="Address" name="address" ng-model="bathroomsNew.bathroom.address" />
+    <label for="address">Address</label>
+    <input class="input google-map-autofill" address="bathroomsNew.bathroom.address" location="bathroomsNew.bathroom.location" placeholder="Address" name="address" ng-model="bathroomsNew.bathroom.address" required minlength="2"/>
+    <div ng-messages="bathroomsNew.form.address.$error" ng-if="bathroomsNew.form.address.$touched || bathroomsNew.form.$submitted">
+      <div ng-message="required">This field is required</div>
+      <div ng-message="minlength">You must use at least 2 characters</div>
   </div>
   <div class="field" ng-if="bathroomsNew.bathroom.image">
   <label class="label">Profile Picture Preview</label>
@@ -18,13 +25,18 @@
   <div class="control">
     <div class="file">
       <label class="file-label">
-        <input class="file-input" type="file" ng-model="bathroomsNew.bathroom.image" upload-image>
+        <input class="file-input" type="file" ng-model="bathroomsNew.bathroom.image" upload-image required>
+          <div ng-messages="bathroomsNew.form.name.$error" ng-if="bathroomsNew.form.name.$touched || bathroomsNew.form.$submitted">
+          <div ng-message="required">This field is required</div>
+        </div>
+
         <span class="file-cta">
           <span class="file-icon">
-            <i class="fa fa-upload"></i>
+            <i class="fas fa-camera-retro"></i>
+
           </span>
           <span class="file-label">
-            Choose a file…
+            Choose an image…
           </span>
         </span>
       </label>
@@ -32,17 +44,20 @@
   </div>
 
   <div class="filed">
-    <label for="name">Description</label>
-    <input class="input" placeholder="Description" name="description" ng-model="bathroomsNew.bathroom.description"  />
+    <label for="description">Description</label>
+    <input class="input" placeholder="Description" name="description" ng-model="bathroomsNew.bathroom.description" required minlength="2" maxlength="400"/>
+    <div ng-messages="bathroomsNew.form.description.$error" ng-if="bathroomsNew.form.description.$touched || bathroomsNew.form.$submitted">
+      <div ng-message="required">This field is required</div>
   </div>
   <div class="field">
     <label for="name">Facilities</label>
-    <input type="checkbox" ng-model="bathroomsNew.all"/> Check all<br><br>
-    <input type="checkbox" ng-model="bathroomsNew.bathroom.toilet">Toilet<br>
-    <input type="checkbox" ng-model="bathroomsNew.bathroom.shower">Shower<br>
-    <input type="checkbox" ng-model="bathroomsNew.bathroom.bidet">Bidet<br>
-    <input type="checkbox" ng-model="bathroomsNew.bathroom.sanitaryProducts">Sanitary Products<br>
-    <input type="checkbox" ng-model="bathroomsNew.bathroom.babyChanging">Baby Changing<br>
+    <input type="checkbox" ng-model="bathroomsNew.all"> Check all
+    <input type="checkbox" checked="checked" ng-model="bathroomsNew.bathroom.toilet" value="true">Toilet
+
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.shower">Shower
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.bidet">Bidet
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.sanitaryProducts">Sanitary Products
+    <input type="checkbox" ng-model="bathroomsNew.bathroom.babyChanging">Baby Changing
 
   </div>
     <button class="button is-primary" >Submit</button>

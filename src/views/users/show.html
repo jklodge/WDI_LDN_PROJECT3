@@ -1,27 +1,28 @@
-<div ng-controller="UsersShowCtrl as usersShow">
-  <div class="card" >
-    <h1 class="title is-4">Your Profile</h1>
+<div class="card" >
+  <h1 id="top"class="title is-4 top">Your Profile</h1>
+  <ul>
 
-    <ul>
-      <li>First Name: {{usersShow.user.firstName}}</li>
-      <li>Email: {{usersShow.user.email}}</li>
-      <li>Username: {{usersShow.user.username}}</li>
-    </ul>
-    <figure class="image">
-      <img ng-src="{{ usersShow.user.image }}" alt="{{ usersShow.user.name }}" />
-    </figure>
-    <a ui-sref="usersEdit({ id: usersShow.user._id })" class="button">Edit</a>
-    <br>
-  </div>
+    <li>First Name: {{usersShow.user.firstName}}</li>
+    <li>Email: {{usersShow.user.email}}</li>
+    <li>Username: {{usersShow.user.username}}</li>
+  </ul>
+  <figure class="image">
+    <img ng-src="{{ usersShow.user.image }}" alt="{{ usersShow.user.name }}" />
+  </figure>
+  <a ui-sref="usersEdit({ id: usersShow.user._id })" class="button"><i class="fas fa-pencil-alt"></i>Edit</a>
   <br>
-  <div class="card" ng-if="usersShow.user.bathrooms.length > 0">
-    <h1 class="title is-4" ng-if="usersShow.user.bathrooms.length > 0">Your Bathroom requests</h1>
-    <div ng-repeat="bathroom in usersShow.user.bathrooms">
-      <div ng-if="bathroom.requests.length > 0">Your bathroom:{{bathroom.name}}
-        <div ng-repeat="request in bathroom.requests">
-          <p >Request Status: {{ request.status }}</p>
-          <p >Request User: {{ request.user.username }}</p>
-          <br>
+</div>
+
+<br>
+<div class="card" ng-controller="UsersShowCtrl as usersShow" ng-if="usersShow.user.bathrooms.length > 0">
+  <h1 class="title is-4" ng-if="usersShow.user.bathrooms.length > 0">Your Bathroom requests</h1>
+  <div ng-repeat="bathroom in usersShow.user.bathrooms">
+
+    <div ng-if="bathroom.requests.length > 0">Your bathroom:{{bathroom.name}}
+      <div ng-repeat="request in bathroom.requests">
+        <p >Request Status: {{ request.status }}</p>
+        <p >Request User: {{ request.user.username }}</p>
+        <br>
 
           <div ng-if="request.status === 'pending'">
             <button ng-click="usersShow.acceptRequest(bathroom, request)" type="button" class="button is-success">Accept</button>
@@ -68,3 +69,4 @@
     </div>
   </div>
 </div>
+<a ng-click="usersShow.gotoTop()"><i class="fas fa-angle-double-up"></i>Go back to top</a>

@@ -81,9 +81,17 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+anchorscroll@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/anchorscroll/-/anchorscroll-0.0.2.tgz#683995bbb0070df8b500bdfc1a1aeeef67fa7dee"
+
 angular-filepicker@^1.1.4:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/angular-filepicker/-/angular-filepicker-1.1.4.tgz#1293ad69087d1cb57767bcbad23c7e2d9a20adbc"
+
+angular-messages@^1.6.9:
+  version "1.6.9"
+  resolved "https://registry.yarnpkg.com/angular-messages/-/angular-messages-1.6.9.tgz#c6958a32ab49316af36e3e5ac6f94c361571fa72"
 
 angular@^1.6.0:
   version "1.6.9"

@@ -1,10 +1,9 @@
-BathroomsIndexMapCtrl.$inject = ['Bathroom', 'filterFilter', '$scope'];
+BathroomsIndexMapCtrl.$inject = ['Bathroom', 'filterFilter', '$scope', 'rangeFilter'];
 
-function BathroomsIndexMapCtrl(Bathroom, filterFilter, $scope) {
+function BathroomsIndexMapCtrl(Bathroom, filterFilter, $scope, rangeFilter) {
 
   const vm = this;
   vm.center = {lat: 51.5034, lng: -0.1276};
-  vm.destination = {lat: 38.8977, lng: -76.0365};
 
   navigator.geolocation.getCurrentPosition(pos => {
     console.log(pos.coords.latitude);
@@ -42,28 +41,35 @@ function BathroomsIndexMapCtrl(Bathroom, filterFilter, $scope) {
     if(vm.sanitaryProducts) params.sanitaryProducts = vm.sanitaryProducts;
     if(vm.babyChanging) params.babyChanging = vm.babyChanging;
 
-
     vm.filtered = filterFilter(vm.bathrooms, params);
+    if(vm.min) {
+      vm.filtered.forEach(item => {
+        if(item.avgRating === 'N/A') item.avgRating = 5;
+      });
+      vm.filtered = rangeFilter(vm.filtered, { avgRating: [vm.min, 5]});
+    }
     console.log('test', vm.filtered);
   }
 
-  // function toggleAll() {
-  //   vm.toilet = !vm.toilet;
-  //   vm.shower = !vm.shower;
-  //   vm.bidet = !vm.bidet;
-  //   vm.sanitaryProducts = !vm.sanitaryProducts;
-  //   vm.babyChanging = !vm.babyChanging;
-  // }
+  function toggleAll() {
 
+    vm.toilet = vm.all;
+    vm.shower = vm.all;
+    vm.bidet = vm.all;
+    vm.sanitaryProducts = vm.all;
+    vm.babyChanging = vm.all;
+  }
+
+  $scope.$watch(() => vm.all, toggleAll);
   vm.filtered = filterFilter(vm.bathrooms, params);
-  // $scope.$watch(() => vm.all, toggleAll);
 
   $scope.$watchGroup([
     () => vm.toilet,
     () => vm.shower,
     () => vm.bidet,
     () => vm.sanitaryProducts,
-    () => vm.babyChanging
+    () => vm.babyChanging,
+    () => vm.min
   ], filterBathrooms);
 
 }

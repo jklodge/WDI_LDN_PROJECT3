@@ -7,7 +7,13 @@ function AuthLoginCtrl(User, $auth, $state, $rootScope){
 
   function authenticate(provider) {
     $auth.authenticate(provider)
-      .then(()=> $state.go('bathroomsIndex'))
+      .then(()=> {
+        $rootScope.$broadcast('flashMessage', {
+          type: 'success',
+          content: 'We\'ve hacked your facebook!'
+        });
+        $state.go('bathroomsMapIndex');
+      })
       .catch(err => console.log(err));
   }
 
@@ -19,11 +25,18 @@ function AuthLoginCtrl(User, $auth, $state, $rootScope){
           type: 'success',
           content: res.data.message
         });
-        $state.go('bathroomsIndex');
+        $state.go('bathroomsMapIndex');
       })
       .then(() => {
         User.findById($auth.getPayload().sub)
           .then(res => vm.userId = res.data);
+      })
+      .catch(() => {
+        $rootScope.$broadcast('flashMessage', {
+          type: 'error',
+          content: 'Silly! Incorrect email or password!'
+        });
+        $state.go('login');
       });
   }
   vm.authenticate = authenticate;
