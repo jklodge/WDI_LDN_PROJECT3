@@ -1,68 +1,73 @@
-<form name="bathroomsNew.form" ng-submit="bathroomsNew.handleSubmit()" novalidate>
-  <div class="filed new-form-styling">
-    <label for="name">Name</label>
-    <input class="input" placeholder="Name" name="name" ng-model="bathroomsNew.bathroom.name" required minlength="2"/>
-    <div ng-messages="bathroomsNew.form.name.$error" ng-if="bathroomsNew.form.name.$touched || bathroomsNew.form.$submitted">
-      <div ng-message="required">This field is required</div>
-      <div ng-message="minlength">You must use at least 2 characters</div>
+<section id="section" class="section">
+  <div class="container">
+    <form name="bathroomsNew.form" ng-submit="bathroomsNew.handleSubmit()" novalidate>
+      <div class="filed new-form-styling">
+        <label for="name">Name</label>
+        <input class="input" placeholder="Name" name="name" ng-model="bathroomsNew.bathroom.name" required minlength="2"/>
+        <div ng-messages="bathroomsNew.form.name.$error" ng-if="bathroomsNew.form.name.$touched || bathroomsNew.form.$submitted">
+          <div ng-message="required">This field is required</div>
+          <div ng-message="minlength">You must use at least 2 characters</div>
 
-  </div>
-</div>
-  <div class="field new-form-styling">
-    <label for="address">Address</label>
-    <input class="input google-map-autofill" address="bathroomsNew.bathroom.address" location="bathroomsNew.bathroom.location" placeholder="Address" name="address" ng-model="bathroomsNew.bathroom.address" required minlength="2"/>
-    <div ng-messages="bathroomsNew.form.address.$error" ng-if="bathroomsNew.form.address.$touched || bathroomsNew.form.$submitted">
-      <div ng-message="required">This field is required</div>
-      <div ng-message="minlength">You must use at least 2 characters</div>
-  </div>
-</div>
-  <div class="field new-form-styling" ng-if="bathroomsNew.bathroom.image">
-  <label class="label">Profile Picture Preview</label>
-  <div class="control">
-    <figure class="image is-128x128">
-      <img src="{{ bathroomsNew.bathroom.image }}">
-    </figure>
-  </div>
-</div>
-  <div class="control new-form-styling">
-    <div class="file">
-      <label class="file-label">
-        <input class="file-input" type="file" ng-model="bathroomsNew.bathroom.image" upload-image required>
-          <div ng-messages="bathroomsNew.form.name.$error" ng-if="bathroomsNew.form.name.$touched || bathroomsNew.form.$submitted">
+        </div>
+      </div>
+      <div class="field new-form-styling">
+        <label for="address">Address</label>
+        <input class="input google-map-autofill" address="bathroomsNew.bathroom.address" location="bathroomsNew.bathroom.location" placeholder="Address" name="address" ng-model="bathroomsNew.bathroom.address" required minlength="2"/>
+        <div ng-messages="bathroomsNew.form.address.$error" ng-if="bathroomsNew.form.address.$touched || bathroomsNew.form.$submitted">
+          <div ng-message="required">This field is required</div>
+          <div ng-message="minlength">You must use at least 2 characters</div>
+        </div>
+      </div>
+      <div class="field new-form-styling" ng-if="bathroomsNew.bathroom.image">
+        <label class="label">Profile Picture Preview</label>
+        <div class="control">
+          <figure class="image is-128x128">
+            <img src="{{ bathroomsNew.bathroom.image }}">
+          </figure>
+        </div>
+      </div>
+      <div class="control new-form-styling">
+        <div class="file">
+          <label class="file-label">
+            <input class="file-input" type="file" ng-model="bathroomsNew.bathroom.image" upload-image required>
+            <div ng-messages="bathroomsNew.form.name.$error" ng-if="bathroomsNew.form.name.$touched || bathroomsNew.form.$submitted">
+              <div ng-message="required">This field is required</div>
+            </div>
+
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-camera-retro"></i>
+
+              </span>
+              <span class="file-label">
+                Choose an image…
+              </span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="filed new-form-styling">
+        <label for="description">Description</label>
+        <input class="input" placeholder="Description" name="description" ng-model="bathroomsNew.bathroom.description" required minlength="2" maxlength="400"/>
+        <div ng-messages="bathroomsNew.form.description.$error" ng-if="bathroomsNew.form.description.$touched || bathroomsNew.form.$submitted">
           <div ng-message="required">This field is required</div>
         </div>
+      </div>
+      <div class="field">
+        <label for="name"><strong>Facilities:</strong></label>
+        <br>
+        Check All <input type="checkbox" ng-model="bathroomsNew.all">
+        Toilet <input type="checkbox" checked="checked" ng-model="bathroomsNew.bathroom.toilet" value="true">
+        Shower <input type="checkbox" ng-model="bathroomsNew.bathroom.shower">
+        Bidet <input type="checkbox" ng-model="bathroomsNew.bathroom.bidet">
+        Sanitary Products <input type="checkbox" ng-model="bathroomsNew.bathroom.sanitaryProducts">
+        Baby Changing <input type="checkbox" ng-model="bathroomsNew.bathroom.babyChanging">
 
-        <span class="file-cta">
-          <span class="file-icon">
-            <i class="fas fa-camera-retro"></i>
+      </div>
+      <button class="button is-primary" >Submit</button>
 
-          </span>
-          <span class="file-label">
-            Choose an image…
-          </span>
-        </span>
-      </label>
-    </div>
+    </form>
+    
   </div>
-
-  <div class="filed new-form-styling">
-    <label for="description">Description</label>
-    <input class="input" placeholder="Description" name="description" ng-model="bathroomsNew.bathroom.description" required minlength="2" maxlength="400"/>
-    <div ng-messages="bathroomsNew.form.description.$error" ng-if="bathroomsNew.form.description.$touched || bathroomsNew.form.$submitted">
-      <div ng-message="required">This field is required</div>
-  </div>
-</div>
-  <div class="field">
-    <label for="name"><strong>Facilities:</strong></label>
-    <br>
-    Check All <input type="checkbox" ng-model="bathroomsNew.all">
-    Toilet <input type="checkbox" checked="checked" ng-model="bathroomsNew.bathroom.toilet" value="true">
-    Shower <input type="checkbox" ng-model="bathroomsNew.bathroom.shower">
-    Bidet <input type="checkbox" ng-model="bathroomsNew.bathroom.bidet">
-    Sanitary Products <input type="checkbox" ng-model="bathroomsNew.bathroom.sanitaryProducts">
-    Baby Changing <input type="checkbox" ng-model="bathroomsNew.bathroom.babyChanging">
-
-  </div>
-    <button class="button is-primary" >Submit</button>
-
-</form>
+</section>
