@@ -6,7 +6,6 @@ const secureRoute = require('../lib/secureRoute');
 const oauth = require('../controller/oauth');
 
 
-
 router.route('/bathrooms')
   .get(bathrooms.index)
   .post(secureRoute, bathrooms.create);

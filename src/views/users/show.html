@@ -1,5 +1,5 @@
 <div class="card" >
-  <h1 class="title is-4">Your Profile</h1>
+  <h1 id="top"class="title is-4 top">Your Profile</h1>
   <ul>
 
     <li>First Name: {{usersShow.user.firstName}}</li>
@@ -44,6 +44,8 @@
   <div ng-repeat="request in usersShow.user.requests">
     <a ui-sref="bathroomsShow({ id: request._id })"><p>{{ request.address }} <strong>{{ request.requests[0].status }}</strong></p></a>
 
+
   </div>
 
 </div>
+<a ng-click="usersShow.gotoTop()"><i class="fas fa-angle-double-up"></i>Go back to top</a>

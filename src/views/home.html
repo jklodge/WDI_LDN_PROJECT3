@@ -1,7 +1,17 @@
-<div class="container" ng-controller="HomeCtrl as home">
-  <img src="assets/images/home-map.png">
-  <button class="button" ng-click="home.homeLogin()">Login</button>
-  <button class="button" ng-click="home.homeRegister()">Register</button>
+<div id="scrollArea" class="container" ng-controller="HomeCtrl as home">
 
+    <img src="assets/images/home-map.png">
+  <div class="buttons">
+    <button class="button" ng-click="home.homeLogin()">Login</button>
+    <button class="button" ng-click="home.homeRegister()">Register</button>
+  </div>
 
+  <a ng-click="home.gotoAbout()"><i class="fas fa-angle-double-down"></i></a>
+
+</div>
+  <div class="section">
+    <a id="about"></a> <h1 class="title about">About</h1>
+    <p>Lorem Khaled Ipsum is a major key to success. The key to success is to keep your head above the water, never give up. Give thanks to the most high. How’s business? Boomin. Mogul talk. We don’t see them, we will never see them. The key to success is to keep your head above the water, never give up. Give thanks to the most high. We don’t see them, we will never see them. Put it this way, it took me twenty five years to get these plants, twenty five years of blood sweat and tears, and I’m never giving up, I’m just getting started. The first of the month is coming, we have to get money, we have no choice. It cost money to eat and they don’t want you to eat.</p>
+
+  </div>
 </div>

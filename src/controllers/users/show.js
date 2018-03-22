@@ -1,5 +1,5 @@
-UsersShowCtrl.$inject = ['Bathroom', 'User', '$state', '$auth'];
-function UsersShowCtrl(Bathroom, User, $state, $auth) {
+UsersShowCtrl.$inject = ['Bathroom', 'User', '$state', '$auth', '$location', '$anchorScroll'];
+function UsersShowCtrl(Bathroom, User, $state, $auth, $location, $anchorScroll) {
   const vm = this;
   vm.user = {};
   vm.user.requests = [];
@@ -38,6 +38,14 @@ function UsersShowCtrl(Bathroom, User, $state, $auth) {
   }
 
 
+  function gotoTop(){
+    $location.hash('top');
+    // call $anchorScroll()
+    $anchorScroll();
+
+  }
+
+  this.gotoTop = gotoTop;
   this.acceptRequest = acceptRequest;
   this.rejectRequest = rejectRequest;
 
