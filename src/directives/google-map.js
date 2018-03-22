@@ -297,6 +297,7 @@ function googleMap() {
 
       const directionsDisplay = new google.maps.DirectionsRenderer();
       const directionsService = new google.maps.DirectionsService();
+      const directionsShow = document.getElementById('directions-show');
       // const origin = currentLocation;
       // console.log(origin);
 
@@ -307,11 +308,13 @@ function googleMap() {
         directionsService.route({
           origin: currentLocation,
           destination: $scope.center,
-          travelMode: 'DRIVING'
+          travelMode: 'WALKING'
         }, (response) => {
           directionsDisplay.setDirections(response);
         });
       }
+
+      directionsDisplay.setPanel(directionsShow);
 
       const marker = new google.maps.Marker({
         position: $scope.center,
