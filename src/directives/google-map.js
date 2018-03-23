@@ -373,8 +373,6 @@ function googleMap() {
       });
 
       navigator.geolocation.getCurrentPosition(pos => {
-        console.log(pos.coords.latitude);
-        console.log(pos.coords.longitude);
         const userCurrentLat = pos.coords.latitude;
         const userCurrentLng = pos.coords.longitude;
 

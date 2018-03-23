@@ -4,7 +4,6 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
   const vm = this;
 
   vm.bathroom = {};
-  console.log(vm.bathroom);
   vm.user = null;
   vm.message = '';
 
@@ -14,13 +13,12 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
     Bathroom.findById($state.params.id)
       .then(res => {
         vm.bathroom = res.data;
-        // console.log('previous users',vm.bathroom.previousUsers, vm.user);
       })
       .then(() => {
         vm.destinationLat = vm.bathroom.location.lat;
         vm.destinationLng =  vm.bathroom.location.lng;
+        console.log(vm.bathroom);
       });
-    console.log('user', vm.user);
   }
 
 
@@ -28,7 +26,6 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
     User.findById($auth.getPayload().sub)
       .then(res =>  {
         vm.user = res.data;
-        getBathroomData();
         if(vm.bathroom.previousUsers.includes(vm.user._id)) vm.user.isPrevious = true;
         vm.user.index = vm.bathroom.previousUsers.indexOf(vm.user._id);
       });
@@ -46,7 +43,6 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
         Bathroom.createRequest(vm.bathroom, {user: vm.bathroom.requests._id});
         vm.bathroom = res.data;
       });
-    // .then(() => $state.go($state.current, {}, {reload: true}));
   }
 
 
@@ -56,9 +52,8 @@ function BathroomsShowCtrl(Bathroom, User, $state, $auth) {
       .then(() => {
         vm.comments.content = '';
         vm.comments.rating = '';
-        getBathroomData();
       });
-    vm.bathroom.previousUsers.splice(vm.user.index, 1);
+    vm.bathroom.previousUsers.splice(vm.user.index, 1); //removes the user from the bathroom's previous user array so that they can't make more than one comment/rating
     Bathroom.update(vm.bathroom);
   }
 
