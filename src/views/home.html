@@ -2,9 +2,8 @@
   <div class="title is-4">For when you need the loo</div>
 
   <div class="buttons">
-
-    <button class="button" ng-click="home.homeLogin()">Login</button>
-    <button class="button" ng-click="home.homeRegister()">Register</button>
+    <button class="button" ng-click="home.homeLogin()" ng-if="!home.isAuthenticated()">Login</button>
+    <button class="button" ng-click="home.homeRegister()" ng-if="!home.isAuthenticated()">Register</button>
   </div>
 
   <!-- <a ng-click="home.toggleAbout()">About</a> -->
