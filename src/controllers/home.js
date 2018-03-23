@@ -1,7 +1,8 @@
-HomeCtrl.$inject = ['$state', '$location', '$anchorScroll', '$scope'];
+HomeCtrl.$inject = ['$state', '$location', '$anchorScroll', '$scope', '$auth'];
 
-function HomeCtrl($state, $location, $anchorScroll, $scope){
+function HomeCtrl($state, $location, $anchorScroll, $scope, $auth){
 
+  this.isAuthenticated = $auth.isAuthenticated;
 
   function homeLogin(){
     $state.go('login');
