@@ -20,6 +20,7 @@ function UsersShowCtrl(Bathroom, User, $state, $auth, $location, $anchorScroll) 
       .then(res => {
         vm.user = res.data;
         findPreviousUsers();
+        console.log(vm.user);
       });
   }
 
@@ -42,7 +43,6 @@ function UsersShowCtrl(Bathroom, User, $state, $auth, $location, $anchorScroll) 
       })
       .then(() => User.update(vm.user))
       .then(() => $state.go($state.current, {id: $state.params.id}, {reload: true}));
-    getUserData();
   }
 
   function rejectRequest(bathroom, request) {
@@ -66,7 +66,6 @@ function UsersShowCtrl(Bathroom, User, $state, $auth, $location, $anchorScroll) 
 
   function gotoTop(){
     $location.hash('top');
-    // call $anchorScroll()
     $anchorScroll();
 
   }
