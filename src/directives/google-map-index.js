@@ -14,6 +14,7 @@ function googleMapIndex() {
       const map = new google.maps.Map($element[0], {
         zoom: 16,
         center: $scope.center,
+        minZoom: 10,
         styles: [
           {
             'featureType': 'all',
