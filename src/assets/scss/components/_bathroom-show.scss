@@ -1,3 +1,7 @@
+#section {
+  margin: 0;
+}
+
 .bathroom-user-card{
   margin-right: 12px;
   margin-left: 12px;
@@ -18,13 +22,14 @@
   height: 400px;
 }
 
-.show-page-image{
+ .bath-image{
   margin-left: 12px;
   margin-right: 12px;
+  width: 40%;
 }
 
 @media only screen and (max-width: 768px) {
-  .show-page-image{
+  .bath-image{
     margin: 0px;
     padding:0 12px ;
   }
