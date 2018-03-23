@@ -396,7 +396,7 @@ function googleMapIndex() {
       }
       function showInfoWindow(bathroom, marker){
         infoWindow.close();
-        infoWindow.setContent(`<div><img class='info-marker' src=${bathroom.image}><h1>${bathroom.description}</h1><h1>${bathroom.address}</h1><a href='/#!/bathrooms/${bathroom._id}'>Show More</a></div>`);
+        infoWindow.setContent(`<div><img class='info-marker' src=${bathroom.image}><h1>${bathroom.name}</h1><h1>${bathroom.description}</h1><h1>${bathroom.address}</h1><a href='/#!/bathrooms/${bathroom._id}'>Show More</a></div>`);
         infoWindow.open(map, marker);
         map.setCenter(marker.getPosition());
       }
